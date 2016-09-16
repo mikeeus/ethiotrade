@@ -5,10 +5,13 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
   selector: 'search',
   // templateUrl: 'search.html',
   template: `
-    <form [formGroup]="searchForm">
+    <form
+      class="form-group" 
+      [formGroup]="searchForm">
       <input
+        class="form-control"
         type="text"
-        placeholder="Search for GitHub repositories..."
+        placeholder="Search..."
         formControlName="search">
     </form>
   `,
