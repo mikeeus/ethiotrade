@@ -7,7 +7,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" (click)="gotoLink('')">EthioTrade</a>
+      <a class="navbar-brand" 
+         routerLink="/" routerLinkActive="active">
+         EthioTrade
+      </a>
     </div>
 
     <div class="navbar-form navbar-left navbar-searchbar">
@@ -28,19 +31,21 @@
             Countries <span class="caret"></span>
           </a>
           <ul class="dropdown-menu scrollable-menu" dropdownMenu aria-labelledby="simple-dropdown">
-            <li *ngFor="let choice of countriesLinks">
-              <a class="dropdown-item" (click)="gotoCountry(choice)">{{choice}}</a>
+            <li *ngFor="let country of countries">
+              <a class="dropdown-item" routerLink="/country/{{country}}">{{country}}</a>
             </li>
           </ul>
         </li>
         
         <!-- Years -->
         <li dropdown (onToggle)="toggled($event)">
-          <a href id="simple-dropdown" dropdownToggle>
+          <a href id="simple-dropdown" (click)="preventDefault &&  showYearsDropDown=!showYearsDropDown">
             Annual Summaries <span class="caret"></span>
           </a>
-          <ul class="dropdown-menu scrollable-menu" dropdownMenu aria-labelledby="simple-dropdown">
-            <li *ngFor="let choice of yearsLinks">
+          <ul class="dropdown-menu scrollable-menu" 
+              [hidden]="!showYearsDropDown"
+              aria-labelledby="simple-dropdown">
+            <li *ngFor="let choice of years">
               <a class="dropdown-item" (click)="gotoYear(choice)">{{choice}}</a>
             </li>
           </ul>
