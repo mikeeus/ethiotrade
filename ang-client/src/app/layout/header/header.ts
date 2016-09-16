@@ -36,6 +36,11 @@ export class Header implements OnInit {
     console.log(event);
   }
 
+  // Search Component
+  onSearch(term) {
+    console.log(term);
+  }
+
   ngOnInit() { }
 
 }
