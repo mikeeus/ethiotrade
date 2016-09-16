@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { DropdownDirective, CollapseDirective } from 'ng2-bootstrap/ng2-bootstrap';
 
+import { YEARS, COUNTRIES } from '../../shared';
+
 @Component({
   selector: 'Header',
   templateUrl: 'header.html',
   styleUrls: ['header.scss']
 })
 export class Header implements OnInit {
+  countries: string[] = COUNTRIES; 
+  years: string[] = YEARS;
+
   constructor() { }
   
   // Dropdown attr and functions 
@@ -29,15 +34,6 @@ export class Header implements OnInit {
   public expanded(event:any):void {
     console.log(event);
   }
-
-  countries: string[] = [
-    'Canada',
-    'Ethiopia',
-    'United States',
-    'Democratic Republic of Korea, The'
-  ];
-  years: string[] =  ['2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009', '2008', '2007', '2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998', '1997'];
-  showYearsDropdown: boolean = false;
 
   ngOnInit() { }
 
