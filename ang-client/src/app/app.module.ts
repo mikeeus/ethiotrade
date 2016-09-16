@@ -6,11 +6,13 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 // Layout Components
 import {Header} from './layout';
+import {Home} from './home';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Header
+    Header,
+    Home
   ],
   imports: [
     BrowserModule,
