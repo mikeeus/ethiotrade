@@ -1,7 +1,7 @@
 {
   "project": {
-    "version": "1.0.0-beta.14",
-    "name": "ang-client"
+    "version": "0.0.1",
+    "name": "ethiotrade"
   },
   "apps": [
     {
@@ -42,7 +42,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "prefixInterfaces": false
   }
 }
