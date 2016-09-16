@@ -1,3 +1,3 @@
 class HscodeSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :code, :description
 end
