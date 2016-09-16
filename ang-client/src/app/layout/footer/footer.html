@@ -4,11 +4,11 @@
     <a href="https://mikias.net">
       Mikias Abera
     </a>
+      <!--*ngIf="!auth.authenticated()"-->
     <span class="little-button"
-      *ngIf="!auth.authenticated()"
       (click)="auth.login()"></span>
+      <!--*ngIf="auth.authenticated()"-->
     <span class="little-button"
-      *ngIf="auth.authenticated()"
       (click)="auth.logout()"></span>
   </span>
 </footer>

@@ -1,0 +1,39 @@
+html, body, #root {
+  margin: 0;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body, h1, h2, h3 {
+  font-weight: 300
+}
+
+a {
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    color: #5aadbb;
+  }
+}
+
+footer, .push{
+  height: 50px !important; 
+}
+footer{
+  margin-top: 30px;
+}
+
+.footer {
+  padding-top: 15px;
+  font-size: 1.3rem;
+  background-color: #26816a;
+  text-align: center;
+  color: white;
+}
+.page-wrapper{
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -50px;
+}
