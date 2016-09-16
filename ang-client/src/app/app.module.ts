@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { DropdownModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { DropdownModule, CollapseModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { App } from './app';
 import { routing, appRoutingProviders } from './app.routes';
@@ -23,7 +23,10 @@ import { Home } from './home';
     FormsModule,
     HttpModule,
     routing,
-    DropdownModule
+    
+    // ng2-bootstrap modules
+    DropdownModule,
+    CollapseModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [App]

@@ -13,24 +13,27 @@
       </a>
     </div>
 
-    <div class="navbar-form navbar-left navbar-searchbar">
-      <!-- Search bar component goes here -->
-      <!--<hscode-search></hscode-search>-->
-    </div>
+       <!--Search bar component goes here -->
+    <!--<div class="navbar-form navbar-left navbar-searchbar">
+      <hscode-search></hscode-search>
+    </div>-->
 
      <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right" 
+         [collapse]="isCollapsed"
     >
-    <!--[collapse]="isCollapsed"-->
       
       <ul class="nav navbar-nav">
         
         <!-- Countries -->
-        <li dropdown  (onToggle)="toggled($event)">
-          <a href (click)="$event.preventDefault" id="simple-dropdown" dropdownToggle>
+        <li dropdown (onToggle)="toggled($event)">
+          <a href id="simple-dropdown" 
+             (click)="$event.preventDefault"
+             dropdownToggle>
             Countries <span class="caret"></span>
           </a>
-          <ul class="dropdown-menu scrollable-menu" dropdownMenu aria-labelledby="simple-dropdown">
+          <ul dropdownMenu class="dropdown-menu scrollable-menu"      
+              aria-labelledby="simple-dropdown">
             <li *ngFor="let country of countries">
               <a class="dropdown-item" routerLink="/country/{{country}}">{{country}}</a>
             </li>
@@ -39,10 +42,12 @@
         
         <!-- Years -->
         <li dropdown (onToggle)="toggled($event)">
-          <a href id="simple-dropdown" (click)="preventDefault &&  showYearsDropDown=!showYearsDropDown">
+          <a href id="years-dropdown" 
+             (click)="$event.preventDefault"
+             dropdownToggle>
             Annual Summaries <span class="caret"></span>
           </a>
-          <ul class="dropdown-menu scrollable-menu" 
+          <ul dropdownMenu class="dropdown-menu scrollable-menu" 
               [hidden]="!showYearsDropDown"
               aria-labelledby="simple-dropdown">
             <li *ngFor="let choice of years">
