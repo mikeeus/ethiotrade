@@ -17,8 +17,9 @@ export class Header implements OnInit {
   // Dropdown attr and functions 
   public disabled:boolean = false;
   public status:{isopen:boolean} = {isopen: false};
+  // Optional event handler
   public toggled(open:boolean):void {
-    console.log('Dropdown is now: ', open);
+    // console.log('Dropdown is now: ', open);
   }
   public toggleDropdown($event:MouseEvent):void {
     $event.preventDefault();
