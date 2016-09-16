@@ -1,13 +1,12 @@
-html, body, #root {
-  margin: 0;
+.page-wrapper{
+  min-height: 100%;
+  height: auto !important;
   height: 100%;
-  font-family: 'Open Sans', sans-serif;
+  margin: 0 auto -50px;
 }
-
-body, h1, h2, h3 {
-  font-weight: 300
+.push{
+  height: 50px !important; 
 }
-
 a {
   color: white;
   text-decoration: none;
@@ -15,25 +14,4 @@ a {
   &:hover {
     color: #5aadbb;
   }
-}
-
-footer, .push{
-  height: 50px !important; 
-}
-footer{
-  margin-top: 30px;
-}
-
-.footer {
-  padding-top: 15px;
-  font-size: 1.3rem;
-  background-color: #26816a;
-  text-align: center;
-  color: white;
-}
-.page-wrapper{
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto -50px;
 }
