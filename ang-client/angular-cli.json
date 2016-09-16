@@ -1,7 +1,7 @@
 {
   "project": {
-    "version": "0.0.1",
-    "name": "ethiotrade"
+    "version": "1.0.0-beta.14",
+    "name": "angular-cli"
   },
   "apps": [
     {
