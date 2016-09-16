@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { App } from './app';
+import { routing, appRoutingProviders } from './app.routes';
 // Layout Components
 import {Header} from './layout';
 
@@ -18,9 +19,10 @@ import {Home} from './home';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
-  providers: [],
+  providers: [appRoutingProviders],
   bootstrap: [App]
 })
 export class AppModule { }

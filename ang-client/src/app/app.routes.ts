@@ -1,6 +1,8 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import {Home} from './home';
+
 const appRoutes: Routes = [
   { path: 'home', component: Home, data: { breadcrumb: 'home'} },  
   // Annual Summaries path
@@ -14,8 +16,6 @@ const appRoutes: Routes = [
 ];
 
 // Providers
-export const appRoutingProviders: any[] = [
-
-];
+export const appRoutingProviders: any[] = [];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
