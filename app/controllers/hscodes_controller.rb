@@ -1,6 +1,13 @@
 class HscodesController < ApplicationController
   before_action :set_hscode, only: [:show, :update, :destroy]
 
+  def search
+    search_term = params[:search]
+    @search_result = HscodeSearch.new(search_term).search
+    render json: @search_result
+  end
+
+
   # GET /hscodes
   def index
     @hscodes = Hscode.all
