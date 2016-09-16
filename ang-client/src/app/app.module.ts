@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { DropdownModule } from 'ng2-bootstrap/ng2-bootstrap';
+
 import { App } from './app';
 import { routing, appRoutingProviders } from './app.routes';
 // Layout Components
@@ -20,7 +22,8 @@ import { Home } from './home';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    DropdownModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [App]
