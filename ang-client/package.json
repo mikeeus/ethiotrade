@@ -1,13 +1,14 @@
 {
-  "name": "ang-client",
-  "version": "0.0.0",
-  "license": "MIT",
+  "name": "ethiotrade",
+  "version": "0.0.1",
+  "license": "",
   "angular-cli": {},
   "scripts": {
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
+    "postinstall": "ng build --prod && ng serve",
     "e2e": "protractor"
   },
   "private": true,
