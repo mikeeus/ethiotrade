@@ -3,14 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
+import { App } from './app';
 // Layout Components
 import {Header} from './layout';
+
 import {Home} from './home';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    App,
     Header,
     Home
   ],
@@ -20,6 +21,6 @@ import {Home} from './home';
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [App]
 })
 export class AppModule { }
