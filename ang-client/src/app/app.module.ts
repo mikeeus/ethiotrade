@@ -11,11 +11,14 @@ import { routing, appRoutingProviders } from './app.routes';
 import { Header } from './layout';
 import { Footer } from './layout';
 import { Home } from './home';
+// App Components
+import { Search } from './search';
 
 @NgModule({
   declarations: [
     App,
     Header, Footer,
+    Search,
     Home
   ],
   imports: [
