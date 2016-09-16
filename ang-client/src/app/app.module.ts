@@ -6,14 +6,14 @@ import { HttpModule } from '@angular/http';
 import { App } from './app';
 import { routing, appRoutingProviders } from './app.routes';
 // Layout Components
-import {Header} from './layout';
-
-import {Home} from './home';
+import { Header } from './layout';
+import { Footer } from './layout';
+import { Home } from './home';
 
 @NgModule({
   declarations: [
     App,
-    Header,
+    Header, Footer,
     Home
   ],
   imports: [

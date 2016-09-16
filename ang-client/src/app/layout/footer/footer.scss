@@ -1,0 +1,18 @@
+.little-button{
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  background-color: #f6bb42;
+  right: 20px;
+  margin-bottom: 26px;
+  border-radius: 50%;
+}
+.little-button:hover, .little-button:focus{
+  transform: scale(1.5);
+  transition-duration: 0.2s;
+}
+.little-button:active{
+  transform: scale(1.2);
+  transition-duration: 0.2s;
+  background: #d4a139;
+}

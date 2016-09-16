@@ -1,0 +1,14 @@
+<footer class="footer">
+  <span class="footer-text">
+    Created by
+    <a href="https://mikias.net">
+      Mikias Abera
+    </a>
+    <span class="little-button"
+      *ngIf="!auth.authenticated()"
+      (click)="auth.login()"></span>
+    <span class="little-button"
+      *ngIf="auth.authenticated()"
+      (click)="auth.logout()"></span>
+  </span>
+</footer>
