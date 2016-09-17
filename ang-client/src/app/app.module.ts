@@ -15,7 +15,7 @@ import { Home } from './home';
 import { Search } from './search';
 
 // State Management
-import { Store, StoreModule } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 import { HomepageChartReducer } from './reducers';
 import { HomepageChart } from './charts/homepage/homepage';
 
@@ -38,7 +38,7 @@ import { HomepageChart } from './charts/homepage/homepage';
     DropdownModule,
     CollapseModule
   ],
-  providers: [appRoutingProviders, Store],
+  providers: [appRoutingProviders],
   bootstrap: [App]
 })
 export class AppModule { }
