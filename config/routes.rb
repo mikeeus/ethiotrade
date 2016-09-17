@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   # Tables
   get '/api/hscodes/:code/tables/:type/:year' => 'hscodes#tables', as: :hscode_tables
+  # country tables
 
   # Charts/ Matviews routes
   get '/api/charts/homepage' => 'matviews#homepage', as: :homepage
@@ -19,9 +20,12 @@ Rails.application.routes.draw do
   get '/api/charts/hscode/:code' => 'matviews#hscode', as: :hscode_matview
   get '/api/refresh_matviews' => 'matviews#refresh_matviews', as: :refresh_matviews
 
+  # country
   get '/api/country/:country' => 'matviews#country', as: :country
-  get '/api/year/:year' => 'matviews#year'
-  get '/api/year/:year/summary' => 'matviews#year_summary'
+  # year
+  get '/api/year/:year' => 'years#year'
+  get '/api/year/:year/summary' => 'years#year_summary'
+  # hscode
   get '/api/hscode/:code' => 'matviews#hscode'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
