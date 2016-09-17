@@ -1,0 +1,2 @@
+class HscodeAnnualExport < ApplicationRecord
+end

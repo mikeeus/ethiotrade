@@ -1,0 +1,2 @@
+class CountryAnnualExport < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class CountryAnnualImport < ApplicationRecord
+end
