@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :exports
+  resources :imports
   scope 'api' do
     get '/hscodes/search/:search_term', to: 'hscodes#search' 
   end
