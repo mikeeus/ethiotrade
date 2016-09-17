@@ -3,6 +3,9 @@ require 'test_helper'
 class HscodesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @hscode = hscodes(:one)
+    @year = '2016'
+    @page = 1
+    @page_length = 5
   end
 
   test "should get index" do
@@ -21,7 +24,7 @@ class HscodesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get tables" do
-    get hscode_tables_url(@hscode.code, 'Import', 2016), as: :json
+    get hscode_tables_url(@hscode.code, 'Import', @year, @page, @page_length), as: :json
     assert_response :success
   end
     
