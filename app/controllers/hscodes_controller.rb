@@ -1,5 +1,5 @@
 class HscodesController < ApplicationController
-  before_action :set_hscode, only: [:show, :tables, :update, :destroy]
+  before_action :set_hscode, only: [:show, :tables]
 
   # GET /hscodes
   def index

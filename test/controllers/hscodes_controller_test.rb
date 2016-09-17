@@ -11,14 +11,18 @@ class HscodesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show hscode" do
-    get hscode_url(@hscode), as: :json
+    get hscode_url(@hscode.code), as: :json
     assert_response :success
   end
 
-  # search
+  test "should get search" do
+    get hscodes_search_url('search'), as: :json
+    assert_response :success
+  end
+
+  test "should get tables" do
+    get hscode_tables_url(@hscode.code), as: :json
+    assert_response :success
+  end
     
-
-  # tables
-    # renders imports and exports of hscode
-
 end
