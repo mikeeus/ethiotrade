@@ -1,42 +1,5 @@
 class ImportsController < ApplicationController
-  before_action :set_import, only: [:show, :update, :destroy]
-
-  # GET /imports
-  def index
-    @imports = Import.all
-
-    render json: @imports
-  end
-
-  # GET /imports/1
-  def show
-    render json: @import
-  end
-
-  # POST /imports
-  def create
-    @import = Import.new(import_params)
-
-    if @import.save
-      render json: @import, status: :created, location: @import
-    else
-      render json: @import.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /imports/1
-  def update
-    if @import.update(import_params)
-      render json: @import
-    else
-      render json: @import.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /imports/1
-  def destroy
-    @import.destroy
-  end
+  # before_action :set_import, only: [:show, :update, :destroy]
 
   private
     # Use callbacks to share common setup or constraints between actions.
