@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, ResponseOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { HscodeDetail } from '../models';
 
 @Injectable()
 export class ChartService {
   hscodeUrl:string = '/api/charts/hscodes/'
+  
   constructor(
     private http: Http
   ) { }
