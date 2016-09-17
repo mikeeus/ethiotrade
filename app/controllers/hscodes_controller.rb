@@ -16,6 +16,17 @@ class HscodesController < ApplicationController
     }
   end
 
+  def chart
+    @code = params[:code]
+    @hscode_annual_imports = HscodeAnnualImport.where(code: @code).group(:year).sum(:cif_usd)
+    @hscode_annual_exports = HscodeAnnualExport.where(code: @code).group(:year).sum(:fob_usd)
+  
+    render json: {
+      annualImports: @hscode_annual_imports,
+      annualExports: @hscode_annual_exports
+    }
+  end
+
   def tables
     type = params[:type] # Either Import/I/i or Export/E/e
     t = type.slice(0)
