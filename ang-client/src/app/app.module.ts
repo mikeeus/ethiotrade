@@ -15,15 +15,18 @@ import { Home } from './home';
 import { Search } from './search';
 
 // State Management
-import { provideStore} from '@ngrx/store';
-import {HomepageChartReducer} from './reducers';
+// import { provideStore, Store } from '@ngrx/store';
+// import { HomepageChartReducer } from './reducers';
+// import { HomepageChart } from './charts/homepage/homepage';
 
 @NgModule({
   declarations: [
     App,
     Header, Footer,
     Search,
-    Home
+    Home,
+    // Store,
+    // HomepageChart
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import {HomepageChartReducer} from './reducers';
     ReactiveFormsModule,
     HttpModule,
     routing,
-    provideStore({ homepageChart: HomepageChartReducer }),
+    // provideStore({ homepageChart: HomepageChartReducer }),
     // ng2-bootstrap modules
     DropdownModule,
     CollapseModule
