@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, ResponseOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { HscodeDetail } from '../models';
+import { HscodeDetail, CountryDetail } from '../models';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { ServiceHelpers } from '../helpers';
