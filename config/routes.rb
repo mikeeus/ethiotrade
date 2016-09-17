@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get '/charts/hscode/:code', to: 'hscodes#chart', as: :hscode_chart
     get '/hscodes/:code/tables/:type/:year', to: 'hscodes#tables', as: :hscode_tables
 
-    # Charts/ Matviews routes
+    # Homepage Chart / Matviews refresh
     get '/charts/homepage', to: 'matviews#homepage_chart', as: :homepage_chart
     get '/refresh_matviews', to: 'matviews#refresh_matviews', as: :refresh_matviews
 
