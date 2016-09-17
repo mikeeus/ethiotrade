@@ -16,6 +16,7 @@ import { Search } from './search';
 
 // State Management
 import { provideStore} from '@ngrx/store';
+import {HomepageChartReducer} from './reducers';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { provideStore} from '@ngrx/store';
     ReactiveFormsModule,
     HttpModule,
     routing,
-    provideStore({}),
+    provideStore({ homepageChart: HomepageChartReducer }),
     // ng2-bootstrap modules
     DropdownModule,
     CollapseModule
