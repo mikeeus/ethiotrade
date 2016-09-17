@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get '/hscodes/search/:search', to: 'hscodes#search', as: :search
 
     # Hscode Detail
-    get '/hscode/:code', to: 'hscodes#show', as: :hscode
+    get '/hscodes/:code', to: 'hscodes#show', as: :hscode
     get '/charts/hscode/:code', to: 'hscodes#chart', as: :hscode_chart
     get '/hscodes/:code/tables/:type/:year/:page/:page_length', to: 'hscodes#tables', as: :hscode_tables
 
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get '/refresh_matviews', to: 'matviews#refresh_matviews', as: :refresh_matviews
 
     # Country Detail
-    get '/charts/country/:country', to: 'countries#chart', as: :country_chart
+    get '/charts/countries/:country', to: 'countries#chart', as: :country_chart
     get '/countries/:country/tables/:type/:year/:page/:page_length', to: 'countries#tables', as: :country_tables
 
     # year
