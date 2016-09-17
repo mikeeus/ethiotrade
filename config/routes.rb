@@ -6,27 +6,29 @@ Rails.application.routes.draw do
   end
  
   # Hscodes
-  get '/api/hscodes/:code' => 'hscodes#show', as: :hscode
-  get '/api/hscodes/search/:search' => 'hscodes#search', as: :hscodes_search
+  get '/api/hscodes/:code', to: 'hscodes#show', as: :hscode
+  get '/api/hscodes/search/:search', to: 'hscodes#search', as: :hscodes_search
 
   # Tables
-  get '/api/hscodes/:code/tables/:type/:year' => 'hscodes#tables', as: :hscode_tables
+  get '/api/hscodes/:code/tables/:type/:year', to: 'hscodes#tables', as: :hscode_tables
   # country tables
 
   # Charts/ Matviews routes
-  get '/api/charts/homepage' => 'matviews#homepage', as: :homepage
-  get '/api/charts/country/:country' => 'matviews#country', as: :country_chart
-  get '/api/charts/year/:year' => 'matviews#year', as: :year
-  get '/api/charts/hscode/:code' => 'matviews#hscode', as: :hscode_matview
-  get '/api/refresh_matviews' => 'matviews#refresh_matviews', as: :refresh_matviews
+  get '/api/charts/homepage', to: 'matviews#homepage', as: :homepage
+  get '/api/charts/year/:year', to: 'matviews#year', as: :year
+  get '/api/charts/hscode/:code', to: 'matviews#hscode', as: :hscode_matview
+  get '/api/refresh_matviews', to: 'matviews#refresh_matviews', as: :refresh_matviews
 
   # country
-  get '/api/country/:country' => 'matviews#country', as: :country
+  get '/api/charts/country/:country', to: 'countries#chart', as: :country_chart
+  get '/api/countries/:country/tables/:type/:year', to: 'countries#tables'
+
   # year
-  get '/api/year/:year' => 'years#year'
-  get '/api/year/:year/summary' => 'years#year_summary'
+  get '/api/years/:year', to: 'years#charts_tables'
+  get '/api/years/:year/summary', to: 'years#year_summary'
+  
   # hscode
-  get '/api/hscode/:code' => 'matviews#hscode'
+  get '/api/hscode/:code', to: 'matviews#hscode'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
