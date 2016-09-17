@@ -28,18 +28,30 @@ class HscodesController < ApplicationController
   end
 
   def tables
+    page = params[:page].to_i
+    page_length = params[:page_length].to_i
+
+    page_begin = (page - 1) * page_length
+    page_end = page_begin + page_length - 1
+
     type = params[:type] # Either Import/I/i or Export/E/e
     t = type.slice(0)
     year = params[:year]
 
     if t == 'I' || t == 'i'
-      @table = @hscode.imports.where(year: year)
+      full_table = @hscode.imports.where(year: year).order('cif_usd DESC')
+      @table = full_table.to_a.slice(page_begin..page_end)
+      @pages = (full_table.count.to_d / page_length).ceil
+
     elsif t == 'E' || t == 'e'
-      @table = @hscode.exports.where(year: year)
+      full_table = @hscode.exports.where(year: year).order('fob_usd DESC')
+      @table = full_table.to_a.slice(page_begin..page_end)
+      @pages = (full_table.count / page_length).ceil
     end
 
     render json: {
-      table: @table
+      table: @table,
+      pages: @pages
     }
   end
 

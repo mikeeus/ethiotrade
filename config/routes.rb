@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     # Hscode Detail
     get '/hscode/:code', to: 'hscodes#show', as: :hscode
     get '/charts/hscode/:code', to: 'hscodes#chart', as: :hscode_chart
-    get '/hscodes/:code/tables/:type/:year', to: 'hscodes#tables', as: :hscode_tables
+    get '/hscodes/:code/tables/:type/:year/:page/:page_length', to: 'hscodes#tables', as: :hscode_tables
 
     # Homepage Chart / Matviews refresh
     get '/charts/homepage', to: 'matviews#homepage_chart', as: :homepage_chart
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
     # Country Detail
     get '/charts/country/:country', to: 'countries#chart', as: :country_chart
-    get '/countries/:country/tables/:type/:year', to: 'countries#tables', as: :country_tables
+    get '/countries/:country/tables/:type/:year/:page/:page_length', to: 'countries#tables', as: :country_tables
 
     # year
     get '/years/:year/summary', to: 'years#year_summary', as: :year_summary

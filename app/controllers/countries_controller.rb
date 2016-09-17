@@ -12,18 +12,29 @@ class CountriesController < ApplicationController
   end
 
   def tables
+    page = params[:page].to_i
+    page_length = params[:page_length].to_i
+
+    page_begin = (page - 1) * page_length
+    page_end = page_begin + page_length - 1
+
     type = params[:type] # Either Import/I/i or Export/E/e
     t = type.slice(0)
     year = params[:year]
 
     if t == 'I' || t == 'i'
-      @table = Import.where(country_origin: @country, year: year)
+      full_table = Import.where(country_origin: @country, year: year).order('cif_usd DESC')
+      @table = full_table.to_a.slice(page_begin..page_end)
+      @pages = (full_table.count.to_d / page_length).ceil
     elsif t == 'E' || t == 'e'
-      @table = Export.where(destination: @country, year: year)
+      full_table = Export.where(destination: @country, year: year).order('fob_usd DESC')
+      @table = full_table.to_a.slice(page_begin..page_end)
+      @pages = (full_table.count.to_d / page_length).ceil
     end
 
     render json: {
-      table: @table
+      table: @table,
+      pages: @pages
     }
   end
 
