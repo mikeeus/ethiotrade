@@ -2,8 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+// Vendors
 import { DropdownModule, CollapseModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { App } from './app';
 import { routing, appRoutingProviders } from './app.routes';
@@ -34,9 +35,10 @@ import { HomepageChart } from './charts/homepage/homepage';
     HttpModule,
     routing,
     StoreModule.provideStore({ homepageChart: HomepageChartReducer }),
-    // ng2-bootstrap modules
+    // ng2-bootstrap/ng2-charts modules
     DropdownModule,
-    CollapseModule
+    CollapseModule,
+    ChartsModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [App]
