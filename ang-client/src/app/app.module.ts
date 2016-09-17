@@ -15,9 +15,9 @@ import { Home } from './home';
 import { Search } from './search';
 
 // State Management
-// import { provideStore, Store } from '@ngrx/store';
-// import { HomepageChartReducer } from './reducers';
-// import { HomepageChart } from './charts/homepage/homepage';
+import { Store, StoreModule } from '@ngrx/store';
+import { HomepageChartReducer } from './reducers';
+import { HomepageChart } from './charts/homepage/homepage';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,7 @@ import { Search } from './search';
     Header, Footer,
     Search,
     Home,
-    // Store,
-    // HomepageChart
+    HomepageChart
   ],
   imports: [
     BrowserModule,
@@ -34,12 +33,12 @@ import { Search } from './search';
     ReactiveFormsModule,
     HttpModule,
     routing,
-    // provideStore({ homepageChart: HomepageChartReducer }),
+    StoreModule.provideStore({ homepageChart: HomepageChartReducer }),
     // ng2-bootstrap modules
     DropdownModule,
     CollapseModule
   ],
-  providers: [appRoutingProviders],
+  providers: [appRoutingProviders, Store],
   bootstrap: [App]
 })
 export class AppModule { }
