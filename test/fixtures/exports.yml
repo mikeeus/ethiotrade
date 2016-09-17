@@ -4,8 +4,23 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  id: 1
+  hscode_id: 1
+  year: 2016
+  code: 10000
+  description: 'First'
+  destination: 'US'
+  net_mass: 1
+  fob_usd: 2
+  fob_etb: 3
+two:
+  id: 2
+  hscode_id: 2
+  year: 2016
+  code: 20000
+  description: 'Second'
+  destination: 'Canada'
+  net_mass: 1
+  fob_usd: 2
+  fob_etb: 3

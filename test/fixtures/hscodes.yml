@@ -4,8 +4,51 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one: 
+  id: 1
+  code: 10000 
+  description: 'First'
+  unit: 'UN'
+  special_permission: 'NONE'
+  duty: 1
+  excise: 2 
+  vat: 3
+  sur: 4
+  withhold: 5
+
+two:
+  id: 2
+  code: 20000 
+  description: 'Second'
+  unit: 'UN'
+  special_permission: 'NONE'
+  duty: 1
+  excise: 2 
+  vat: 3
+  sur: 4
+  withhold: 5
+
+# for related codes test
+one_rel:
+  id: 3
+  code: 19999
+  description: 'Related'
+  unit: 'UN'
+  special_permission: 'NONE'
+  duty: 1
+  excise: 2 
+  vat: 3
+  sur: 4
+  withhold: 5
+
+one_not_rel:
+  id: 3
+  code: 00009 
+  description: 'Not Related'
+  unit: 'UN'
+  special_permission: 'NONE'
+  duty: 1
+  excise: 2 
+  vat: 3
+  sur: 4
+  withhold: 5
