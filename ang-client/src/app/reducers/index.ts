@@ -1,1 +1,2 @@
-export {HomepageChartReducer} from './homepage-chart';
+export { HscodeReducer } from './hscode';
+export { HomepageChartReducer } from './homepage-chart';
