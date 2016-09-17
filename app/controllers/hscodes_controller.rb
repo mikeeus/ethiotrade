@@ -17,9 +17,18 @@ class HscodesController < ApplicationController
   end
 
   def tables
+    type = params[:type] # Either Import/I/i or Export/E/e
+    t = type.slice(0)
+    year = params[:year]
+
+    if t == 'I' || t == 'i'
+      @table = @hscode.imports.where(year: year)
+    elsif t == 'E' || t == 'e'
+      @table = @hscode.exports.where(year: year)
+    end
+
     render json: {
-      imports: @hscode.imports,
-      exports: @hscode.exports
+      table: @table
     }
   end
 

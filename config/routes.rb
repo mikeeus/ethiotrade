@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/api/hscodes/search/:search' => 'hscodes#search', as: :hscodes_search
 
   # Tables
-  get '/api/hscodes/:code/tables' => 'hscodes#tables', as: :hscode_tables
+  get '/api/hscodes/:code/tables/:type/:year' => 'hscodes#tables', as: :hscode_tables
 
   # Charts/ Matviews routes
   get '/api/charts/homepage' => 'matviews#homepage', as: :homepage
