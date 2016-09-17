@@ -16,12 +16,12 @@ class HscodesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get search" do
-    get hscodes_search_url('search'), as: :json
+    get search_url('search'), as: :json
     assert_response :success
   end
 
   test "should get tables" do
-    get hscode_tables_url(@hscode.code), as: :json
+    get hscode_tables_url(@hscode.code, 'Import', 2016), as: :json
     assert_response :success
   end
     

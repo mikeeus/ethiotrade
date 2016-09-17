@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   scope '/api' do
+    resources :hscodes, only: [:index]
     # Search
     get '/hscodes/search/:search', to: 'hscodes#search', as: :search
 
