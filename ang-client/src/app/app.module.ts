@@ -14,6 +14,9 @@ import { Home } from './home';
 // App Components
 import { Search } from './search';
 
+// State Management
+import { provideStore} from '@ngrx/store';
+
 @NgModule({
   declarations: [
     App,
@@ -27,7 +30,7 @@ import { Search } from './search';
     ReactiveFormsModule,
     HttpModule,
     routing,
-    
+    provideStore({}),
     // ng2-bootstrap modules
     DropdownModule,
     CollapseModule
