@@ -24,7 +24,7 @@ export class ChartService {
   }
   
   getHscode(code: number): Observable<HscodeData> {
-    CountryDatahis.http.get(`${this.hscodesUrl}/${code}`)
+    return this.http.get(`${this.hscodesUrl}/${code}`)
       .map(this.sH.getJson)
       .catch(this.sH.handleError)
   }
