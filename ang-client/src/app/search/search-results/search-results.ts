@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Hscode } from '../../models';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'search-results',
@@ -8,7 +11,9 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SearchResults implements OnInit {
   @Input() searchResults;
 
-  constructor() { }
+  constructor(
+    private store: Store<any>
+  ) { }
 
   ngOnInit() {
   }

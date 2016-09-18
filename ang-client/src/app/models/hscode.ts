@@ -1,4 +1,4 @@
-export class Hscode {
+export interface Hscode {
   id: number;
   code: number;
   description: string;

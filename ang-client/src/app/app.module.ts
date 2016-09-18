@@ -38,7 +38,7 @@ import { HomepageChart } from './charts';
     routing,
     StoreModule.provideStore({ 
       homepageChart: HomepageChartReducer,
-      searchReults: SearchResultsReducer
+      searchResults: SearchResultsReducer
     }),
     // ng2-bootstrap/ng2-charts modules
     DropdownModule,
