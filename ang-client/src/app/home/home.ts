@@ -19,6 +19,7 @@ export class Home implements OnInit {
   ) { }
 
   ngOnInit() { 
+    // Initialize and subscribe to homepageChart store
     this.homepageChart = this.store.select('homepageChart');
     this.chartService.getHomepage().subscribe(res => {
       this.store.dispatch({type: 'LOAD_HOMEPAGE_CHART', payload: res});
