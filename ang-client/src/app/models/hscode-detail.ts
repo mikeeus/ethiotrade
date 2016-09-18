@@ -1,4 +1,6 @@
+import { Hscode } from './hscode';
+
 export interface HscodeDetail {
-  hscode: {};
+  hscode: Hscode;
   relatedCodes: any[];
 }
