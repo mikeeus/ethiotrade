@@ -8,7 +8,7 @@ class HscodeDetail {
   relatedCodes: any[];
 }
 
-export const HscodeReducer: ActionReducer<any> = (state: HscodeDetail, action: Action) => {
+export const HscodeDetailReducer: ActionReducer<any> = (state: HscodeDetail, action: Action) => {
   switch (action.type) {
     case GET_HSCODE:
       return action.payload;

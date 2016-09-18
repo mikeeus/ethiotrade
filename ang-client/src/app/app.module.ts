@@ -14,7 +14,7 @@ import { Home } from './home';
 import { ServiceHelpers } from './helpers';
 // State Management
 import { StoreModule } from '@ngrx/store';
-import { HomepageChartReducer, SearchResultsReducer } from './reducers';
+import { HomepageChartReducer, SearchResultsReducer, HscodeDetailReducer } from './reducers';
 // Search
 import { SearchService, Searchbar, SearchResults } from './search';
 // Charts
@@ -40,7 +40,8 @@ import { HscodeDetail } from './hscode/hscode-detail';
     routing,
     StoreModule.provideStore({ 
       homepageChart: HomepageChartReducer,
-      searchResults: SearchResultsReducer
+      searchResults: SearchResultsReducer,
+      hscodeDetail: HscodeDetailReducer
     }),
     // ng2-bootstrap/ng2-charts modules
     DropdownModule,
