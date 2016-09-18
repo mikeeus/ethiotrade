@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navigation-bar">
+<nav class="navbar navbar-inverse navigation-bar">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="btn navbar-toggle collapsed" (click)="isCollapsed = !isCollapsed">
@@ -14,9 +14,11 @@
     </div>
 
        <!--Search bar component goes here -->
-    <div class="navbar-form navbar-left navbar-searchbar">
-      <search (onSearch)="onSearch($event)"></search>
-    </div>
+    <form class="navbar-form navbar-left navbar-searchbar" role="search">
+      <div class="form-group">
+        <search (onSearch)="onSearch($event)"></search>
+      </div>
+    </form>
 
      <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right" 
