@@ -8,6 +8,8 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { App } from './app';
 import { routing, appRoutingProviders } from './app.routes';
+// Services
+import { ChartService } from './charts';
 // Layout Components
 import { Header } from './layout';
 import { Footer } from './layout';
@@ -40,7 +42,10 @@ import { HomepageChart } from './charts/homepage/homepage';
     CollapseModule,
     ChartsModule
   ],
-  providers: [appRoutingProviders],
+  providers: [
+    appRoutingProviders,
+    ChartService
+  ],
   bootstrap: [App]
 })
 export class AppModule { }
