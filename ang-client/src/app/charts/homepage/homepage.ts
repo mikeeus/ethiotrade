@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AnnualChart } from '../../models';
-// import {  } from 'ng2-charts/ng2-charts';
+import { YEARS } from '../../shared';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'homepage-chart',
@@ -8,12 +9,13 @@ import { AnnualChart } from '../../models';
   styleUrls: ['./homepage.scss']
 })
 export class HomepageChart implements OnInit {
-  @Input() chartData: AnnualChart;
+  @Input() chartData;
 
   constructor() { }
 
   ngOnInit() {
   }
+
 
   // lineChart
   public lineChartData:Array<any> = [
@@ -21,7 +23,7 @@ export class HomepageChart implements OnInit {
     {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'},
     {data: [18, 48, 77, 9, 100, 27, 40], label: 'Series C'}
   ];
-  public lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartLabels:Array<any> = YEARS.reverse();
   public lineChartOptions:any = {
     animation: false,
     responsive: true
