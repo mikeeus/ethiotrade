@@ -7,7 +7,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
   // templateUrl: 'search.html',
   template: `
     <form
-      class="form-group" 
+      class="form-group"
       [formGroup]="searchForm">
       <input
         class="form-control"
