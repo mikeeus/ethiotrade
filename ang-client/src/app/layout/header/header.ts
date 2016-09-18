@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DropdownDirective, CollapseDirective } from 'ng2-bootstrap/ng2-bootstrap';
-
+import { SearchService } from '../../search';
 import { YEARS, COUNTRIES } from '../../shared';
 
 @Component({
@@ -12,19 +12,21 @@ export class Header implements OnInit {
   countries: string[] = COUNTRIES; 
   years: string[] = YEARS;
 
-  constructor() { }
+  constructor(
+    private searchService: SearchService
+  ) { }
   
   // Dropdown attr and functions 
   public disabled:boolean = false;
   public status:{isopen:boolean} = {isopen: false};
-  // Optional event handler
-  public toggled(open:boolean):void {
-    // console.log('Dropdown is now: ', open);
-  }
   public toggleDropdown($event:MouseEvent):void {
     $event.preventDefault();
     $event.stopPropagation();
     this.status.isopen = !this.status.isopen;
+  }
+  // Optional event handlers
+  public toggled(open:boolean):void {
+    // console.log('Dropdown is now: ', open);
   }
 
   // Collapse attr and functions
@@ -38,7 +40,12 @@ export class Header implements OnInit {
 
   // Search Component
   onSearch(term) {
-    console.log(term);
+    if( term.length > 2) {
+      console.log(term);
+      this.searchService.search(term).subscribe(res => {
+        console.log(res);
+      });
+    }
   }
 
   ngOnInit() { }
