@@ -1,3 +1,87 @@
-<p>
-  tax-rates works!
-</p>
+<div class="row" *ngIf="hscode">
+  <!-- SPECIAL PERMISSIONS -->
+  <div class="col-sm-2 rate-box-col">
+    <div class="tax-rates">
+      <div class="clearfix">
+        <div class="special-permissions-top rb-sp-dark text-center">
+          <span class="tax-label">Special Permissions</span>
+        </div>
+        <div class="special-permissions-bot rb-sp-light text-center">
+          <span class="tax-value" id="sp-value">
+            {{ hscode.special_permission }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DUTY -->
+  <div class="col-sm-2 rate-box-col">
+    <div class="tax-rates">
+      <div class="clearfix">
+        <div class="pull-left rate-box-left rb-duty-dark text-center">
+          <span class="tax-label">Duty</span>
+        </div>
+        <div class="pull-right rate-box-right rb-light text-center">
+          <span class="tax-value" id="duty-value">{{ hscode.duty }}%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Excise -->
+  <div class="col-sm-2 rate-box-col">
+    <div class="tax-rates">
+      <div class="clearfix">
+        <div class="pull-left rate-box-left rb-excise-dark text-center">
+          <span class="tax-label">Excise</span>
+        </div>
+        <div class="pull-right rate-box-right rb-light text-center">
+          <span class="tax-value" id="excise-value">{{ hscode.excise }}%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VAT -->
+  <div class="col-sm-2 rate-box-col">
+    <div class="tax-rates">
+      <div class="clearfix">
+        <div class="pull-left rate-box-left rb-vat-dark text-center">
+          <span class="tax-label">VAT</span>
+        </div>
+        <div class="pull-right rate-box-right rb-light text-center">
+          <span class="tax-value" id="vat-value">{{ hscode.vat }}%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sur Tax -->
+  <div class="col-sm-2 rate-box-col">
+    <div class="tax-rates">
+      <div class="clearfix">
+        <div class="pull-left rate-box-left rb-sur-dark text-center">
+          <span class="tax-label">Sur</span>
+        </div>
+        <div class="pull-right rate-box-right rb-light text-center">
+          <span class="tax-value" id="sur-value">{{ hscode.sur }}%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Withholding Tax -->
+  <div class="col-sm-2 rate-box-col">
+    <div class="tax-rates">
+      <div class="clearfix">
+        <div class="pull-left rate-box-left rb-withhold-dark text-center">
+          <span class="tax-label">Withholding</span>
+        </div>
+        <div class="pull-right rate-box-right rb-light text-center">
+          <span class="tax-value" id="withhold-value">{{ hscode.withhold }}%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

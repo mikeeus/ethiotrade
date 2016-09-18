@@ -1,9 +1,11 @@
 <h3 class="code">{{ code }}</h3>
 <h4>{{ description }}</h4>
-Store: {{ hscodeDetail | async | json }}
+
+<!-- Tax Rates -->
+<tax-rates [hscode]="hscodeDetail | async"></tax-rates>
 
 <div class="row">
-
+  <!--Related HS Codes-->
   <div class="col-sm-4">
     <related-codes 
       [relatedCodes]="relatedCodes | async"
@@ -12,4 +14,10 @@ Store: {{ hscodeDetail | async | json }}
     ></related-codes>
   </div>
 
+  <!--Chart-->
+  <div class="col-sm-8">
+    <h1>Chart</h1>
+  </div>
 </div>
+
+<!-- Hscode Table -->

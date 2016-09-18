@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Hscode } from '../../models';
 
 @Component({
   selector: 'tax-rates',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./tax-rates.scss']
 })
 export class TaxRates implements OnInit {
-  @Input() taxRates;
+  @Input() hscode: Hscode;
 
   constructor() { }
 
