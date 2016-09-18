@@ -1,2 +1,2 @@
-export { Search } from './ui/search';
+export { Searchbar } from './searchbar/searchbar';
 export { SearchService } from './search.service';

@@ -16,7 +16,7 @@ import { ServiceHelpers } from './helpers';
 import { StoreModule } from '@ngrx/store';
 import { HomepageChartReducer } from './reducers';
 // Search
-import { Search } from './search';
+import { Searchbar } from './search';
 import { SearchService } from './search';
 // Charts
 import { ChartService } from './charts';
@@ -26,7 +26,7 @@ import { HomepageChart } from './charts';
   declarations: [
     App,
     Header, Footer,
-    Search,
+    Searchbar,
     Home,
     HomepageChart
   ],

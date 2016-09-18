@@ -5,12 +5,12 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
 @Component({
-  selector: 'search',
+  selector: 'searchbar',
   // templateUrl: 'search.html',
-  templateUrl: './search.html',
-  styleUrls: ['./search.scss']
+  templateUrl: './searchbar.html',
+  styleUrls: ['./searchbar.scss']
 })
-export class Search implements OnInit {
+export class Searchbar implements OnInit {
   private searchForm: FormGroup;
   private search: FormControl = new FormControl();
 
