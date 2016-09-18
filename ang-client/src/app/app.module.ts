@@ -20,6 +20,7 @@ import { SearchService, Searchbar, SearchResults } from './search';
 // Charts
 import { ChartService } from './charts';
 import { HomepageChart } from './charts';
+import { HscodeDetail } from './hscode/hscode-detail';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HomepageChart } from './charts';
     Searchbar,
     Home,
     HomepageChart,
-    SearchResults
+    SearchResults,
+    HscodeDetail
   ],
   imports: [
     BrowserModule,
