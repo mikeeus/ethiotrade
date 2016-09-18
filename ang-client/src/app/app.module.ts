@@ -16,8 +16,7 @@ import { ServiceHelpers } from './helpers';
 import { StoreModule } from '@ngrx/store';
 import { HomepageChartReducer } from './reducers';
 // Search
-import { Searchbar } from './search';
-import { SearchService } from './search';
+import { SearchService, Searchbar, SearchResults } from './search';
 // Charts
 import { ChartService } from './charts';
 import { HomepageChart } from './charts';
@@ -28,7 +27,8 @@ import { HomepageChart } from './charts';
     Header, Footer,
     Searchbar,
     Home,
-    HomepageChart
+    HomepageChart,
+    SearchResults
   ],
   imports: [
     BrowserModule,

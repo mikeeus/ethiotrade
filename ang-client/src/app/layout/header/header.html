@@ -15,8 +15,14 @@
 
        <!--Search bar component goes here -->
     <form class="navbar-form navbar-left navbar-searchbar" role="search">
-      <searchbar (onSearch)="onSearch($event)"></searchbar>
+      <searchbar (onSearch)="onSearch($event)"
+                 (showResults)="showResults($event)"
+      ></searchbar>
     </form>
+    <search-results
+      [searchResults]="searchResults | async"
+      [hidden]="!showSearchResults"
+    ></search-results>
 
      <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right" 

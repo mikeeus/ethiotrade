@@ -11,6 +11,8 @@ import { YEARS, COUNTRIES } from '../../shared';
 export class Header implements OnInit {
   countries: string[] = COUNTRIES; 
   years: string[] = YEARS;
+  showSearchResults: boolean = false;
+  searchResults: any[];
 
   constructor(
     private searchService: SearchService
@@ -44,10 +46,16 @@ export class Header implements OnInit {
       console.log(term);
       this.searchService.search(term).subscribe(res => {
         console.log(res);
+        this.searchResults = res;
       });
     }
   }
 
   ngOnInit() { }
+
+  showResults(status) {
+    this.showSearchResults = status;
+    console.log(status);
+  }
 
 }

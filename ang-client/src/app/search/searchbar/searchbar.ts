@@ -15,6 +15,7 @@ export class Searchbar implements OnInit {
   private search: FormControl = new FormControl();
 
   @Output() private onSearch: EventEmitter<string> = new EventEmitter<string>();
+  @Output() private showResults: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(fb: FormBuilder) {
     this.searchForm = fb.group({ search: this.search });
@@ -27,4 +28,5 @@ export class Searchbar implements OnInit {
         .distinctUntilChanged()
         .subscribe((terms: string) => this.onSearch.emit(terms))
    }
+
 }
