@@ -68,6 +68,7 @@
     <search-results
       [searchResults]="searchResults | async"
       [hidden]="!showSearchResults"
+      (onSelect)="onSelectSearchResult($event)"
     ></search-results>
 
   </div> <!-- div.container-fluid-->

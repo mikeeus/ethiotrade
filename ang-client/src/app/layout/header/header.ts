@@ -32,7 +32,6 @@ export class Header implements OnInit {
       console.log(term);
       this.showSearchResults = true;
       this.searchService.search(term).subscribe(res => {
-        console.log(res);
         this.store.dispatch({type: 'GET_RESULTS', payload: res})
       });
     } else if (term.length < 3) {
@@ -41,7 +40,9 @@ export class Header implements OnInit {
   }
   showResults(status) {
     this.showSearchResults = status;
-    console.log(status);
+  }
+  onSelectSearchResult(code: number){
+    console.log(code);
   }
 
   // Dropdown attr and functions 
@@ -57,10 +58,10 @@ export class Header implements OnInit {
   // Collapse attr and functions
   public isCollapsed: boolean = true;
   public collapsed(event:any):void {
-    console.log(event);
+    // console.log(event);
   }
   public expanded(event:any):void {
-    console.log(event);
+    // console.log(event);
   }
 
 }

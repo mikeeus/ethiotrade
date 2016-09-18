@@ -1,9 +1,10 @@
 <div class="search-results">
   <div class="list-group">
   
-    <a href (click)="$event.preventDefault()"
-       class="list-group-item item active"
-       *ngFor="let result of searchResults">
+    <a href class="list-group-item item active"
+       *ngFor="let result of searchResults"
+       (click)="$event.preventDefault()"
+       (mousedown)="onSelect.emit(result.code)">
       <span class="code">{{result.code}}</span>
       <span class="description">{{result.description}}</span>
     </a>
