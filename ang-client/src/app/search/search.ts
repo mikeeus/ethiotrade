@@ -1,22 +1,14 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
 @Component({
   selector: 'search',
   // templateUrl: 'search.html',
-  template: `
-    <form
-      class="form-group"
-      [formGroup]="searchForm">
-      <input
-        class="form-control"
-        type="text"
-        placeholder="Search..."
-        formControlName="search">
-    </form>
-  `,
-  styleUrls: ['search.scss']
+  templateUrl: './search.html',
+  styleUrls: ['./search.scss']
 })
 export class Search implements OnInit {
   private searchForm: FormGroup;
