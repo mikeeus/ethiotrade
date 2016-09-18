@@ -1,11 +1,12 @@
 <h4 class="text-center">Related HS Codes</h4>
 <div class="related-codes">
-  <ul class="list-group">
-    <li *ngFor="let hscode of relatedCodes" 
+  <div class="list-group">
+    <a href (click)="$event.preventDefault()"
+      *ngFor="let hscode of relatedCodes" 
       routerLink="/hscodes/{{hscode.code}}"
       class="list-group-item">
         <span class="related-code">{{ hscode.code }}</span>
         <span class="related-description">{{ hscode.description }}</span>
-    </li>
-  </ul>
+    </a>
+  </div>
 </div>

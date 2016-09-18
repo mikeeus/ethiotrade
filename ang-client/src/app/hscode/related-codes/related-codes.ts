@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { HscodeData } from '../../models';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Hscode } from '../../models';
 
 @Component({
   selector: 'related-codes',
@@ -7,7 +7,8 @@ import { HscodeData } from '../../models';
   styleUrls: ['./related-codes.scss']
 })
 export class RelatedCodes implements OnInit {
-  @Input() relatedCodes: HscodeData[];
+  @Input() relatedCodes: Hscode[];
+  @Output() onSelect: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }
 
