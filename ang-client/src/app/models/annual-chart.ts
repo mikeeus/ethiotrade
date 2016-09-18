@@ -1,9 +1,9 @@
 export class AnnualChart {
-  annualImports: chartData;
-  annualExports: chartData;
+  annualImports: annualChartData;
+  annualExports: annualChartData;
 }
 
-class chartData {
+class annualChartData {
     "2016": number;
     "2015": number;
     "2014": number;
