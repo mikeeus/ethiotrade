@@ -1,0 +1,25 @@
+.search-results{
+  display: inline-block;
+  width: 100%;
+  color: #fff;
+  max-height: 300px;
+  overflow: auto;
+  .item{
+    background-color: #2196f3;
+    border: 0;
+    border-top: 1px solid #8cb7d2;
+    &:hover{
+      background-color: #3da1f1;
+    }
+    &:active{
+      background-color: #1c88de;
+    }
+    .code, .description{
+      display: table-cell;
+      vertical-align: middle;
+    }
+    .code{
+      width: 80px;
+    }
+  }
+}

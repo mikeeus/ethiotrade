@@ -1,6 +1,13 @@
-<div class="list-group">
-  <!--<a href class="list-group-item"
-    *ngFor="let result of searchResults"
-  >{{result.code}} | {{result.description}}</a>-->
-</div>
-  {{ searchResults }}
+<div class="search-results">
+  <div class="list-group">
+  
+    <a href (click)="$event.preventDefault()"
+      class="list-group-item item active"
+      *ngFor="let result of searchResults">
+      <span class="code">{{result.code}}</span>
+      <span class="description">{{result.description}}</span>
+    </a>
+
+  
+  </div> <!--div.list-group-->
+</div> <!--div.search-results-->
