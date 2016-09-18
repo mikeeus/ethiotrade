@@ -18,9 +18,9 @@ import { HomepageChartReducer, SearchResultsReducer, HscodeDetailReducer } from 
 // Search
 import { SearchService, Searchbar, SearchResults } from './search';
 // Charts
-import { ChartService } from './charts';
-import { HomepageChart } from './charts';
-import { HscodeDetail } from './hscode/hscode-detail';
+import { ChartService, HomepageChart } from './charts';
+// Hscode detail
+import { HscodeDetail, HscodeService } from './hscode';
 
 @NgModule({
   declarations: [
@@ -50,9 +50,10 @@ import { HscodeDetail } from './hscode/hscode-detail';
   ],
   providers: [
     appRoutingProviders,
+    ServiceHelpers,
     SearchService,
     ChartService,
-    ServiceHelpers
+    HscodeService
   ],
   bootstrap: [App]
 })
