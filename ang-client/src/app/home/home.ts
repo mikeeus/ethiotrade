@@ -10,7 +10,7 @@ import { AnnualChart } from '../models';
   styleUrls: ['home.scss']
 })
 export class Home implements OnInit {
-  homepageChart: Observable<any>;
+  homepageChart: Observable<AnnualChart>;
   
   constructor(
     private chartService: ChartService,
@@ -18,6 +18,6 @@ export class Home implements OnInit {
   ) { }
 
   ngOnInit() { 
-
+    this.homepageChart = this.store.select('homepageChart');
   }
 }
