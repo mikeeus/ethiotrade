@@ -1,10 +1,11 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import {Home} from './home';
+import { Home } from './home';
+import { HscodeDetail } from './hscode';
 
 const appRoutes: Routes = [
-  { path: 'home', component: Home, data: { breadcrumb: 'home'} },  
+  { path: 'home', component: Home, data: { breadcrumb: 'home'} },
+  { path: 'hscodes/:code', component: HscodeDetail, data: { breadcrumb: 'hscode'} },
   // Annual Summaries path
   // Hscode Detail path
   // Country Detail path
