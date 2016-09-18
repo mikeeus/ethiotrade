@@ -4,6 +4,7 @@
   "license": "",
   "angular-cli": {},
   "scripts": {
+    "start-proxy": "ng serve --proxy-config config/proxy-config.json",
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
