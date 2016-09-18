@@ -1,4 +1,4 @@
-export class HomepageChart {
+export class AnnualChart {
   annualImports: chartData;
   annualExports: chartData;
 }
