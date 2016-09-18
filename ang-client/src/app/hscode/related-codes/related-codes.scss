@@ -1,0 +1,22 @@
+.related-codes{
+  max-height: 400px;
+  overflow-y: auto;
+  .list-group-item{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+.code{
+  display: table-cell;
+  vertical-align: middle;
+  padding-right: 10px
+}
+.description{
+  display: table-cell;
+  vertical-align: middle;
+}
+// Not currently used
+.current{
+  background-color: #b2d0e8 !important;
+}

@@ -8,11 +8,19 @@ import { Hscode } from '../../models';
 })
 export class RelatedCodes implements OnInit {
   @Input() relatedCodes: Hscode[];
+  @Input() currentHscode: Hscode;
   @Output() onSelect: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+  
+  currentCode(code){
+    if(code == this.currentHscode.code){
+      return "#b2d0e8";
+    }
+    return "";
   }
 
 }
