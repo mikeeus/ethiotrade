@@ -14,6 +14,7 @@ import { GET_HSCODE } from '../../reducers/hscode-detail';
 export class HscodeDetail implements OnInit {
   hscodeDetail: Observable<HscodeData>;
   code: number;
+  description: string;
 
   constructor(
     private store: Store<any>,
@@ -28,7 +29,8 @@ export class HscodeDetail implements OnInit {
     this.hscodeDetail = this.store.select('hscodeDetail');
     this.hscodeService.getHscodeDetail(this.code)
         .subscribe(res => {
-          this.store.dispatch({type: GET_HSCODE, payload: res})
+          this.store.dispatch({type: GET_HSCODE, payload: res});
+          this.description = res.hscode.description;
         });
   }
 
