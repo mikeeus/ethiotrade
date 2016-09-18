@@ -14,7 +14,7 @@ import { Home } from './home';
 import { ServiceHelpers } from './helpers';
 // State Management
 import { StoreModule } from '@ngrx/store';
-import { HomepageChartReducer } from './reducers';
+import { HomepageChartReducer, SearchResultsReducer } from './reducers';
 // Search
 import { SearchService, Searchbar, SearchResults } from './search';
 // Charts
@@ -36,7 +36,10 @@ import { HomepageChart } from './charts';
     ReactiveFormsModule,
     HttpModule,
     routing,
-    StoreModule.provideStore({ homepageChart: HomepageChartReducer }),
+    StoreModule.provideStore({ 
+      homepageChart: HomepageChartReducer,
+      searchReults: SearchResultsReducer
+    }),
     // ng2-bootstrap/ng2-charts modules
     DropdownModule,
     CollapseModule,
