@@ -10,15 +10,16 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { App } from './app';
 import { Header, Footer } from './layout';
 import { Home } from './home';
-import { Search } from './search';
-// Services
-import { ChartService } from './charts';
 // Helpers
 import { ServiceHelpers } from './helpers';
 // State Management
 import { StoreModule } from '@ngrx/store';
 import { HomepageChartReducer } from './reducers';
+// Search
+import { Search } from './search';
+import { SearchService } from './search';
 // Charts
+import { ChartService } from './charts';
 import { HomepageChart } from './charts';
 
 @NgModule({
@@ -43,6 +44,7 @@ import { HomepageChart } from './charts';
   ],
   providers: [
     appRoutingProviders,
+    SearchService,
     ChartService,
     ServiceHelpers
   ],
