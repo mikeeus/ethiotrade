@@ -3,7 +3,10 @@
 
 <div class="row">
   <div class="col-sm-4">
-    <related-codes [relatedCodes]="relatedCodes | async"></related-codes>
+    <related-codes 
+      [relatedCodes]="relatedCodes | async"
+      (onSelect)="onSelect($event)"
+    ></related-codes>
   </div>
 
 </div>

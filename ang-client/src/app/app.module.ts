@@ -14,23 +14,21 @@ import { Home } from './home';
 import { ServiceHelpers } from './helpers';
 // State Management
 import { StoreModule } from '@ngrx/store';
-import { HomepageChartReducer, SearchResultsReducer, HscodeDetailReducer } from './reducers';
+import { HomepageChartReducer, SearchResultsReducer, HscodeDetailReducer, RelatedCodesReducer } from './reducers';
 // Search
 import { SearchService, Searchbar, SearchResults } from './search';
 // Charts
 import { ChartService, HomepageChart } from './charts';
 // Hscode
-import { HscodeDetail, HscodeService } from './hscode';
+import { HscodeDetail, HscodeService, TaxRates, RelatedCodes } from './hscode';
 
 @NgModule({
   declarations: [
-    App,
+    App, Home,
     Header, Footer,
-    Searchbar,
-    Home,
+    Searchbar, SearchResults,
     HomepageChart,
-    SearchResults,
-    HscodeDetail
+    HscodeDetail, RelatedCodes, TaxRates
   ],
   imports: [
     BrowserModule,
@@ -41,7 +39,8 @@ import { HscodeDetail, HscodeService } from './hscode';
     StoreModule.provideStore({ 
       homepageChart: HomepageChartReducer,
       searchResults: SearchResultsReducer,
-      hscodeDetail: HscodeDetailReducer
+      hscodeDetail: HscodeDetailReducer,
+      relatedCodes: RelatedCodesReducer
     }),
     // ng2-bootstrap/ng2-charts modules
     DropdownModule,

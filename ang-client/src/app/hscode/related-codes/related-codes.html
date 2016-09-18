@@ -3,7 +3,7 @@
   <div class="list-group">
     <a href (click)="$event.preventDefault()"
       *ngFor="let hscode of relatedCodes" 
-      routerLink="/hscodes/{{hscode.code}}"
+      (click)="onSelect.emit(hscode.code)"
       class="list-group-item">
         <span class="related-code">{{ hscode.code }}</span>
         <span class="related-description">{{ hscode.description }}</span>
