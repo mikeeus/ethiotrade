@@ -1,3 +1,6 @@
 <h3 class="code">{{ code }}</h3>
 <h4>{{description}}</h4>
-<related-codes [relatedCodes]="hscodeDetail | async"></related-codes>
+
+<div class="col-md-4">
+  <related-codes [relatedCodes]="hscodeDetail | async"></related-codes>
+</div>
