@@ -30,10 +30,13 @@ export class Header implements OnInit {
   onSearch(term) {
     if( term.length > 2) {
       console.log(term);
+      this.showSearchResults = true;
       this.searchService.search(term).subscribe(res => {
         console.log(res);
         this.store.dispatch({type: 'GET_RESULTS', payload: res})
       });
+    } else if (term.length < 3) {
+      this.showSearchResults = false;
     }
   }
   showResults(status) {
