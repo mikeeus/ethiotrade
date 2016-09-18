@@ -2,21 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { routing, appRoutingProviders } from './app.routes';
 // Vendors
 import { DropdownModule, CollapseModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-
+// App Components
 import { App } from './app';
-import { routing, appRoutingProviders } from './app.routes';
+import { Header, Footer } from './layout';
+import { Home } from './home';
+import { Search } from './search';
 // Services
 import { ChartService } from './charts';
-// Layout Components
-import { Header } from './layout';
-import { Footer } from './layout';
-import { Home } from './home';
-// App Components
-import { Search } from './search';
-
+// Helpers
+import { ServiceHelpers } from './helpers';
 // State Management
 import { StoreModule } from '@ngrx/store';
 import { HomepageChartReducer } from './reducers';
@@ -44,7 +42,8 @@ import { HomepageChart } from './charts/homepage/homepage';
   ],
   providers: [
     appRoutingProviders,
-    ChartService
+    ChartService,
+    ServiceHelpers
   ],
   bootstrap: [App]
 })
