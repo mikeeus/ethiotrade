@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-tax-rates',
+  selector: 'tax-rates',
   templateUrl: './tax-rates.html',
   styleUrls: ['./tax-rates.scss']
 })
 export class TaxRates implements OnInit {
+  @Input() taxRates;
 
   constructor() { }
 
