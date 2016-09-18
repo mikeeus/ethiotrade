@@ -43,7 +43,6 @@ export class HscodeDetail implements OnInit {
 
   onSelect(code: number) {
     this.router.navigate(['/hscodes/', code]);
-    console.log(code);
   }
 
 }
