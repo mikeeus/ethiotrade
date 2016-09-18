@@ -19,7 +19,7 @@ import { HomepageChartReducer, SearchResultsReducer, HscodeDetailReducer } from 
 import { SearchService, Searchbar, SearchResults } from './search';
 // Charts
 import { ChartService, HomepageChart } from './charts';
-// Hscode detail
+// Hscode
 import { HscodeDetail, HscodeService } from './hscode';
 
 @NgModule({
