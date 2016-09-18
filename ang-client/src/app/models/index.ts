@@ -1,4 +1,4 @@
-export { HscodeDetail } from './hscode-detail';
+export { HscodeData } from './hscode-data';
 export { Hscode } from './hscode';
-export { CountryDetail } from './country-detail';
+export { CountryData } from './country-data';
 export { AnnualChart } from './annual-chart';

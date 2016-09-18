@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { ServiceHelpers } from '../helpers';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { HscodeDetail } from '../models';
+import { HscodeData } from '../models';
 
 @Injectable()
 export class HscodeService {
@@ -17,7 +17,7 @@ export class HscodeService {
     private sH: ServiceHelpers
   ) { }
 
-  getHscodeDetail(code: number): Observable<HscodeDetail> {
+  getHscodeDetail(code: number): Observable<HscodeData> {
     return this.http.get(`${this.hscodeDetailUrl}/${code}`)
         .map(this.sH.getJson)
         .catch(this.sH.handleError)

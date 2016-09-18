@@ -1,10 +1,10 @@
 import { Action, ActionReducer } from '@ngrx/store';
-import { HscodeDetail } from '../models';
+import { HscodeData } from '../models';
 
 export const GET_HSCODE = "SET_HSCODE";
 export const REMOVE_HSCODE = "REMOVE_HSCODE";
 
-export const HscodeDetailReducer: ActionReducer<HscodeDetail> = (state: HscodeDetail, action: Action) => {
+export const HscodeDetailReducer: ActionReducer<HscodeData> = (state: HscodeData, action: Action) => {
   switch (action.type) {
     case GET_HSCODE:
       return action.payload;

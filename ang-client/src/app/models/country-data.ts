@@ -1,4 +1,4 @@
-export interface CountryDetail {
+export interface CountryData {
   country: string;
   details: {}
 }
