@@ -9,11 +9,14 @@ import { HscodeData } from '../../models';
   styleUrls: ['./hscode-detail.scss']
 })
 export class HscodeDetail implements OnInit {
-  hscodeData: Observable<HscodeData>;
+  hscodeDetail: Observable<HscodeData>;
 
-  constructor() { }
+  constructor(
+    private store: Store<any>
+  ) { }
 
   ngOnInit() {
+    this.hscodeDetail = this.store.select('hscodeDetail');
   }
 
 }
