@@ -67,8 +67,8 @@
     <!--Search Results-->
     <search-results
       [searchResults]="searchResults | async"
+      [hidden]="!showSearchResults"
     ></search-results>
-      <!--[hidden]="!showSearchResults"-->
 
   </div> <!-- div.container-fluid-->
 </nav> <!--nav.navbar-->

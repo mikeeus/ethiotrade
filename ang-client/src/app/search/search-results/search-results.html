@@ -2,12 +2,11 @@
   <div class="list-group">
   
     <a href (click)="$event.preventDefault()"
-      class="list-group-item item active"
-      *ngFor="let result of searchResults">
+       class="list-group-item item active"
+       *ngFor="let result of searchResults">
       <span class="code">{{result.code}}</span>
       <span class="description">{{result.description}}</span>
     </a>
 
-  
   </div> <!--div.list-group-->
 </div> <!--div.search-results-->
