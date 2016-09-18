@@ -17,40 +17,33 @@ export class HscodeDetail implements OnInit {
 
   code: number;
   description: string;
-
+  
   constructor(
     private store: Store<any>,
     private hscodeService: HscodeService,
     private route: ActivatedRoute,
     private router: Router
   ) {
-    this.route.params.subscribe(params => {
-      this.code = +params['code'];
-    });
     this.hscodeDetail = this.store.select('hscodeDetail');
     this.relatedCodes = this.store.select('relatedCodes');
-
-    this.getHscode(this.code);
-
    }
 
   ngOnInit() {
-
-  }
-
-  getHscode(code: number){
-    this.hscodeService.getHscodeDetail(this.code)
-      .subscribe(res => {
-        this.description = res.hscode.description;
-        this.store.dispatch({type: GET_HSCODE, payload: res.hscode});
-        this.store.dispatch({type: 'GET_RELATED_CODES', payload: res.relatedCodes});
-      });
+    this.route.params.subscribe(params => {
+      let code = +params['code'];
+      this.hscodeService.getHscodeDetail(code)
+          .subscribe(res => {
+            this.store.dispatch({type: GET_HSCODE, payload: res.hscode});
+            this.store.dispatch({type: 'GET_RELATED_CODES', payload: res.relatedCodes});
+            this.code = res.hscode.code;
+            this.description = res.hscode.description;
+          })
+    });
   }
 
   onSelect(code: number) {
     this.router.navigate(['/hscodes/', code]);
     console.log(code);
-    this.getHscode(code);
   }
 
 }
