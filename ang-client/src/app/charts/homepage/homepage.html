@@ -1,10 +1,10 @@
 <h2 class="text-center">Annual Import/Export Volume</h2>
 <base-chart class="chart"
             [datasets]="chartData"
-            [labels]="lineChartLabels"
-            [options]="lineChartOptions"
-            [colors]="lineChartColors"
-            [legend]="lineChartLegend"
-            [chartType]="lineChartType"
+            [labels]="chartLabels"
+            [options]="chartOptions"
+            [colors]="chartColors"
+            [legend]="chartLegend"
+            [chartType]="chartType"
             (chartHover)="chartHovered($event)"
             (chartClick)="chartClicked($event)"></base-chart>
