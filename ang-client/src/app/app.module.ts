@@ -18,7 +18,7 @@ import { ServiceHelpers } from './helpers';
 // State Management
 import { StoreModule } from '@ngrx/store';
 import { HomepageChartReducer } from './reducers';
-import { HomepageChart } from './charts/homepage/homepage';
+import { HomepageChart } from './charts';
 
 @NgModule({
   declarations: [

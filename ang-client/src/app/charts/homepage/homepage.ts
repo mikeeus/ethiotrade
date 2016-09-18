@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AnnualChart } from '../../models';
 
 @Component({
   selector: 'homepage-chart',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homepage.scss']
 })
 export class HomepageChart implements OnInit {
+  @Input() chartData: AnnualChart;
 
   constructor() { }
 

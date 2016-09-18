@@ -44,6 +44,6 @@
     <h1 class="text-center">
       Homepage Chart
     </h1>
-    {{ homepageChart | async | json }}
+    <homepage-chart [chartData]="homepageChart | async"></homepage-chart>
   </div>
 </div>
