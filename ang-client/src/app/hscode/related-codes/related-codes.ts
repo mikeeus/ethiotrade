@@ -15,4 +15,8 @@ export class RelatedCodes implements OnInit {
   ngOnInit() {
   }
 
+  onScroll(event) {
+    console.log(event);
+  }
+
 }
