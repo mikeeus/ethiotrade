@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Hscode } from '../../models';
 import { HscodeService } from '../hscode.service';
 import { AnnualChart } from '../../models';
+import { HscodeChart, ChartService } from '../../charts';
 // Reducer actions
 import { GET_HSCODE, GET_RELATED_CODES } from '../../reducers/hscode-detail';
 import { LOAD_HSCODE_CHART } from '../../reducers/charts';
@@ -25,18 +26,19 @@ export class HscodeDetail implements OnInit {
   constructor(
     private store: Store<any>,
     private hscodeService: HscodeService,
+    private chartService: ChartService,
     private route: ActivatedRoute,
     private router: Router
   ) {
     this.hscodeDetail = this.store.select('hscodeDetail');
     this.relatedCodes = this.store.select('relatedCodes');
     this.hscodeChart = this.store.select('hscodeChart');
-
    }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       let code = +params['code'];
+      // Get hscodeDetail, relatedCodes
       this.hscodeService.getHscodeDetail(code)
           .subscribe(res => {
             this.store.dispatch({type: GET_HSCODE, payload: res.hscode});
@@ -44,6 +46,11 @@ export class HscodeDetail implements OnInit {
             this.code = res.hscode.code;
             this.description = res.hscode.description;
           });
+      // Get hscodeChart
+      this.chartService.getHscodeChart(code)
+          .subscribe(res => {
+            this.store.dispatch({type: LOAD_HSCODE_CHART, payload: res})
+          })
     });
   }
 

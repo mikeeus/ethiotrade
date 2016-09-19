@@ -9,8 +9,8 @@ import { ServiceHelpers } from '../helpers';
 @Injectable()
 export class ChartService {
   homepageUrl: string = 'api/charts/homepage';
-  hscodesUrl: string = '/api/charts/hscodes/';
-  countriesUrl: string = '/api/charts/countries/';
+  hscodesUrl: string = '/api/charts/hscodes';
+  countriesUrl: string = '/api/charts/countries';
   
   constructor(
     private http: Http,
@@ -34,10 +34,5 @@ export class ChartService {
       .map(this.sH.getJson)
       .catch(this.sH.handleError)
   }
-
-  // Should get both chart and table data
-  // getYear() {
-
-  // }
 
 }

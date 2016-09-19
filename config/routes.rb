@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
     # Hscode Detail
     get '/hscodes/:code', to: 'hscodes#show', as: :hscode
-    get '/charts/hscode/:code', to: 'hscodes#chart', as: :hscode_chart
+    get '/charts/hscodes/:code', to: 'hscodes#chart', as: :hscode_chart
     get '/hscodes/:code/tables/:type/:year/:page/:page_length', to: 'hscodes#tables', as: :hscode_tables
 
     # Homepage Chart / Matviews refresh
