@@ -14,7 +14,7 @@ import { Home } from './home';
 import { ServiceHelpers } from './helpers';
 // State Management
 import { StoreModule } from '@ngrx/store';
-import { HomepageChartReducer, SearchResultsReducer, HscodeDetailReducer, RelatedCodesReducer } from './reducers';
+import { HomepageChartReducer, HscodeChartReducer, SearchResultsReducer, HscodeDetailReducer, RelatedCodesReducer } from './reducers';
 // Search
 import { SearchService, Searchbar, SearchResults } from './search';
 // Charts
