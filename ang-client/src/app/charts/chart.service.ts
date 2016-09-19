@@ -17,19 +17,19 @@ export class ChartService {
     private sH: ServiceHelpers
   ) { }
 
-  getHomepage(): Observable<any> {
+  getHomepageChart(): Observable<any> {
     return this.http.get(this.homepageUrl)
       .map(this.sH.getJson)
       .catch(this.sH.handleError)      
   }
   
-  getHscode(code: number): Observable<HscodeData> {
+  getHscodeChart(code: number): Observable<HscodeData> {
     return this.http.get(`${this.hscodesUrl}/${code}`)
       .map(this.sH.getJson)
       .catch(this.sH.handleError)
   }
 
-  getCountry(country: string): Observable<CountryData> {
+  getCountryChart(country: string): Observable<CountryData> {
     return this.http.get(`${this.countriesUrl}/${country}`)
       .map(this.sH.getJson)
       .catch(this.sH.handleError)
