@@ -1,13 +1,15 @@
 <h4 class="text-center">Related HS Codes</h4>
 <div class="related-codes">
+
   <div class="list-group">
+
     <a href (click)="$event.preventDefault()"
       *ngFor="let hscode of relatedCodes" 
       (click)="onSelect.emit(hscode.code)"
-      class="list-group-item"
-      [style.background-color]="currentCode(hscode.code)">
+      class="list-group-item">
         <span class="related-code">{{ hscode.code }}</span>
         <span class="related-description">{{ hscode.description }}</span>
     </a>
+    
   </div>
 </div>

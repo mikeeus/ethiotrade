@@ -9,7 +9,6 @@
   <div class="col-sm-4">
     <related-codes 
       [relatedCodes]="relatedCodes | async"
-      [currentHscode]="hscodeDetail | async"
       (onSelect)="onSelect($event)"
     ></related-codes>
   </div>

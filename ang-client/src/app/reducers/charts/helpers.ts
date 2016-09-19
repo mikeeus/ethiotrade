@@ -1,3 +1,6 @@
+import { AnnualChart } from '../../models';
+import { YEARS } from '../../shared';
+
 export const initialState = [
   {data: [], label: 'Imports'},
   {data: [], label: 'Exports'}

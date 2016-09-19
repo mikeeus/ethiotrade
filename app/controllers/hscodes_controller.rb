@@ -10,9 +10,15 @@ class HscodesController < ApplicationController
 
   # GET /hscodes/1
   def show
+    related_codes = []
+    @hscode.related_codes.each do |rel_code|
+      if rel_code.code != @hscode.code 
+        related_codes << rel_code
+      end
+    end
     render json: {
       hscode: @hscode,
-      relatedCodes: @hscode.related_codes
+      relatedCodes: related_codes
     }
   end
 
