@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DropdownDirective, CollapseDirective } from 'ng2-bootstrap/ng2-bootstrap';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
@@ -19,7 +20,8 @@ export class Header implements OnInit {
 
   constructor(
     private store: Store<any>,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private router: Router
   ) { }
   
   ngOnInit() {
@@ -42,7 +44,7 @@ export class Header implements OnInit {
     this.showSearchResults = status;
   }
   onSelectSearchResult(code: number){
-    console.log(code);
+    this.router.navigate(['/hscodes/', code]);
   }
 
   // Dropdown attr and functions 
