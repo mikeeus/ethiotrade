@@ -36,7 +36,7 @@
           <ul dropdownMenu class="dropdown-menu scrollable-menu"      
               aria-labelledby="simple-dropdown">
             <li *ngFor="let country of countries">
-              <a class="dropdown-item" routerLink="/country/{{country}}">
+              <a class="dropdown-item" routerLink="/countries/{{country}}">
                 {{country}}
               </a>
             </li>
@@ -54,7 +54,7 @@
               [hidden]="!showYearsDropDown"
               aria-labelledby="simple-dropdown">
             <li *ngFor="let year of years">
-              <a class="dropdown-item" routerLink="/year/{{year}}">
+              <a class="dropdown-item" routerLink="/years/{{year}}">
                 {{year}}
               </a>
             </li>
