@@ -21,6 +21,7 @@ import { SearchService, Searchbar, SearchResults } from './search';
 import { ChartService, AnnualChart } from './charts';
 // Hscode
 import { HscodeDetail, HscodeService, TaxRates, RelatedCodes } from './hscode';
+import { CountryDetail } from './country';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HscodeDetail, HscodeService, TaxRates, RelatedCodes } from './hscode';
     Header, Footer,
     Searchbar, SearchResults,
     AnnualChart,
+    CountryDetail,
     HscodeDetail, RelatedCodes, TaxRates
   ],
   imports: [
