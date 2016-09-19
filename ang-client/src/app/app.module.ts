@@ -22,6 +22,7 @@ import { ChartService, AnnualChart } from './charts';
 // Hscode
 import { HscodeDetail, HscodeService, TaxRates, RelatedCodes } from './hscode';
 import { CountryDetail } from './country';
+import { AnnualTable } from './tables/annual-table/annual-table';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { CountryDetail } from './country';
     Searchbar, SearchResults,
     AnnualChart,
     CountryDetail,
-    HscodeDetail, RelatedCodes, TaxRates
+    HscodeDetail, RelatedCodes, TaxRates, AnnualTable
   ],
   imports: [
     BrowserModule,
