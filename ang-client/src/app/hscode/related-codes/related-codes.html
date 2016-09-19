@@ -2,7 +2,13 @@
 <div class="related-codes">
 
   <div class="list-group">
-
+    <!-- If there are not related codes -->
+    <a href (click)="$event.preventDefault()"
+      *ngIf="relatedCodes.length == 0"
+      class="list-group-item text-center">
+      No related codes
+    </a>
+    <!-- Related codes list -->
     <a href (click)="$event.preventDefault()"
       *ngFor="let hscode of relatedCodes" 
       (click)="onSelect.emit(hscode.code)"
@@ -10,6 +16,6 @@
         <span class="related-code">{{ hscode.code }}</span>
         <span class="related-description">{{ hscode.description }}</span>
     </a>
-    
-  </div>
-</div>
+  </div> <!-- div.list-group -->
+
+</div> <!-- div.related-codes -->
