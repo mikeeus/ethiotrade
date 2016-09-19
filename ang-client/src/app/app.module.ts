@@ -27,8 +27,8 @@ import { HscodeDetail, HscodeService, TaxRates, RelatedCodes } from './hscode';
     App, Home,
     Header, Footer,
     Searchbar, SearchResults,
-    HomepageChart,
-    HscodeDetail, RelatedCodes, TaxRates, HscodeChart
+    HomepageChart, HscodeChart,
+    HscodeDetail, RelatedCodes, TaxRates
   ],
   imports: [
     BrowserModule,
