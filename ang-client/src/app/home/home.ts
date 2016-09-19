@@ -4,6 +4,8 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { AnnualChart } from '../models';
 import { YEARS } from '../shared';
+// Reducer actions
+import { LOAD_HOMEPAGE_CHART } from '../reducers/charts';
 
 @Component({
   selector: 'home',
@@ -22,7 +24,7 @@ export class Home implements OnInit {
     // Initialize and subscribe to homepageChart store
     this.homepageChart = this.store.select('homepageChart');
     this.chartService.getHomepageChart().subscribe(res => {
-      this.store.dispatch({type: 'LOAD_HOMEPAGE_CHART', payload: res});
+      this.store.dispatch({type: LOAD_HOMEPAGE_CHART, payload: res});
     })
   }
 
