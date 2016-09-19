@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+// Hscode
 import { Hscode } from '../../models';
 import { HscodeService } from '../hscode.service';
-import { AnnualChart } from '../../models';
-import { HscodeChart, ChartService } from '../../charts';
+// Chart
+import { AnnualChartData } from '../../models';
+import { AnnualChart, ChartService } from '../../charts';
 // Reducer actions
 import { GET_HSCODE, GET_RELATED_CODES } from '../../reducers/hscode-detail';
 import { LOAD_HSCODE_CHART } from '../../reducers/charts';
@@ -18,7 +20,7 @@ import { LOAD_HSCODE_CHART } from '../../reducers/charts';
 export class HscodeDetail implements OnInit {
   hscodeDetail: Observable<Hscode>;
   relatedCodes: Observable<Hscode[]>; 
-  hscodeChart: Observable<AnnualChart>;
+  hscodeChart: Observable<AnnualChartData>;
 
   code: number;
   description: string;

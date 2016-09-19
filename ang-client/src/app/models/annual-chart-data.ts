@@ -1,9 +1,9 @@
-export class AnnualChart {
-  annualImports: annualChartData;
-  annualExports: annualChartData;
+export interface AnnualChartData {
+  annualImports: AnnualData;
+  annualExports: AnnualData;
 }
 
-class annualChartData {
+interface AnnualData {
     "2016": number;
     "2015": number;
     "2014": number;

@@ -1,4 +1,4 @@
-import { AnnualChart } from '../../models';
+import { AnnualChartData } from '../../models';
 import { YEARS } from '../../shared';
 
 export const initialState = [
@@ -11,7 +11,7 @@ export interface chartData {
   label: string
 }
 
-export function setChartData(chartData: AnnualChart) {
+export function setChartData(chartData: AnnualChartData) {
   let chart = [
     {data: [], label: 'Imports'},
     {data: [], label: 'Exports'}

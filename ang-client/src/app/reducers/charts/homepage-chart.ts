@@ -1,6 +1,4 @@
 import { Action, ActionReducer } from '@ngrx/store';
-import { AnnualChart } from '../../models';
-import { YEARS } from '../../shared';
 import { initialState, chartData, setChartData } from './helpers';
 
 export const LOAD_HOMEPAGE_CHART = 'LOAD_HOMEPAGE_CHART';

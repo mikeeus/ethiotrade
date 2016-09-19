@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartService, HomepageChart } from '../charts';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { AnnualChart } from '../models';
-import { YEARS } from '../shared';
+// Chart
+import { ChartService, AnnualChart } from '../charts';
+import { AnnualChartData } from '../models';
 // Reducer actions
 import { LOAD_HOMEPAGE_CHART } from '../reducers/charts';
 
@@ -13,7 +13,7 @@ import { LOAD_HOMEPAGE_CHART } from '../reducers/charts';
   styleUrls: ['home.scss']
 })
 export class Home implements OnInit {
-  homepageChart: Observable<AnnualChart>;
+  homepageChart: Observable<AnnualChartData>;
 
   constructor(
     private chartService: ChartService,

@@ -4,7 +4,7 @@ import { DropdownDirective, CollapseDirective } from 'ng2-bootstrap/ng2-bootstra
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { SearchService } from '../../search';
-import { YEARS, COUNTRIES } from '../../shared';
+import { YEARS_NAV, COUNTRIES } from '../../shared';
 import { Hscode } from '../../models';
 
 @Component({
@@ -14,7 +14,7 @@ import { Hscode } from '../../models';
 })
 export class Header implements OnInit {
   countries: string[] = COUNTRIES; 
-  years: string[] = YEARS;
+  years: string[] = YEARS_NAV;
   searchResults: Observable<Hscode[]>;
   showSearchResults: boolean = false;
 

@@ -1,17 +1,17 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AnnualChart } from '../../models';
+import { AnnualChartData } from '../../models';
 import { YEARS } from '../../shared';
 import { Store } from '@ngrx/store';
 import { chartOptions, chartColors } from '../chart-settings';
 
 @Component({
-  selector: 'homepage-chart',
-  templateUrl: './homepage.html',
-  styleUrls: ['./homepage.scss']
+  selector: 'annual-chart',
+  templateUrl: './annual-chart.html',
+  styleUrls: ['./annual-chart.scss']
 })
-export class HomepageChart implements OnInit {
+export class AnnualChart implements OnInit {
   // Chart data is input from parent component asynchronously
-  @Input() chartData;
+  @Input() chartData: AnnualChartData;
 
   constructor() { }
 
@@ -23,7 +23,7 @@ export class HomepageChart implements OnInit {
   public chartLegend:boolean = true;
   public chartOptions:any = chartOptions;
   public chartColors:Array<any> = chartColors;
-  public chartLabels:Array<any> = YEARS.reverse();
+  public chartLabels:Array<any> = YEARS;
 
   // events
   public chartClicked(e:any):void {

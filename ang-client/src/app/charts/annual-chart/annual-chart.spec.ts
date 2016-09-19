@@ -1,11 +1,11 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async } from '@angular/core/testing';
-import { HscodeChart } from './hscode-chart';
+import { AnnualChart } from './annual-chart';
 
-describe('Component: HscodeDetail', () => {
+describe('Component: AnnualChart', () => {
   it('should create an instance', () => {
-    let component = new HscodeChart();
+    let component = new AnnualChart();
     expect(component).toBeTruthy();
   });
 });
