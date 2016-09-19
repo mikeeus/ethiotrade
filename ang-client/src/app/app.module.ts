@@ -18,7 +18,7 @@ import { HomepageChartReducer, SearchResultsReducer, HscodeDetailReducer, Relate
 // Search
 import { SearchService, Searchbar, SearchResults } from './search';
 // Charts
-import { ChartService, HomepageChart } from './charts';
+import { ChartService, HomepageChart, HscodeChart } from './charts';
 // Hscode
 import { HscodeDetail, HscodeService, TaxRates, RelatedCodes } from './hscode';
 
@@ -28,7 +28,7 @@ import { HscodeDetail, HscodeService, TaxRates, RelatedCodes } from './hscode';
     Header, Footer,
     Searchbar, SearchResults,
     HomepageChart,
-    HscodeDetail, RelatedCodes, TaxRates
+    HscodeDetail, RelatedCodes, TaxRates, HscodeChart
   ],
   imports: [
     BrowserModule,
