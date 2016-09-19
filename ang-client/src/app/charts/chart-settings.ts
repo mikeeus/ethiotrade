@@ -3,6 +3,15 @@
 export const chartOptions = {
   scaleShowVerticalLines: false,
   responsive: true,
+  tooltips: {
+    callbacks: {
+      label: function (value) {
+        let x = value.yLabel;
+        let formatted = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return "$" + formatted;
+      }
+    }
+  },
   scales: {
     yAxes: [{
       ticks: {
