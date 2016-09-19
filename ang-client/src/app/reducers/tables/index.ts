@@ -11,3 +11,10 @@ export { CountryTableReducer,
          SET_COUNTRY_PAGE_LENGTH,
          SET_COUNTRY_TYPE,
          SET_COUNTRY_YEAR} from './country-table';
+
+export {  AnnualTableFilterReducer,
+  SET_TABLE_PAGE,
+  SET_TABLE_PAGE_LENGTH,
+  SET_TABLE_TYPE,
+  SET_TABLE_YEAR
+} from './annual-table-filter';

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { HscodeParams, CountryParams } from '../../models';
 
 @Component({
   selector: 'annual-table-settings',
@@ -6,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./annual-table-settings.scss']
 })
 export class AnnualTableSettings implements OnInit {
+  // Params are input
+  @Input() initHscodeParams: HscodeParams;
+  @Input() initCountryParams: CountryParams;
+  // New params are output
+  @Output() newHscodeParams: EventEmitter<HscodeParams> = new EventEmitter<HscodeParams>();  
+  @Output() newCountryParams: EventEmitter<CountryParams> = new EventEmitter<CountryParams>();
 
   constructor() { }
 
