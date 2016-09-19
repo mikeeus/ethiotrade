@@ -3,8 +3,8 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { ServiceHelpers } from '../helpers';
 import { HscodeParams, CountryParams } from '../models';
-import 'rxjs/add/operators/map';
-import 'rxjs/add/operators/catch';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class TableService {

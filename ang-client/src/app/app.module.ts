@@ -19,10 +19,11 @@ import { HomepageChartReducer, HscodeChartReducer, SearchResultsReducer, HscodeD
 import { SearchService, Searchbar, SearchResults } from './search';
 // Charts
 import { ChartService, AnnualChart } from './charts';
+// Tables
+import { AnnualTable, TableService, AnnualTableSettings } from './tables';
 // Hscode
 import { HscodeDetail, HscodeService, TaxRates, RelatedCodes } from './hscode';
 import { CountryDetail } from './country';
-import { AnnualTable, TableService } from './tables';
 
 @NgModule({
   declarations: [
@@ -30,8 +31,9 @@ import { AnnualTable, TableService } from './tables';
     Header, Footer,
     Searchbar, SearchResults,
     AnnualChart,
+    AnnualTable, AnnualTableSettings, 
     CountryDetail,
-    HscodeDetail, RelatedCodes, TaxRates, AnnualTable
+    HscodeDetail, RelatedCodes, TaxRates 
   ],
   imports: [
     BrowserModule,
