@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { Hscode } from '../../models';
 import { HscodeService } from '../hscode.service';
-import { GET_HSCODE } from '../../reducers/hscode-detail';
+import { AnnualChart } from '../../models';
 
 @Component({
   selector: 'app-hscode',
@@ -14,6 +14,7 @@ import { GET_HSCODE } from '../../reducers/hscode-detail';
 export class HscodeDetail implements OnInit {
   hscodeDetail: Observable<Hscode>;
   relatedCodes: Observable<Hscode[]>; 
+  hscodeChart: Observable<AnnualChart>;
 
   code: number;
   description: string;
@@ -26,6 +27,8 @@ export class HscodeDetail implements OnInit {
   ) {
     this.hscodeDetail = this.store.select('hscodeDetail');
     this.relatedCodes = this.store.select('relatedCodes');
+    this.hscodeChart = this.store.select('hscodeChart');
+
    }
 
   ngOnInit() {
@@ -33,11 +36,11 @@ export class HscodeDetail implements OnInit {
       let code = +params['code'];
       this.hscodeService.getHscodeDetail(code)
           .subscribe(res => {
-            this.store.dispatch({type: GET_HSCODE, payload: res.hscode});
+            this.store.dispatch({type: 'GET_HSCODE', payload: res.hscode});
             this.store.dispatch({type: 'GET_RELATED_CODES', payload: res.relatedCodes});
             this.code = res.hscode.code;
             this.description = res.hscode.description;
-          })
+          });
     });
   }
 

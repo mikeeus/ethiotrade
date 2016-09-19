@@ -40,7 +40,8 @@ import { HscodeDetail, HscodeService, TaxRates, RelatedCodes } from './hscode';
       homepageChart: HomepageChartReducer,
       searchResults: SearchResultsReducer,
       hscodeDetail: HscodeDetailReducer,
-      relatedCodes: RelatedCodesReducer
+      relatedCodes: RelatedCodesReducer,
+      hscodeChart: HscodeChartReducer
     }),
     // ng2-bootstrap/ng2-charts modules
     DropdownModule,

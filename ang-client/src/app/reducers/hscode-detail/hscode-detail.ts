@@ -1,5 +1,5 @@
 import { Action, ActionReducer } from '@ngrx/store';
-import { Hscode } from '../models';
+import { Hscode } from '../../models';
 
 export const GET_HSCODE = "SET_HSCODE";
 export const REMOVE_HSCODE = "REMOVE_HSCODE";
