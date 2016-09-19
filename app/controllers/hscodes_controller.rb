@@ -18,7 +18,7 @@ class HscodesController < ApplicationController
     end
     render json: {
       hscode: @hscode,
-      relatedCodes: related_codes
+      relatedCodes: related_codes.sort
     }
   end
 
