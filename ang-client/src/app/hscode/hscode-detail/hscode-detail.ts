@@ -5,6 +5,9 @@ import { Observable } from 'rxjs/Observable';
 import { Hscode } from '../../models';
 import { HscodeService } from '../hscode.service';
 import { AnnualChart } from '../../models';
+// Reducer actions
+import { GET_HSCODE, GET_RELATED_CODES } from '../../reducers/hscode-detail';
+import { LOAD_HSCODE_CHART } from '../../reducers/charts';
 
 @Component({
   selector: 'app-hscode',
@@ -36,8 +39,8 @@ export class HscodeDetail implements OnInit {
       let code = +params['code'];
       this.hscodeService.getHscodeDetail(code)
           .subscribe(res => {
-            this.store.dispatch({type: 'GET_HSCODE', payload: res.hscode});
-            this.store.dispatch({type: 'GET_RELATED_CODES', payload: res.relatedCodes});
+            this.store.dispatch({type: GET_HSCODE, payload: res.hscode});
+            this.store.dispatch({type: GET_RELATED_CODES, payload: res.relatedCodes});
             this.code = res.hscode.code;
             this.description = res.hscode.description;
           });
