@@ -2,7 +2,7 @@ import { Action, ActionReducer } from '@ngrx/store';
 import { AnnualTableFilter } from '../../models';
 
 export const SET_TABLE_PAGE = "SET_TABLE_PAGE";
-export const SET_TABLE_PAGE_LENGTH = "SET_TABLE_PAGE_LENGTH";
+export const SET_TABLE_PAGELENGTH = "SET_TABLE_PAGELENGTH";
 export const SET_TABLE_TYPE = "SET_TABLE_TYPE";
 export const SET_TABLE_YEAR = "SET_TABLE_YEAR";
 export const RESET_TABLE_FILTER = "RESET_TABLE_FILTER";
@@ -27,7 +27,7 @@ export const AnnualTableFilterReducer: ActionReducer<AnnualTableFilter> = (state
       return (<any>Object).assign({}, state, {year: action.payload});
     case SET_TABLE_PAGE:
       return (<any>Object).assign({}, state, {page: action.payload});
-    case SET_TABLE_PAGE_LENGTH:
+    case SET_TABLE_PAGELENGTH:
       return (<any>Object).assign({}, state, {pageLength: action.payload});
     case RESET_TABLE_FILTER:
       return initialState;

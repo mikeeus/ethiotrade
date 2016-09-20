@@ -7,7 +7,7 @@ export { CountryTableReducer,
 
 export {  AnnualTableFilterReducer,
   SET_TABLE_PAGE,
-  SET_TABLE_PAGE_LENGTH,
+  SET_TABLE_PAGELENGTH,
   SET_TABLE_TYPE,
   SET_TABLE_YEAR,
   SET_TABLE_FILTER,

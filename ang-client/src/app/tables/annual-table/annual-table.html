@@ -3,7 +3,6 @@
     <h2 class="panel-title text-center">Records</h2>
   </div>
   <div class="panel-body">
-    TABLEFILTER: {{ filter | json }}
     <annual-table-settings
       [filter]="filter"
       (setFilter)="setFilter.emit($event)"

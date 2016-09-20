@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+// Models
+import { Hscode, AnnualChartData, HscodeTableData, HscodeParams, AnnualTableFilter, filterSet } from '../../models';
 // Hscode, Chart and Table
-import { Hscode, AnnualChartData, HscodeTableData, HscodeParams, AnnualTableFilter } from '../../models';
 import { HscodeService } from '../hscode.service';
 import { AnnualChart, ChartService } from '../../charts';
 import { TableService } from '../../tables';
@@ -11,7 +12,7 @@ import { TableService } from '../../tables';
 import { GET_HSCODE, GET_RELATED_CODES } from '../../reducers/hscode-detail';
 import { LOAD_HSCODE_CHART } from '../../reducers/charts';
 import { SET_HSCODE_TABLE, RESET_HSCODE_TABLE,
-  SET_TABLE_TYPE, SET_TABLE_YEAR, SET_TABLE_PAGE, SET_TABLE_PAGE_LENGTH, SET_TABLE_FILTER, RESET_TABLE_FILTER } from '../../reducers/tables';
+  SET_TABLE_TYPE, SET_TABLE_YEAR, SET_TABLE_PAGE, SET_TABLE_PAGELENGTH, SET_TABLE_FILTER, RESET_TABLE_FILTER } from '../../reducers/tables';
 
 @Component({
   selector: 'hscode-detail',
@@ -65,19 +66,37 @@ export class HscodeDetail implements OnInit {
       // Subscribe to the table filter, call service, dispatch table
       this.store.dispatch({type: RESET_TABLE_FILTER});
       this.tableFilter.subscribe(filter => {
-        this.hsParams = {code: code, filter: filter}
-      });
-      this.tableService.getHscodeTable(this.hsParams)
+        this.hsParams = {code: code, filter: filter};
+        this.tableService.getHscodeTable(this.hsParams)
           .subscribe(res => {
             this.store.dispatch({ type: SET_HSCODE_TABLE, payload: {table: res.table, pages: res.pages} });
-            this.store.dispatch({ type: SET_TABLE_FILTER, payload: res.filter })
           });
+      });
 
     });
   }
 
   onSelect(code: number) {
     this.router.navigate(['/hscodes/', code]);
+  }
+
+  setFilter(change: filterSet) {
+    switch (change.filter) {
+      case "TYPE":
+        this.store.dispatch({ type: SET_TABLE_TYPE, payload: change.value });
+        break;    
+      case "YEAR":
+        this.store.dispatch({ type: SET_TABLE_YEAR, payload: change.value });
+        break;      
+      case "PAGE":
+        this.store.dispatch({ type: SET_TABLE_PAGE, payload: change.value });
+        break;      
+      case "PAGELENGTH":      
+        this.store.dispatch({ type: SET_TABLE_PAGELENGTH, payload: change.value });
+        break;
+      default:
+        break;
+    }
   }
 
 }
