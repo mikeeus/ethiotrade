@@ -2,6 +2,7 @@
   <div class="panel-heading">
     <h2 class="panel-title text-center">Records</h2>
   </div>
+
   <div class="panel-body">
     <annual-table-settings
       [filter]="filter"
@@ -39,12 +40,20 @@
         </tr>-->
       </tbody>
     </table> 
+    
+  </div> <!--div.panel-body-->
 
-    <div class="panel-footer">
-      <span *ngFor="let page of filter.pages"
-        class="pagination">
-        {{ page }}
-      </span>
-    </div>
-  </div>
-</div>
+
+  <div class="panel-footer">
+    <div class="btn-toolbar">
+      <div class="btn-group">
+        <a href *ngFor="let page of hscodeTable.pages"
+            (click)="$event.preventDefault()"
+            (click)="changePage"
+            class="btn btn-default">
+            {{ page }}
+        </a>
+      </div> <!--btn-group-->
+    </div> <!--btn-toolbar-->
+  </div> <!--div.panel-footer-->
+</div> <!-- div.panel -->

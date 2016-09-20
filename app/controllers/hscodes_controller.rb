@@ -66,7 +66,6 @@ class HscodesController < ApplicationController
       table: @table,
       pages: pages_array,
       filter: {
-        pages: pages_array,    
         type: type,
         year: year,
         page: page,

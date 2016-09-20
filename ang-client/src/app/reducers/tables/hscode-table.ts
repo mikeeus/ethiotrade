@@ -6,7 +6,7 @@ export const RESET_HSCODE_TABLE = "RESET_HSCODE_TABLE";
 
 const initialState: HscodeTableData = {
   table: [],
-  pages: 1
+  pages: [1]
 }
 
 export const HscodeTableReducer: ActionReducer<HscodeTableData> = (state: HscodeTableData = initialState, action: Action) => {

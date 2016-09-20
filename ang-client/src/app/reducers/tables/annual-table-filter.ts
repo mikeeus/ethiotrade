@@ -12,7 +12,6 @@ const initialState: AnnualTableFilter = {
   type: 'Imports',
   year: 2016,
   page: 1,
-  pages: [1],
   pageLength: 10
 }
 
