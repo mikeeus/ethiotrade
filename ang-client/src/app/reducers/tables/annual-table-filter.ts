@@ -1,16 +1,10 @@
 import { Action, ActionReducer } from '@ngrx/store';
+import { AnnualTableFilter } from '../../models';
 
 export const SET_TABLE_PAGE = "SET_TABLE_PAGE";
 export const SET_TABLE_PAGE_LENGTH = "SET_TABLE_PAGE_LENGTH";
 export const SET_TABLE_TYPE = "SET_TABLE_TYPE";
 export const SET_TABLE_YEAR = "SET_TABLE_YEAR";
-
-class AnnualTableFilter {
-  type: string;
-  year: number;
-  page: number;
-  pageLength: number;
-}
 
 const initialState: AnnualTableFilter = {
   page: 1,
@@ -19,7 +13,7 @@ const initialState: AnnualTableFilter = {
   year: 2016
 }
 
-export const AnnualTableFilterReducer: ActionReducer<any> = (state = initialState, action: Action) => {
+export const AnnualTableFilterReducer: ActionReducer<AnnualTableFilter> = (state = initialState, action: Action) => {
   switch (action.type) {
     // Sets the table filters, which should then dispatch SET_HSCODE_TABLE
     case SET_TABLE_TYPE:

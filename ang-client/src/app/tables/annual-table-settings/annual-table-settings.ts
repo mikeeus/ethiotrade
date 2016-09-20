@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { HscodeParams, CountryParams } from '../../models';
+import { HscodeParams, AnnualTableFilter } from '../../models';
 
 @Component({
   selector: 'annual-table-settings',
@@ -8,15 +8,23 @@ import { HscodeParams, CountryParams } from '../../models';
 })
 export class AnnualTableSettings implements OnInit {
   // Params are input
-  @Input() initHscodeParams: HscodeParams;
-  @Input() initCountryParams: CountryParams;
-  // New params are output
-  @Output() newHscodeParams: EventEmitter<HscodeParams> = new EventEmitter<HscodeParams>();  
-  @Output() newCountryParams: EventEmitter<CountryParams> = new EventEmitter<CountryParams>();
+  @Input() annualTableFilter: AnnualTableFilter;
+  // New params are output  
+  @Output() onSetFilter: EventEmitter<changeFilter> = new EventEmitter<changeFilter>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  setFilter(filter, value) {
+    let change = {filter: filter, value: value}
+    this.onSetFilter.emit(change);
+  }
+
+}
+
+interface changeFilter {
+  filter: string;
+  value: string;
 }
