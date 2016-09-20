@@ -23,6 +23,4 @@ export class HscodeService {
         .catch(this.sH.handleError)
   }
 
-  // Get hscodeTable, takes params type, year, page, page_length 
-
 }
