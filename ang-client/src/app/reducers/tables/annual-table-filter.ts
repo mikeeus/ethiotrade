@@ -21,9 +21,9 @@ export const AnnualTableFilterReducer: ActionReducer<AnnualTableFilter> = (state
     case SET_TABLE_FILTER:
       return action.payload;
     case SET_TABLE_TYPE:
-      return (<any>Object).assign({}, state, {type: action.payload});
+      return (<any>Object).assign({}, state, {type: action.payload, page: 1});
     case SET_TABLE_YEAR:
-      return (<any>Object).assign({}, state, {year: action.payload});
+      return (<any>Object).assign({}, state, {year: action.payload, page: 1});
     case SET_TABLE_PAGE:
       return (<any>Object).assign({}, state, {page: action.payload});
     case SET_TABLE_PAGELENGTH:

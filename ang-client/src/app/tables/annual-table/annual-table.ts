@@ -17,4 +17,9 @@ export class AnnualTable implements OnInit {
   ngOnInit() {
   }
 
+  changePage(page){
+    let change = {filter: 'PAGE', value: page};
+    this.setFilter.emit(change);
+  }
+
 }
