@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor/globals';
 
-export class AngClientPage {
+export class EthiotradePage {
   navigateTo() {
     return browser.get('/');
   }

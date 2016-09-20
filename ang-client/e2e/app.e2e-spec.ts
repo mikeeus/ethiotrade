@@ -1,10 +1,10 @@
-import { AngClientPage } from './app.po';
+import { EthiotradePage } from './app.po';
 
-describe('ang-client App', function() {
-  let page: AngClientPage;
+describe('ethiotrade App', function() {
+  let page: EthiotradePage;
 
   beforeEach(() => {
-    page = new AngClientPage();
+    page = new EthiotradePage();
   });
 
   it('should display message saying app works', () => {
