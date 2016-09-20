@@ -8,7 +8,7 @@ import { HscodeParams, AnnualTableFilter } from '../../models';
 })
 export class AnnualTableSettings implements OnInit {
   // Params are input
-  @Input() annualTableFilter: AnnualTableFilter;
+  @Input() tableData;
   // New params are output  
   @Output() onSetFilter: EventEmitter<changeFilter> = new EventEmitter<changeFilter>();
 

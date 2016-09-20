@@ -18,25 +18,25 @@ export class TableService {
     private sH: ServiceHelpers
   ) { }
 
-  getHscodeTable(params: HscodeParams): Observable<any> {
+  getHscodeTable(params): Observable<any> {
     let path = this.getHscodeUrl(params);
     return this.http.get(path)
         .map(this.sH.getJson)
         .catch(this.sH.handleError)
   }
 
-  getCountryTable(params: CountryParams): Observable<any> {
-    let path = this.getCountryUrl(params);
-    return this.http.get(path)
-        .map(this.sH.getJson)
-        .catch(this.sH.handleError)
-  }
+  // getCountryTable(params: CountryParams): Observable<any> {
+  //   let path = this.getCountryUrl(params);
+  //   return this.http.get(path)
+  //       .map(this.sH.getJson)
+  //       .catch(this.sH.handleError)
+  // }
 
   // Get params
-  getHscodeUrl(params: HscodeParams) {
-    return `${this.hscodeUrl}/${params.code}/tables/${params.type}/${params.year}/${params.page}/${params.pageLength}`
+  getHscodeUrl(params) {
+    return `${this.hscodeUrl}/${params.code}/tables/${params.filter.type}/${params.filter.year}/${params.filter.page}/${params.filter.pageLength}`
   }
-  getCountryUrl(params: CountryParams) {
-    return `${this.hscodeUrl}/${params.country}/tables/${params.type}/${params.year}/${params.page}/${params.pageLength}`
-  }
+  // getCountryUrl(params: CountryParams) {
+  //   return `${this.hscodeUrl}/${params.country}/tables/${params.type}/${params.year}/${params.page}/${params.pageLength}`
+  // }
 }

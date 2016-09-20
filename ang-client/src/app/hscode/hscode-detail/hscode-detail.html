@@ -20,4 +20,5 @@
 </div>
 
 <!-- Hscode Table -->
-<annual-table></annual-table>
+table: {{hscodeTable | async | json }}
+<annual-table [hscodeTable]="hscodeTable | async"></annual-table>

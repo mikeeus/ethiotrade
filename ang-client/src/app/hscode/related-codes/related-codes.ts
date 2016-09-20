@@ -16,7 +16,7 @@ export class RelatedCodes implements OnInit {
   }
 
   onScroll(event) {
-    console.log(event);
+    // console.log(event);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'annual-table',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./annual-table.scss']
 })
 export class AnnualTable implements OnInit {
+  @Input() hscodeTable;
 
   constructor() { }
 

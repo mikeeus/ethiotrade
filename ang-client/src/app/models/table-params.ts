@@ -1,16 +1,12 @@
+import { AnnualTableFilter } from './annual-table-filter';
+
 export interface HscodeParams {
-  code: number; 
-  type: string;
-  year: number;   
-  page: number; 
-  pageLength: number;
+  code: number;
+  filter: AnnualTableFilter;
 }
 
 export interface CountryParams {
   country: string; 
-  type: string;
-  year: number;   
-  page: number; 
-  pageLength: number;
+  filter: AnnualTableFilter;
 }
 

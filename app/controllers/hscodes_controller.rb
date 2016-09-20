@@ -57,7 +57,13 @@ class HscodesController < ApplicationController
 
     render json: {
       table: @table,
-      pages: @pages
+      pages: @pages,
+      filter: {
+        type: type,
+        year: year,
+        page: page,
+        pageLength: page_length
+      }
     }
   end
 
