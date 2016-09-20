@@ -5,8 +5,8 @@ import { Observable } from 'rxjs/Observable';
 // Hscode
 import { Hscode } from '../../models';
 import { HscodeService } from '../hscode.service';
-// Chart
-import { AnnualChartData } from '../../models';
+// Chart and Table
+import { AnnualChartData, AnnualTableFilter } from '../../models';
 import { AnnualChart, ChartService } from '../../charts';
 // Reducer actions
 import { GET_HSCODE, GET_RELATED_CODES } from '../../reducers/hscode-detail';
@@ -21,6 +21,7 @@ export class HscodeDetail implements OnInit {
   hscodeDetail: Observable<Hscode>;
   relatedCodes: Observable<Hscode[]>; 
   hscodeChart: Observable<AnnualChartData>;
+  hscodeTable: Observable<AnnualTableData>;
 
   code: number;
   description: string;
@@ -35,6 +36,7 @@ export class HscodeDetail implements OnInit {
     this.hscodeDetail = this.store.select('hscodeDetail');
     this.relatedCodes = this.store.select('relatedCodes');
     this.hscodeChart = this.store.select('hscodeChart');
+    this.
    }
 
   ngOnInit() {

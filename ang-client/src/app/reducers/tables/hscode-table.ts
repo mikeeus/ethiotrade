@@ -1,26 +1,28 @@
 import { Action, ActionReducer } from '@ngrx/store';
+import { Hscode, AnnualTableFilter } from '../../models';
 
 export const SET_HSCODE_TABLE = "SET_HSCODE_TABLE";
-export const SET_HSCODE_PAGE = "SET_HSCODE_PAGE";
-export const SET_HSCODE_PAGE_LENGTH = "SET_HSCODE_PAGE_LENGTH";
 export const SET_HSCODE_TYPE = "SET_HSCODE_TYPE";
 export const SET_HSCODE_YEAR = "SET_HSCODE_YEAR";
+export const SET_HSCODE_PAGE = "SET_HSCODE_PAGE";
+export const SET_HSCODE_PAGE_LENGTH = "SET_HSCODE_PAGE_LENGTH";
+export const RESET_HSCODE_TABLE = "RESET_HSCODE_TABLE";
 
 class HscodeTable {
-  filter: {};
-  table: any[];
+  table: Hscode[];
   pages: number;
+  filter: AnnualTableFilter;
 }
 
 const initialState: HscodeTable = {
+  table: [],
+  pages: 1,
   filter: {
     page: 1,
-    page_length: 20,
+    pageLength: 20,
     type: 'Import',
     year: 2016,
   },
-  table: [],
-  pages: 1
 }
 
 export const HscodeTableReducer: ActionReducer<any> = (state = initialState, action: Action) => {
@@ -38,6 +40,9 @@ export const HscodeTableReducer: ActionReducer<any> = (state = initialState, act
       return (<any>Object).assign({}, state, {filter: {type: action.payload}});
     case SET_HSCODE_YEAR:
       return (<any>Object).assign({}, state, {filter: {year: action.payload}});      
+    // Reset table
+    case RESET_HSCODE_TABLE:
+      return initialState;
     default:
       return state;
   }
