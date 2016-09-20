@@ -1,5 +1,5 @@
 import { Action, ActionReducer } from '@ngrx/store';
-import { Hscode, AnnualTableFilter, HscodeTableData } from '../../models';
+import { Hscode, HscodeTableData } from '../../models';
 
 export const SET_HSCODE_TABLE = "SET_HSCODE_TABLE";
 export const RESET_HSCODE_TABLE = "RESET_HSCODE_TABLE";
