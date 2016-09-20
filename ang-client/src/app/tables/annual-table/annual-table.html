@@ -3,8 +3,9 @@
     <h2 class="panel-title text-center">Records</h2>
   </div>
   <div class="panel-body">
-
+    TABLEFILTER: {{ filter | json }}
     <annual-table-settings
+      [filter]="filter"
     ></annual-table-settings>
 
     <table class="table table-striped table-hover ">
@@ -39,5 +40,11 @@
       </tbody>
     </table> 
 
+    <div class="panel-footer">
+      <span *ngFor="let page of filter.pages"
+        class="pagination">
+        {{ page }}
+      </span>
+    </div>
   </div>
 </div>

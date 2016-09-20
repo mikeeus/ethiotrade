@@ -6,17 +6,21 @@ export const SET_TABLE_PAGE_LENGTH = "SET_TABLE_PAGE_LENGTH";
 export const SET_TABLE_TYPE = "SET_TABLE_TYPE";
 export const SET_TABLE_YEAR = "SET_TABLE_YEAR";
 export const RESET_TABLE_FILTER = "RESET_TABLE_FILTER";
+export const SET_TABLE_FILTER = "SET_TABLE_FILTER";
 
 const initialState: AnnualTableFilter = {
+  type: 'Imports',
+  year: 2016,
   page: 1,
-  pageLength: 20,
-  type: 'Import',
-  year: 2016
+  pages: [1],
+  pageLength: 10
 }
 
 export const AnnualTableFilterReducer: ActionReducer<AnnualTableFilter> = (state: AnnualTableFilter = initialState, action: Action) => {
   switch (action.type) {
     // Sets the table filters, which should then dispatch SET_HSCODE_TABLE
+    case SET_TABLE_FILTER:
+      return action.payload;
     case SET_TABLE_TYPE:
       return (<any>Object).assign({}, state, {type: action.payload});
     case SET_TABLE_YEAR:

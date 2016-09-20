@@ -1,37 +1,54 @@
+SETTINGS: {{ filter |json }}
 <ul class="nav nav-tabs nav-justified">
  
   <!-- Year -->
   <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="https://bootswatch.com/paper/#" aria-expanded="false">
-      Year <span class="caret"></span>
+    <a class="dropdown-toggle" data-toggle="dropdown" href aria-expanded="false">
+      {{ filter.year }} <span class="caret"></span>
     </a>
-    <ul class="dropdown-menu">
-      <li><a href="https://bootswatch.com/paper/#dropdown1" data-toggle="tab">Action</a></li>
-      <li class="divider"></li>
-      <li><a href="https://bootswatch.com/paper/#dropdown2" data-toggle="tab">Another action</a></li>
+    <ul class="dropdown-menu scrollable-menu">
+      <li *ngFor="let year of YEARS">
+        <a href (click)="$event.preventDefault()"
+           (click)="setFilter('YEAR', year)"
+           *ngIf="year!=filter.year">
+          {{ year }}
+        </a>
+      </li>
     </ul>
   </li>
 
   <!--Type Import/Export -->
   <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="https://bootswatch.com/paper/#" aria-expanded="false">
-      Import <span class="caret"></span>
+    <a href class="dropdown-toggle" data-toggle="dropdown"aria-expanded="false">
+      {{ filter.type }} <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
-      <li><a href="https://bootswatch.com/paper/#dropdown1" data-toggle="tab">Export</a></li>
+      <li *ngFor="let type of types">
+        <a href (click)="$event.preventDefault()"
+           (click)="setFilter('TYPE', type)"        
+           *ngIf="type != filter.type">
+          {{ type }}
+        </a>
+      </li>
     </ul>
   </li>
 
   <!--Page Length-->
   <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="https://bootswatch.com/paper/#" aria-expanded="false">
-      Page Length <span class="caret"></span>
+    <a href class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+      Page Length: {{ filter.pageLength }} <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
-      <li><a href="https://bootswatch.com/paper/#dropdown1" data-toggle="tab">Action</a></li>
-      <li class="divider"></li>
-      <li><a href="https://bootswatch.com/paper/#dropdown2" data-toggle="tab">Another action</a></li>
+      <li *ngFor="let length of pageLengths">
+        <a href (click)="$event.preventDefault()"
+           (click)="setFilter('PAGELENGTH', length)"        
+           *ngIf="length!=filter.pageLength">
+          {{ length }}
+        </a>
+      </li>
     </ul>
   </li>
+
+  <!-- Can put in a search filter too -->
 
 </ul>

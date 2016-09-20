@@ -11,7 +11,7 @@ import { TableService } from '../../tables';
 import { GET_HSCODE, GET_RELATED_CODES } from '../../reducers/hscode-detail';
 import { LOAD_HSCODE_CHART } from '../../reducers/charts';
 import { SET_HSCODE_TABLE, RESET_HSCODE_TABLE,
-  SET_TABLE_TYPE, SET_TABLE_YEAR, SET_TABLE_PAGE, SET_TABLE_PAGE_LENGTH, RESET_TABLE_FILTER } from '../../reducers/tables';
+  SET_TABLE_TYPE, SET_TABLE_YEAR, SET_TABLE_PAGE, SET_TABLE_PAGE_LENGTH, SET_TABLE_FILTER, RESET_TABLE_FILTER } from '../../reducers/tables';
 
 @Component({
   selector: 'hscode-detail',
@@ -27,6 +27,7 @@ export class HscodeDetail implements OnInit {
 
   code: number;
   description: string;
+  hsParams;
   
   constructor(
     private store: Store<any>,
@@ -62,14 +63,15 @@ export class HscodeDetail implements OnInit {
       // Get table data
       // Reset filter, then call service to get table
       // Subscribe to the table filter, call service, dispatch table
+      this.store.dispatch({type: RESET_TABLE_FILTER});
       this.tableFilter.subscribe(filter => {
-        let hsParams = {code: code, filter: filter}
-        this.tableService.getHscodeTable(hsParams)
+        this.hsParams = {code: code, filter: filter}
+      });
+      this.tableService.getHscodeTable(this.hsParams)
           .subscribe(res => {
             this.store.dispatch({ type: SET_HSCODE_TABLE, payload: {table: res.table, pages: res.pages} });
+            this.store.dispatch({ type: SET_TABLE_FILTER, payload: res.filter })
           });
-      })
-      this.store.dispatch({type: RESET_TABLE_FILTER});
 
     });
   }

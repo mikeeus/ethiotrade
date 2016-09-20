@@ -55,10 +55,18 @@ class HscodesController < ApplicationController
       @pages = (full_table.count / page_length).ceil
     end
 
+    pages_array = []
+    start = 1
+    @pages.times do
+      pages_array << start
+      start += 1
+    end
+
     render json: {
       table: @table,
-      pages: @pages,
+      pages: pages_array,
       filter: {
+        pages: pages_array,    
         type: type,
         year: year,
         page: page,

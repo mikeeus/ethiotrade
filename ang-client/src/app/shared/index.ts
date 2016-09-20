@@ -1,1 +1,1 @@
-export { YEARS, YEARS_NAV, COUNTRIES } from './constants';
+export { YEARS, YEARS_DESC, COUNTRIES } from './constants';

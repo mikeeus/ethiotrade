@@ -7,7 +7,8 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class AnnualTable implements OnInit {
   @Input() hscodeTable;
-
+  @Input() filter;
+  @Input() pagination;
   constructor() { }
 
   ngOnInit() {

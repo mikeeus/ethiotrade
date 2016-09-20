@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing, appRoutingProviders } from './app.routes';
 // Vendors
-import { DropdownModule, CollapseModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { DropdownModule, CollapseModule, TabsModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 // App Components
 import { App } from './app';
@@ -54,7 +54,8 @@ import { CountryDetail } from './country';
     // ng2-bootstrap/ng2-charts modules
     DropdownModule,
     CollapseModule,
-    ChartsModule
+    ChartsModule,
+    TabsModule
   ],
   providers: [
     appRoutingProviders,
