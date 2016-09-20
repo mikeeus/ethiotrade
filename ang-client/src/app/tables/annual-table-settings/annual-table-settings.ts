@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { HscodeParams, AnnualTableFilter } from '../../models';
+import { HscodeParams, AnnualTableFilter, filterSet } from '../../models';
 import { YEARS_DESC } from '../../shared';
 
 @Component({
@@ -11,7 +11,7 @@ export class AnnualTableSettings implements OnInit {
   // Params are input
   @Input() filter;
   // New params are output  
-  @Output() onSetFilter: EventEmitter<changeFilter> = new EventEmitter<changeFilter>();
+  @Output() setFilter: EventEmitter<filterSet> = new EventEmitter<filterSet>();
   YEARS = YEARS_DESC;
   pageLengths: number[] = [10,20,50,100];
   types: string[] = ['Imports', 'Exports'];
@@ -21,15 +21,9 @@ export class AnnualTableSettings implements OnInit {
   ngOnInit() {
   }
 
-  setFilter(filter, value) {
+  onSetFilter(filter, value) {
     let change = {filter: filter, value: value}
-    // this.onSetFilter.emit(change);
-    console.log(change);
+    this.setFilter.emit(change);
   }
 
-}
-
-interface changeFilter {
-  filter: string;
-  value: string;
 }

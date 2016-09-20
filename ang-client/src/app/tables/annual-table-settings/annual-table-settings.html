@@ -9,7 +9,7 @@ SETTINGS: {{ filter |json }}
     <ul class="dropdown-menu scrollable-menu">
       <li *ngFor="let year of YEARS">
         <a href (click)="$event.preventDefault()"
-           (click)="setFilter('YEAR', year)"
+           (click)="onSetFilter('YEAR', year)"
            *ngIf="year!=filter.year">
           {{ year }}
         </a>
@@ -25,7 +25,7 @@ SETTINGS: {{ filter |json }}
     <ul class="dropdown-menu">
       <li *ngFor="let type of types">
         <a href (click)="$event.preventDefault()"
-           (click)="setFilter('TYPE', type)"        
+           (click)="onSetFilter('TYPE', type)"        
            *ngIf="type != filter.type">
           {{ type }}
         </a>
@@ -41,7 +41,7 @@ SETTINGS: {{ filter |json }}
     <ul class="dropdown-menu">
       <li *ngFor="let length of pageLengths">
         <a href (click)="$event.preventDefault()"
-           (click)="setFilter('PAGELENGTH', length)"        
+           (click)="onSetFilter('PAGELENGTH', length)"        
            *ngIf="length!=filter.pageLength">
           {{ length }}
         </a>

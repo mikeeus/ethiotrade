@@ -1,7 +1,11 @@
-export { HscodeData } from './hscode-data';
+// Hscode
 export { Hscode } from './hscode';
+export { HscodeData } from './hscode-data';
+// Country
 export { CountryData } from './country-data';
+// Chart
 export { AnnualChartData } from './annual-chart-data';
-export { HscodeParams, CountryParams } from './table-params';
-export { AnnualTableFilter } from './annual-table-filter';
+// Table
 export { HscodeTableData } from './hscode-table-data';
+export { HscodeParams, CountryParams } from './table-params';
+export { AnnualTableFilter, filterSet } from './annual-table-filter';

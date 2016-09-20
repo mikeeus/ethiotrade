@@ -5,3 +5,8 @@ export interface AnnualTableFilter {
   pages: number[],
   pageLength: number;
 }
+
+export interface filterSet {
+  filter: string;
+  value: any;
+}

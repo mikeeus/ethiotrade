@@ -6,6 +6,7 @@
     TABLEFILTER: {{ filter | json }}
     <annual-table-settings
       [filter]="filter"
+      (setFilter)="setFilter.emit($event)"
     ></annual-table-settings>
 
     <table class="table table-striped table-hover ">
