@@ -1,5 +1,5 @@
 import { Action, ActionReducer } from '@ngrx/store';
-import { Hscode, AnnualTableFilter } from '../../models';
+import { Hscode, AnnualTableFilter, HscodeTableData } from '../../models';
 
 export const SET_HSCODE_TABLE = "SET_HSCODE_TABLE";
 export const SET_HSCODE_TYPE = "SET_HSCODE_TYPE";
@@ -8,13 +8,7 @@ export const SET_HSCODE_PAGE = "SET_HSCODE_PAGE";
 export const SET_HSCODE_PAGE_LENGTH = "SET_HSCODE_PAGE_LENGTH";
 export const RESET_HSCODE_TABLE = "RESET_HSCODE_TABLE";
 
-class HscodeTable {
-  table: Hscode[];
-  pages: number;
-  filter: AnnualTableFilter;
-}
-
-const initialState: HscodeTable = {
+const initialState: HscodeTableData = {
   table: [],
   pages: 1,
   filter: {
@@ -25,7 +19,7 @@ const initialState: HscodeTable = {
   },
 }
 
-export const HscodeTableReducer: ActionReducer<any> = (state = initialState, action: Action) => {
+export const HscodeTableReducer: ActionReducer<HscodeTableData> = (state: HscodeTableData = initialState, action: Action) => {
   switch (action.type) {
     // Sets the table's data and get's total number of pages
     case SET_HSCODE_TABLE:

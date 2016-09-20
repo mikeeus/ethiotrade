@@ -13,7 +13,7 @@ import { GET_HSCODE, GET_RELATED_CODES } from '../../reducers/hscode-detail';
 import { LOAD_HSCODE_CHART } from '../../reducers/charts';
 
 @Component({
-  selector: 'app-hscode',
+  selector: 'hscode-detail',
   templateUrl: './hscode-detail.html',
   styleUrls: ['./hscode-detail.scss']
 })

@@ -3,7 +3,8 @@ export { HscodeTableReducer,
          SET_HSCODE_PAGE,
          SET_HSCODE_PAGE_LENGTH,
          SET_HSCODE_TYPE,
-         SET_HSCODE_YEAR } from './hscode-table';
+         SET_HSCODE_YEAR,
+         RESET_HSCODE_TABLE } from './hscode-table';
 
 export { CountryTableReducer,
          SET_COUNTRY_TABLE,
