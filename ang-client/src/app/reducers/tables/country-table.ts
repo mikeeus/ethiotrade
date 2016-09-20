@@ -1,43 +1,22 @@
 import { Action, ActionReducer } from '@ngrx/store';
+import { Country, CountryTableData } from '../../models';
 
 export const SET_COUNTRY_TABLE = "SET_COUNTRY_TABLE";
-export const SET_COUNTRY_PAGE = "SET_COUNTRY_PAGE";
-export const SET_COUNTRY_PAGE_LENGTH = "SET_COUNTRY_PAGE_LENGTH";
-export const SET_COUNTRY_TYPE = "SET_COUNTRY_TYPE";
-export const SET_COUNTRY_YEAR = "SET_COUNTRY_YEAR";
+export const RESET_COUNTRY_TABLE = "RESET_COUNTRY_TABLE";
 
-class CountryTable {
-  filter: {};
-  table: any[];
-  pages: number;
-}
-
-const initialState: CountryTable = {
-  filter: {
-    page: 1,
-    page_length: 20,
-    type: 'Import',
-    year: 2016,
-  },
+const initialState: CountryTableData = {
   table: [],
-  pages: 1
+  pages: [1]
 }
 
-export const CountryTableReducer: ActionReducer<any> = (state = initialState, action: Action) => {
+export const CountryTableReducer: ActionReducer<CountryTableData> = (state: CountryTableData = initialState, action: Action) => {
   switch (action.type) {
     // Sets the table's data and get's total number of pages
     case SET_COUNTRY_TABLE:
-      return (<any>Object).assign({}, state, {table: action.payload.table, pages: action.payload.pages});
-
-    // Sets the table filters, which should then dispatch SET_COUNTRY_TABLE
-    case SET_COUNTRY_PAGE:
-      return (<any>Object).assign({}, state, {filter: {page: action.payload}});
-    case SET_COUNTRY_PAGE_LENGTH:
-      return (<any>Object).assign({}, state, {filter: {page_length: action.payload}});
-    case SET_COUNTRY_TYPE:
-      return (<any>Object).assign({}, state, {filter: {type: action.payload}});
-    case SET_COUNTRY_YEAR:
-      return (<any>Object).assign({}, state, {filter: {year: action.payload}});      
+      return (<any>Object).assign({}, state, {table: action.payload.table, pages: action.payload.pages});    
+    // Reset table
+    case RESET_COUNTRY_TABLE:
+      return initialState;
     default:
       return state;
   }
