@@ -27,7 +27,7 @@ export const AnnualTableFilterReducer: ActionReducer<AnnualTableFilter> = (state
     case SET_TABLE_PAGE:
       return (<any>Object).assign({}, state, {page: action.payload});
     case SET_TABLE_PAGELENGTH:
-      return (<any>Object).assign({}, state, {pageLength: action.payload});
+      return (<any>Object).assign({}, state, {pageLength: action.payload, page: 1});
     case RESET_TABLE_FILTER:
       return initialState;
     default:
