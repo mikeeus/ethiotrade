@@ -16,9 +16,7 @@ export class AnnualTable implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.annualTable.subscribe(res => {
-      this.setPages(this.filter.page);
-    });      
+    this.setPages(this.filter.page);
   }
 
   changePage(page){

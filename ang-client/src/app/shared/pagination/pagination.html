@@ -1,0 +1,11 @@
+<div class="btn-toolbar">
+  <div class="btn-group">
+    <a href *ngFor="let page of pageList"
+        (click)="$event.preventDefault()"
+        (click)="onChangePage(page)"
+        class="btn btn-primary"
+        [ngClass]="{ 'current-page': page == currentPage }">
+        {{ page }}
+    </a>
+  </div> <!--btn-group-->
+</div> <!--btn-toolbar-->

@@ -22,6 +22,8 @@
         </tr>
 
       </thead>
+      
+      <!--IF TABLE TYPE IS HSCODES-->
       <tbody *ngIf="tableType == 'HSCODES'">
         <!--If there are no records-->
         <tr *ngIf="annualTable.table.length == 0">
@@ -47,6 +49,7 @@
         </tr>
       </tbody>
 
+      <!--IF TABLE TYPE IS COUNTRIES-->
       <tbody *ngIf="tableType == 'COUNTRIES'">
         <!--If there are no records-->
         <tr *ngIf="annualTable.table.length == 0">
@@ -74,17 +77,11 @@
   </div> <!--div.panel-body-->
 
   <div class="panel-footer">
-    <!--Pagination-->
-    <div class="btn-toolbar">
-      <div class="btn-group">
-        <a href *ngFor="let page of pageList"
-            (click)="$event.preventDefault()"
-            (click)="changePage(page)"
-            class="btn btn-primary"
-            [ngClass]="{'current-page': page==filter.page}">
-            {{ page }}
-        </a>
-      </div> <!--btn-group-->
-    </div> <!--btn-toolbar-->
+    <!--PAGINATION-->
+    <pagination 
+      [pageList]="pageList"
+      [currentPage]="filter.page"
+      (changePage)="changePage($event)"></pagination>
   </div> <!--div.panel-footer-->
+
 </div> <!-- div.panel -->
