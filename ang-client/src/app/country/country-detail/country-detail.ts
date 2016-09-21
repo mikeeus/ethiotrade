@@ -9,7 +9,7 @@ import { Hscode, AnnualChartData, CountryTableData, CountryParams, AnnualTableFi
 import { ChartService } from '../../charts';
 import { TableService, TableHelpers } from '../../tables';
 // Reducer ACtions
-// import { SET_COUNTRY_TABLE, RESET_HSCODE_TABLE, RESET_TABLE_FILTER } from '../../reducers/tables';
+import { SET_COUNTRY_TABLE, RESET_HSCODE_TABLE, RESET_TABLE_FILTER } from '../../reducers/tables';
 
 @Component({
   selector: 'country-detail',
@@ -33,10 +33,21 @@ export class CountryDetail implements OnInit {
 
   ngOnInit() {
     this.countryDetail = this.store.select('countryDetail');
+    this.countryChart = this.store.select('countryChart');
+
+    this.route.params.subscribe(params => {
+      let country = params['country'];
+      this.chartService.getCountryChart(country).subscribe(res => {
+        console.log(res);
+        this.store.dispatch({type: SET_COUNTRY_TABLE, payload: res});
+      });
+    });
+
   }
 
   setFilter(change: filterSet) {
-    this.tH.setFilter(change);
+    let dispatch = this.tH.setFilter(change);
+    this.store.dispatch(dispatch);
   }
 
 }

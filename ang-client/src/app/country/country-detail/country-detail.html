@@ -8,6 +8,7 @@
 
   <!--Chart-->
   <div class="col-sm-8">
+    data: {{ countryChart | async }}
     <annual-chart [chartData]="countryChart | async"></annual-chart>
   </div>
 </div>

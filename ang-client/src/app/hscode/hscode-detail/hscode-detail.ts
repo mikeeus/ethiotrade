@@ -81,7 +81,8 @@ export class HscodeDetail implements OnInit {
   }
 
   setFilter(change: filterSet) {
-    this.tH.setFilter(change);
+    let dispatch = this.tH.setFilter(change);
+    this.store.dispatch(dispatch);
   }
 
 }
