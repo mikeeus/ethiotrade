@@ -51,6 +51,7 @@ export class CountryDetail implements OnInit {
         let cParams = {country: country, filter: filter};
         this.tableService.getHscodeTable(cParams)
           .subscribe(res => {
+            console.log(res);
             this.store.dispatch({ type: SET_COUNTRY_TABLE, payload: {table: res.table, pages: res.pages} });
           });
       });
