@@ -2,8 +2,16 @@
   <div class="panel-heading">
     <h2 class="panel-title text-center">Records</h2>
   </div>
+    <!--PAGINATION-->
+
 
   <div class="panel-body">
+    <div class="pagination-wrapper text-center">
+      <pagination 
+        [pageList]="annualTable.pages"
+        [currentPage]="filter.page"
+        (changePage)="changePage($event)"></pagination>
+    </div>
 
     <annual-table-settings
       [filter]="filter"
@@ -78,10 +86,13 @@
 
   <div class="panel-footer">
     <!--PAGINATION-->
-    <pagination 
-      [pageList]="annualTable.pages"
-      [currentPage]="filter.page"
-      (changePage)="changePage($event)"></pagination>
+    <div class="pagination-wrapper text-center"
+      *ngIf="filter.pageLength > 10">
+      <pagination 
+        [pageList]="annualTable.pages"
+        [currentPage]="filter.page"
+        (changePage)="changePage($event)"></pagination>
+    </div>
   </div> <!--div.panel-footer-->
 
 </div> <!-- div.panel -->
