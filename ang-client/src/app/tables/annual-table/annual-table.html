@@ -64,15 +64,13 @@
           <td class="text-center">No {{ filter.type | lowercase }} for this year.</td>
         </tr>
         <tr *ngFor="let record of annualTable.table">
-          <td *ngIf="filter.type == 'Imports'">
-            {{ record.code }}</td>
-          <td *ngIf="filter.type == 'Imports'">
-            {{ record.description }}</td>
+          <td>{{ record.code }}</td>
+          <td>{{ record.description }}</td>
           <!--If Imports-->
           <td *ngIf="filter.type == 'Imports'">
             {{ record.cif_usd | currency:'USD':true:'1.2-2'}}</td>
           <td *ngIf="filter.type == 'Imports'">
-            {{ record.cif_etb | currency:'ETB':true:'1.2-2'}}</td>               
+            {{ record.cif_etb | currency:'ETB':true:'1.2-2'}}</td>
           <!--If Exports-->
           <td *ngIf="filter.type == 'Exports'">
             {{ record.fob_usd | currency:'USD':true:'1.2-2'}}</td>

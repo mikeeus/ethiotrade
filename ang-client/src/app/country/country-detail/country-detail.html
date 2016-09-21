@@ -1,23 +1,27 @@
-<!--Country Name-->
+<div class="container-fluid">
 
-<div class="row">
-  <!--Stats-->
-  <div class="well col-sm-4">
+  <!--Country Name-->
 
+  <div class="row">
+    <!--Stats-->
+    <div class="well col-sm-4">
+
+    </div>
+
+    <!--Chart-->
+    <div class="col-sm-8">
+      <annual-chart [chartData]="countryChart | async"></annual-chart>
+    </div>
   </div>
 
-  <!--Chart-->
-  <div class="col-sm-8">
-    <annual-chart [chartData]="countryChart | async"></annual-chart>
-  </div>
-</div>
+  <!--Table-->
+  <div class="row country-table">
+      <annual-table 
+        [annualTable]="countryTable | async"
+        [tableType]="tableType"
+        [filter]="tableFilter | async"
+        (setFilter)="setFilter($event)"></annual-table>
 
-<!--Table-->
-<div class="row country-table">
-    <annual-table 
-      [annualTable]="countryTable | async"
-      [tableType]="tableType"
-      [filter]="tableFilter | async"
-      (setFilter)="setFilter($event)"></annual-table>
+  </div>
 
 </div>
