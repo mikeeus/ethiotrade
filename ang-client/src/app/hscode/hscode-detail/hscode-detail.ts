@@ -3,15 +3,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 // Models
-import { Hscode, AnnualChartData, HscodeTableData, HscodeParams, AnnualTableFilter, filterSet } from '../../models';
+import { Hscode, AnnualChartData, AnnualTableData, HscodeParams, AnnualTableFilter, filterSet } from '../../models';
 // Hscode, Chart and Table
 import { HscodeService } from '../hscode.service';
 import { AnnualChart, ChartService } from '../../charts';
 import { TableService, TableHelpers } from '../../tables';
 // Reducer actions
 import { GET_HSCODE, GET_RELATED_CODES } from '../../reducers/hscode-detail';
-import { LOAD_HSCODE_CHART } from '../../reducers/charts';
-import { SET_HSCODE_TABLE, RESET_HSCODE_TABLE, RESET_TABLE_FILTER } from '../../reducers/tables';
+import { SET_HSCODE_CHART, RESET_HSCODE_CHART } from '../../reducers/charts';
+import { AnnualTableReducer, RESET_TABLE_FILTER, RESET_ANNUAL_TABLE, SET_ANNUAL_TABLE } from '../../reducers/tables';
 
 @Component({
   selector: 'hscode-detail',
@@ -22,7 +22,7 @@ export class HscodeDetail implements OnInit {
   hscodeDetail: Observable<Hscode>;
   relatedCodes: Observable<Hscode[]>; 
   hscodeChart: Observable<AnnualChartData>;
-  hscodeTable: Observable<HscodeTableData>;
+  annualTable: Observable<AnnualTableData>;
   tableFilter: Observable<AnnualTableFilter>;
   tableType: string = 'HSCODES';
   
@@ -42,11 +42,11 @@ export class HscodeDetail implements OnInit {
     this.hscodeDetail = this.store.select('hscodeDetail');
     this.relatedCodes = this.store.select('relatedCodes');
     this.hscodeChart = this.store.select('hscodeChart');
-    this.hscodeTable = this.store.select('hscodeTable');
+    this.annualTable = this.store.select('annualTable');
     this.tableFilter = this.store.select('annualTableFilter');
    }
 
-  ngOnInit() {
+  ngOnInit() {   
     this.route.params.subscribe(params => {
       let code = +params['code'];
       // Get hscodeDetail, relatedCodes
@@ -60,14 +60,15 @@ export class HscodeDetail implements OnInit {
       // CHART
       this.chartService.getHscodeChart(code)
           .subscribe(res => {
-            this.store.dispatch({type: LOAD_HSCODE_CHART, payload: res})
+            this.store.dispatch({type: SET_HSCODE_CHART, payload: res})
           });
-      // TABLE
+      // Table
+      this.store.dispatch({type: RESET_ANNUAL_TABLE});   
       this.store.dispatch({type: RESET_TABLE_FILTER});
       this.tableFilter.subscribe(filter => {
         this.tableService.getHscodeTable(code, filter)
           .subscribe(res => {
-            this.store.dispatch({ type: SET_HSCODE_TABLE, payload: {table: res.table, pages: res.pages} });
+            this.store.dispatch({ type: SET_ANNUAL_TABLE, payload: {table: res.table, pages: res.pages} });
           });
       });
 

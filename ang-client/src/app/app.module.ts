@@ -15,8 +15,8 @@ import { ServiceHelpers } from './helpers';
 // State Management
 import { StoreModule } from '@ngrx/store';
 import { HomepageChartReducer, HscodeChartReducer, SearchResultsReducer, 
-  CountryDetailReducer, CountryChartReducer, CountryTableReducer,
-  HscodeDetailReducer, RelatedCodesReducer, HscodeTableReducer, 
+  CountryDetailReducer, CountryChartReducer, AnnualTableReducer,
+  HscodeDetailReducer, RelatedCodesReducer, 
   AnnualTableFilterReducer } from './reducers';
 // Search
 import { SearchService, Searchbar, SearchResults } from './search';
@@ -52,10 +52,9 @@ import { Pagination } from './shared';
       hscodeDetail: HscodeDetailReducer,
       relatedCodes: RelatedCodesReducer,
       hscodeChart: HscodeChartReducer,
-      hscodeTable: HscodeTableReducer,
       countryDetail: CountryDetailReducer,
       countryChart: CountryChartReducer,
-      countryTable: CountryTableReducer,
+      annualTable: AnnualTableReducer,
       annualTableFilter: AnnualTableFilterReducer
     }),
     // ng2-bootstrap/ng2-charts modules

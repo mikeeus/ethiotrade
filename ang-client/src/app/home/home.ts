@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { ChartService, AnnualChart } from '../charts';
 import { AnnualChartData } from '../models';
 // Reducer actions
-import { LOAD_HOMEPAGE_CHART } from '../reducers/charts';
+import { SET_HOMEPAGE_CHART, RESET_HOMEPAGE_CHART } from '../reducers/charts';
 
 @Component({
   selector: 'home',
@@ -21,10 +21,11 @@ export class Home implements OnInit {
   ) { }
 
   ngOnInit() { 
+    this.store.dispatch({type: RESET_HOMEPAGE_CHART});    
     // Initialize and subscribe to homepageChart store
     this.homepageChart = this.store.select('homepageChart');
     this.chartService.getHomepageChart().subscribe(res => {
-      this.store.dispatch({type: LOAD_HOMEPAGE_CHART, payload: res});
+      this.store.dispatch({type: SET_HOMEPAGE_CHART, payload: res});
     })
   }
 

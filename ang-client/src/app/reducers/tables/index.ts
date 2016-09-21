@@ -1,10 +1,6 @@
-export { HscodeTableReducer,
-         SET_HSCODE_TABLE,
-         RESET_HSCODE_TABLE } from './hscode-table';
-
-export { CountryTableReducer,
-         SET_COUNTRY_TABLE,
-         RESET_COUNTRY_TABLE } from './country-table';
+export { AnnualTableReducer,
+         SET_ANNUAL_TABLE,
+         RESET_ANNUAL_TABLE } from './annual-table';
 
 export {  AnnualTableFilterReducer,
   SET_TABLE_PAGE,
