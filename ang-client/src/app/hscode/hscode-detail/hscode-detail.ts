@@ -7,12 +7,11 @@ import { Hscode, AnnualChartData, HscodeTableData, HscodeParams, AnnualTableFilt
 // Hscode, Chart and Table
 import { HscodeService } from '../hscode.service';
 import { AnnualChart, ChartService } from '../../charts';
-import { TableService } from '../../tables';
+import { TableService, TableHelpers } from '../../tables';
 // Reducer actions
 import { GET_HSCODE, GET_RELATED_CODES } from '../../reducers/hscode-detail';
 import { LOAD_HSCODE_CHART } from '../../reducers/charts';
-import { SET_HSCODE_TABLE, RESET_HSCODE_TABLE,
-  SET_TABLE_TYPE, SET_TABLE_YEAR, SET_TABLE_PAGE, SET_TABLE_PAGELENGTH, SET_TABLE_FILTER, RESET_TABLE_FILTER } from '../../reducers/tables';
+import { SET_HSCODE_TABLE, RESET_HSCODE_TABLE, RESET_TABLE_FILTER } from '../../reducers/tables';
 
 @Component({
   selector: 'hscode-detail',
@@ -35,6 +34,7 @@ export class HscodeDetail implements OnInit {
     private hscodeService: HscodeService,
     private chartService: ChartService,
     private tableService: TableService,
+    private tH: TableHelpers,
     private route: ActivatedRoute,
     private router: Router
   ) {
@@ -81,22 +81,7 @@ export class HscodeDetail implements OnInit {
   }
 
   setFilter(change: filterSet) {
-    switch (change.filter) {
-      case "TYPE":
-        this.store.dispatch({ type: SET_TABLE_TYPE, payload: change.value });
-        break;    
-      case "YEAR":
-        this.store.dispatch({ type: SET_TABLE_YEAR, payload: change.value });
-        break;      
-      case "PAGE":
-        this.store.dispatch({ type: SET_TABLE_PAGE, payload: change.value });
-        break;      
-      case "PAGELENGTH":      
-        this.store.dispatch({ type: SET_TABLE_PAGELENGTH, payload: change.value });
-        break;
-      default:
-        break;
-    }
+    this.tH.setFilter(change);
   }
 
 }

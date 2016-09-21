@@ -14,14 +14,14 @@ import { Home } from './home';
 import { ServiceHelpers } from './helpers';
 // State Management
 import { StoreModule } from '@ngrx/store';
-import { HomepageChartReducer, HscodeChartReducer, SearchResultsReducer, HscodeDetailReducer, 
+import { HomepageChartReducer, HscodeChartReducer, SearchResultsReducer, HscodeDetailReducer, CountryDetailReducer,
   RelatedCodesReducer, HscodeTableReducer, AnnualTableFilterReducer } from './reducers';
 // Search
 import { SearchService, Searchbar, SearchResults } from './search';
 // Charts
 import { ChartService, AnnualChart } from './charts';
 // Tables
-import { AnnualTable, TableService, AnnualTableSettings } from './tables';
+import { AnnualTable, TableService, AnnualTableSettings, TableHelpers } from './tables';
 // Hscode
 import { HscodeDetail, HscodeService, TaxRates, RelatedCodes } from './hscode';
 import { CountryDetail } from './country';
@@ -49,6 +49,7 @@ import { CountryDetail } from './country';
       relatedCodes: RelatedCodesReducer,
       hscodeChart: HscodeChartReducer,
       hscodeTable: HscodeTableReducer,
+      countryDetail: CountryDetailReducer,
       annualTableFilter: AnnualTableFilterReducer
     }),
     // ng2-bootstrap/ng2-charts modules
@@ -63,7 +64,8 @@ import { CountryDetail } from './country';
     SearchService,
     ChartService,
     HscodeService,
-    TableService
+    TableService,
+    TableHelpers
   ],
   bootstrap: [App]
 })
