@@ -32,9 +32,22 @@ class CountriesController < ApplicationController
       @pages = (full_table.count.to_d / page_length).ceil
     end
 
+    pages_array = []
+    start = 1
+    @pages.times do
+      pages_array << start
+      start += 1
+    end
+
     render json: {
       table: @table,
-      pages: @pages
+      pages: pages_array,
+      filter: {
+        type: type,
+        year: year,
+        page: page,
+        pageLength: page_length
+      }
     }
   end
 

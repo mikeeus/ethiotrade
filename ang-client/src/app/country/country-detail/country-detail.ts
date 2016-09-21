@@ -42,6 +42,17 @@ export class CountryDetail implements OnInit {
       this.chartService.getCountryChart(country).subscribe(res => {
         this.store.dispatch({type: SET_COUNTRY_CHART, payload: res});
       });
+
+      // TABLE
+      this.store.dispatch({type: RESET_TABLE_FILTER});
+      this.tableFilter.subscribe(filter => {
+        let cParams = {country: country, filter: filter};
+        this.tableService.getHscodeTable(cParams)
+          .subscribe(res => {
+            this.store.dispatch({ type: SET_COUNTRY_TABLE, payload: {table: res.table, pages: res.pages} });
+          });
+      });
+
     });
 
   }
