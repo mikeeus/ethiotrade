@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { ServiceHelpers } from '../helpers';
-import { HscodeParams, CountryParams } from '../models';
+import { HscodeParams, CountryParams, AnnualTableFilter } from '../models';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -24,7 +24,6 @@ export class TableService {
         .map(this.sH.getJson)
         .catch(this.sH.handleError)
   }
-
   getCountryTable(country, filter): Observable<any> {
     let path = this.getPath(this.countryUrl, country, filter);
     return this.http.get(path)
@@ -35,11 +34,5 @@ export class TableService {
   // Get path
   getPath(baseUrl:string, identifier, filter) {
     return `${baseUrl}/${identifier}/${filter.type}/${filter.year}/${filter.page}/${filter.pageLength}`
-  }
-  getHscodeUrl(params) {
-    return `${this.hscodeUrl}/${params.code}/tables/${params.filter.type}/${params.filter.year}/${params.filter.page}/${params.filter.pageLength}`
-  }
-  getCountryUrl(params) {
-    return `${this.countryUrl}/${params.country}/tables/${params.filter.type}/${params.filter.year}/${params.filter.page}/${params.filter.pageLength}`
   }
 }
