@@ -9,6 +9,7 @@ import { Hscode, AnnualChartData, CountryTableData, CountryParams, AnnualTableFi
 import { ChartService } from '../../charts';
 import { TableService, TableHelpers } from '../../tables';
 // Reducer ACtions
+import { SET_COUNTRY_CHART } from '../../reducers/charts';
 import { SET_COUNTRY_TABLE, RESET_HSCODE_TABLE, RESET_TABLE_FILTER } from '../../reducers/tables';
 
 @Component({
@@ -35,11 +36,11 @@ export class CountryDetail implements OnInit {
     this.countryDetail = this.store.select('countryDetail');
     this.countryChart = this.store.select('countryChart');
 
+    // Chart
     this.route.params.subscribe(params => {
       let country = params['country'];
       this.chartService.getCountryChart(country).subscribe(res => {
-        console.log(res);
-        this.store.dispatch({type: SET_COUNTRY_TABLE, payload: res});
+        this.store.dispatch({type: SET_COUNTRY_CHART, payload: res});
       });
     });
 
