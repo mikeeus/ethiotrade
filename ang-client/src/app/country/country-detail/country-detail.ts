@@ -48,8 +48,7 @@ export class CountryDetail implements OnInit {
       // TABLE
       this.store.dispatch({type: RESET_TABLE_FILTER});
       this.tableFilter.subscribe(filter => {
-        let cParams = {country: country, filter: filter};
-        this.tableService.getHscodeTable(cParams)
+        this.tableService.getCountryTable(country, filter)
           .subscribe(res => {
             console.log(res);
             this.store.dispatch({ type: SET_COUNTRY_TABLE, payload: {table: res.table, pages: res.pages} });

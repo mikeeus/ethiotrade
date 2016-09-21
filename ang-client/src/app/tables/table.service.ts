@@ -10,33 +10,36 @@ import 'rxjs/add/operator/catch';
 export class TableService {
   // /api/hscodes/:code/tables/:type/:year/:page/:pageLength
   // /api/countries/:country/tables/:type/:year/:page/:pageLength  
-  private hscodeUrl: string = '/api/hscodes';
-  private countryUrl: string = '/api/countries';  
+  private hscodeUrl: string = '/api/tables/hscodes';
+  private countryUrl: string = '/api/tables/countries';  
 
   constructor(
     private http: Http,
     private sH: ServiceHelpers
   ) { }
 
-  getHscodeTable(params): Observable<any> {
-    let path = this.getHscodeUrl(params);
+  getHscodeTable(code, filter): Observable<any> {
+    let path = this.getPath(this.countryUrl, code, filter);
     return this.http.get(path)
         .map(this.sH.getJson)
         .catch(this.sH.handleError)
   }
 
-  getCountryTable(params): Observable<any> {
-    let path = this.getCountryUrl(params);
+  getCountryTable(country, filter): Observable<any> {
+    let path = this.getPath(this.countryUrl, country, filter);
     return this.http.get(path)
         .map(this.sH.getJson)
         .catch(this.sH.handleError)
   }
 
   // Get path
+  getPath(baseUrl:string, identifier, filter) {
+    return `${baseUrl}/${identifier}/${filter.type}/${filter.year}/${filter.page}/${filter.pageLength}`
+  }
   getHscodeUrl(params) {
     return `${this.hscodeUrl}/${params.code}/tables/${params.filter.type}/${params.filter.year}/${params.filter.page}/${params.filter.pageLength}`
   }
   getCountryUrl(params) {
-    return `${this.hscodeUrl}/${params.country}/tables/${params.filter.type}/${params.filter.year}/${params.filter.page}/${params.filter.pageLength}`
+    return `${this.countryUrl}/${params.country}/tables/${params.filter.type}/${params.filter.year}/${params.filter.page}/${params.filter.pageLength}`
   }
 }

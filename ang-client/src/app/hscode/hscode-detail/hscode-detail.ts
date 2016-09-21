@@ -64,8 +64,7 @@ export class HscodeDetail implements OnInit {
       // TABLE
       this.store.dispatch({type: RESET_TABLE_FILTER});
       this.tableFilter.subscribe(filter => {
-        this.hsParams = {code: code, filter: filter};
-        this.tableService.getHscodeTable(this.hsParams)
+        this.tableService.getHscodeTable(code, filter)
           .subscribe(res => {
             this.store.dispatch({ type: SET_HSCODE_TABLE, payload: {table: res.table, pages: res.pages} });
           });
