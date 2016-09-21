@@ -51,7 +51,6 @@ export class CountryDetail implements OnInit {
       this.tableFilter.subscribe(filter => {
         this.tableService.getCountryTable(country, filter)
           .subscribe(res => {
-            console.log(res);
             this.store.dispatch({ type: SET_COUNTRY_TABLE, payload: {table: res.table, pages: res.pages} });
           });
       });
