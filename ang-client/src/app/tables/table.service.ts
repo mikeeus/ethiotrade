@@ -19,7 +19,7 @@ export class TableService {
   ) { }
 
   getHscodeTable(code, filter): Observable<any> {
-    let path = this.getPath(this.countryUrl, code, filter);
+    let path = this.getPath(this.hscodeUrl, code, filter);
     return this.http.get(path)
         .map(this.sH.getJson)
         .catch(this.sH.handleError)

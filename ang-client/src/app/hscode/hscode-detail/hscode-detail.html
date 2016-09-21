@@ -24,6 +24,7 @@
   
   <annual-table 
     [annualTable]="hscodeTable | async"
+    [tableType]="tableType"
     [filter]="tableFilter | async"
     (setFilter)="setFilter($event)"></annual-table>
 

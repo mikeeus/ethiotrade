@@ -24,7 +24,8 @@ export class HscodeDetail implements OnInit {
   hscodeChart: Observable<AnnualChartData>;
   hscodeTable: Observable<HscodeTableData>;
   tableFilter: Observable<AnnualTableFilter>;
-
+  tableType: string = 'HSCODES';
+  
   code: number;
   description: string;
   hsParams;
