@@ -34,7 +34,9 @@ export class CountryDetail implements OnInit {
 
   ngOnInit() {
     this.countryDetail = this.store.select('countryDetail');
+    this.countryTable = this.store.select('countryTable');
     this.countryChart = this.store.select('countryChart');
+    this.tableFilter = this.store.select('annualTableFilter');
 
     // Chart
     this.route.params.subscribe(params => {
