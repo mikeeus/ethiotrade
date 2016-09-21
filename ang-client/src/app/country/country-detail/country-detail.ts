@@ -22,6 +22,7 @@ export class CountryDetail implements OnInit {
   countryChart: Observable<any>;
   countryTable: Observable<any>;
   tableFilter: Observable<any>;  
+  tableType: string = "COUNTRIES";
 
   constructor(
     private store: Store<any>,

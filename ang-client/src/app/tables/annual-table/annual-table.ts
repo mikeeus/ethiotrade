@@ -7,7 +7,8 @@ import { filterSet } from '../../models';
   styleUrls: ['./annual-table.scss']
 })
 export class AnnualTable implements OnInit {
-  @Input() hscodeTable;
+  @Input() annualTable;
+  @Input() tableType;
   @Input() filter;
   @Input() pagination;
   @Output() setFilter: EventEmitter<filterSet> = new EventEmitter<filterSet>();

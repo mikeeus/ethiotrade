@@ -15,7 +15,8 @@
 <!--Table-->
 <div class="row country-table">
     <annual-table 
-      [hscodeTable]="countryTable | async"
+      [annualTable]="countryTable | async"
+      [tableType]="tableType"
       [filter]="tableFilter | async"
       (setFilter)="setFilter($event)"></annual-table>
 
