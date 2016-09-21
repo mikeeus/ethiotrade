@@ -13,7 +13,10 @@
 </div>
 
 <!--Table-->
-<div class="row">
-  Table: {{ countryTable | async | json }}
+<div class="row country-table">
+    <annual-table 
+      [hscodeTable]="countryTable | async"
+      [filter]="tableFilter | async"
+      (setFilter)="setFilter($event)"></annual-table>
 
 </div>
