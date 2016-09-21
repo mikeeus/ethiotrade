@@ -77,7 +77,7 @@
     <!--Pagination-->
     <div class="btn-toolbar">
       <div class="btn-group">
-        <a href *ngFor="let page of annualTable.pages"
+        <a href *ngFor="let page of pageList"
             (click)="$event.preventDefault()"
             (click)="changePage(page)"
             class="btn btn-primary"
