@@ -8,7 +8,11 @@
 
   <!--Chart-->
   <div class="col-sm-8">
-    <annual-chart [chartData]="countryChart | async"></annual-chart>
+    <annual-chart 
+      [chartData]="countryChart | async"
+      [filter]="tableFilter | assync"
+      (setFilter)="setFilter($event)"
+      ></annual-chart>
   </div>
 </div>
 

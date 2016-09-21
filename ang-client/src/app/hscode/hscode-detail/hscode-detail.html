@@ -20,7 +20,11 @@
 </div>
 
 <!-- Hscode Table -->
-<annual-table 
-  [hscodeTable]="hscodeTable | async"
-  [filter]="tableFilter | async"
-  (setFilter)="setFilter($event)"></annual-table>
+<div class="row hscode-table">
+  
+  <annual-table 
+    [hscodeTable]="hscodeTable | async"
+    [filter]="tableFilter | async"
+    (setFilter)="setFilter($event)"></annual-table>
+
+</div>
