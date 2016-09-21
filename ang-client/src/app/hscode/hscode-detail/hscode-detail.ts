@@ -56,14 +56,12 @@ export class HscodeDetail implements OnInit {
             this.code = res.hscode.code;
             this.description = res.hscode.description;
           });
-      // Get hscodeChart
+      // CHART
       this.chartService.getHscodeChart(code)
           .subscribe(res => {
             this.store.dispatch({type: LOAD_HSCODE_CHART, payload: res})
           });
-      // Get table data
-      // Reset filter, then call service to get table
-      // Subscribe to the table filter, call service, dispatch table
+      // TABLE
       this.store.dispatch({type: RESET_TABLE_FILTER});
       this.tableFilter.subscribe(filter => {
         this.hsParams = {code: code, filter: filter};
