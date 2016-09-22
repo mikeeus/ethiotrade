@@ -11,12 +11,12 @@ Rails.application.routes.draw do
     # Hscode Detail
     get '/hscodes/:code', to: 'hscodes#show', as: :hscode
     get '/charts/hscodes/:code', to: 'hscodes#chart', as: :hscode_chart
-    get '/tables/hscodes/:code/:type/:year/:page/:page_length', to: 'hscodes#tables', as: :hscode_tables
+    get '/tables/hscodes/:code/:type/:year/:page_length/:page', to: 'hscodes#tables', as: :hscode_tables
 
     # Country Detail
     get '/countries/:code', to: 'countries#show', as: :country    
     get '/charts/countries/:country', to: 'countries#chart', as: :country_chart
-    get '/tables/countries/:country/:type/:year/:page/:page_length', to: 'countries#tables', as: :country_tables
+    get '/tables/countries/:country/:type/:year/:page_length/:page', to: 'countries#tables', as: :country_tables
 
     # year
     get '/years/:year/summary', to: 'years#year_summary', as: :year_summary

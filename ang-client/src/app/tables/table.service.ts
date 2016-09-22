@@ -33,6 +33,6 @@ export class TableService {
 
   // Get path
   getPath(baseUrl:string, identifier, filter) {
-    return `${baseUrl}/${identifier}/${filter.type}/${filter.year}/${filter.page}/${filter.pageLength}`
+    return `${baseUrl}/${identifier}/${filter.type}/${filter.year}/${filter.pageLength}/${filter.page}`
   }
 }

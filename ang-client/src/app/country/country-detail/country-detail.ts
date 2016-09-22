@@ -23,6 +23,7 @@ export class CountryDetail implements OnInit {
   annualTable: Observable<AnnualTableData>;
   tableFilter: Observable<any>;  
   tableType: string = "COUNTRIES";
+  country: string;
   initialFilter: any = {year: 2016, type: 'Import', page: 1, pageLength: 10};
 
   constructor(
@@ -32,39 +33,36 @@ export class CountryDetail implements OnInit {
     private sH: ServiceHelpers,
     private tableService: TableService,
     private tH: TableHelpers
-  ) {     
-    this.countryDetail = this.store.select('countryDetail');
-    this.annualTable = this.store.select('annualTable');
-    this.countryChart = this.store.select('countryChart');
-    this.tableFilter = this.store.select('annualTableFilter');
-  }
+  ) {  }
 
   ngOnInit() {
+    this.countryDetail = this.store.select('countryDetail');
+    this.countryChart = this.store.select('countryChart');
+    this.annualTable = this.store.select('annualTable');
+    this.tableFilter = this.store.select('annualTableFilter');
+
     this.route.params.subscribe(params => {
-      let country = params['country'];
-      // Reset stores
-      this.store.dispatch({type: RESET_COUNTRY_CHART});      
-      this.store.dispatch({type: RESET_ANNUAL_TABLE});
-      this.store.dispatch({type: RESET_TABLE_FILTER});      
-      // Chart
-      this.chartService.getCountryChart(country).subscribe(res => {
-        this.store.dispatch({type: SET_COUNTRY_CHART, payload: res});
-      });
+      this.country = params['country'];
       // TABLE
-      this.tableService.getCountryTable(country,this.initialFilter)
+      this.store.dispatch({type: RESET_TABLE_FILTER});
+      // Chart
+      this.chartService.getCountryChart(this.country)
           .subscribe(res => {
-            this.store.dispatch({ 
-              type: SET_ANNUAL_TABLE, 
-              payload: {table: res.table, pages: res.pages}
-            });
+            this.store.dispatch({type: SET_COUNTRY_CHART, payload: res});
           });
-      this.tableFilter.subscribe(filter => {
-        this.tableService.getCountryTable(country, filter)
+      this.tableService.getCountryTable(this.country, this.initialFilter)
           .subscribe(res => {
-            this.store.dispatch({ type: SET_ANNUAL_TABLE, payload: {table: res.table, pages: res.pages} });
-          });
-      });
-    }); // ngOnInit()
+            this.store.dispatch({ type: SET_ANNUAL_TABLE, payload: {table: res.table, pages: res.pages} });            
+          })
+    });
+
+    this.tableFilter.subscribe(filter => {
+      this.tableService.getCountryTable(this.country, filter)
+        .subscribe(res => {
+          this.store.dispatch({ type: SET_ANNUAL_TABLE, payload: {table: res.table, pages: res.pages} });
+        });
+    });
+
   }
 
   setFilter(change: filterSet) {
@@ -73,3 +71,5 @@ export class CountryDetail implements OnInit {
   }
 
 }
+
+
