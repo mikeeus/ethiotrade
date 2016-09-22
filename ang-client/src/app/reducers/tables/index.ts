@@ -10,3 +10,5 @@ export {  AnnualTableFilterReducer,
   SET_TABLE_FILTER,
   RESET_TABLE_FILTER
 } from './annual-table-filter';
+
+export { initialAnnualTableFilter } from './helpers';

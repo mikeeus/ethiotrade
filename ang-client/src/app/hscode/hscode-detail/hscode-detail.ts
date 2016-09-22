@@ -11,7 +11,7 @@ import { TableService, TableHelpers } from '../../tables';
 // Reducer actions
 import { GET_HSCODE, GET_RELATED_CODES } from '../../reducers/hscode-detail';
 import { SET_HSCODE_CHART, RESET_HSCODE_CHART } from '../../reducers/charts';
-import { AnnualTableReducer, RESET_TABLE_FILTER, RESET_ANNUAL_TABLE, SET_ANNUAL_TABLE } from '../../reducers/tables';
+import { AnnualTableReducer, RESET_TABLE_FILTER, RESET_ANNUAL_TABLE, SET_ANNUAL_TABLE, initialAnnualTableFilter } from '../../reducers/tables';
 
 @Component({
   selector: 'hscode-detail',
@@ -26,7 +26,7 @@ export class HscodeDetail implements OnInit {
   tableType: string = 'HSCODES';
   tableFilter: Observable<AnnualTableFilter>;
   filterSub: any;
-  initialFilter: any = {year: 2016, type: 'Imports', page: 1, pageLength: 10};
+  initialFilter: AnnualTableFilter = initialAnnualTableFilter;
   routeSub: any;
   
 
@@ -73,7 +73,7 @@ export class HscodeDetail implements OnInit {
             this.store.dispatch({ type: SET_ANNUAL_TABLE, payload: {table: res.table, pages: res.pages} });            
           });
     });
-
+    // Subscribe to table filter
     this.filterSub = this.tableFilter.subscribe(filter => {
       this.tableService.getHscodeTable(this.code, filter)
         .subscribe(res => {

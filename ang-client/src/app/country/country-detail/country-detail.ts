@@ -10,7 +10,8 @@ import { ChartService } from '../../charts';
 import { TableService, TableHelpers } from '../../tables';
 // Reducer ACtions
 import { SET_COUNTRY_CHART, RESET_COUNTRY_CHART } from '../../reducers/charts';
-import { SET_ANNUAL_TABLE, RESET_ANNUAL_TABLE, RESET_TABLE_FILTER } from '../../reducers/tables';
+import { SET_ANNUAL_TABLE, RESET_ANNUAL_TABLE, RESET_TABLE_FILTER,
+  initialAnnualTableFilter } from '../../reducers/tables';
 
 @Component({
   selector: 'country-detail',
@@ -24,7 +25,7 @@ export class CountryDetail implements OnInit, OnDestroy {
   tableFilter: Observable<any>;  
   tableType: string = "COUNTRIES";
   country: string;
-  initialFilter: any = {year: 2016, type: 'Import', page: 1, pageLength: 10};
+  initialFilter: AnnualTableFilter = initialAnnualTableFilter;
   filterSub: any;
   routeSub: any;
 
@@ -57,7 +58,7 @@ export class CountryDetail implements OnInit, OnDestroy {
             this.store.dispatch({ type: SET_ANNUAL_TABLE, payload: {table: res.table, pages: res.pages} });            
           });
     });
-
+    // Subscribe to table filter
     this.filterSub = this.tableFilter.subscribe(filter => {
       this.tableService.getCountryTable(this.country, filter)
         .subscribe(res => {
