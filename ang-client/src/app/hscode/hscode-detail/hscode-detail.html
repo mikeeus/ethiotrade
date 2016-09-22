@@ -23,7 +23,7 @@
 <div class="row hscode-table">
   
   <annual-table 
-    [annualTable]="hscodeTable | async"
+    [annualTable]="annualTable | async"
     [tableType]="tableType"
     [filter]="tableFilter | async"
     (setFilter)="setFilter($event)"></annual-table>

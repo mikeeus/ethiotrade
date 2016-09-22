@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
@@ -17,7 +17,7 @@ import { SET_ANNUAL_TABLE, RESET_ANNUAL_TABLE, RESET_TABLE_FILTER } from '../../
   templateUrl: './country-detail.html',
   styleUrls: ['./country-detail.scss']
 })
-export class CountryDetail implements OnInit {
+export class CountryDetail implements OnInit, OnDestroy {
   countryDetail: Observable<any>;
   countryChart: Observable<any>;
   annualTable: Observable<AnnualTableData>;
@@ -25,6 +25,8 @@ export class CountryDetail implements OnInit {
   tableType: string = "COUNTRIES";
   country: string;
   initialFilter: any = {year: 2016, type: 'Import', page: 1, pageLength: 10};
+  filterSub: any;
+  routeSub: any;
 
   constructor(
     private store: Store<any>,
@@ -41,28 +43,33 @@ export class CountryDetail implements OnInit {
     this.annualTable = this.store.select('annualTable');
     this.tableFilter = this.store.select('annualTableFilter');
 
-    this.route.params.subscribe(params => {
+    this.routeSub = this.route.params.subscribe(params => {
       this.country = params['country'];
-      // TABLE
-      this.store.dispatch({type: RESET_TABLE_FILTER});
       // Chart
       this.chartService.getCountryChart(this.country)
           .subscribe(res => {
             this.store.dispatch({type: SET_COUNTRY_CHART, payload: res});
           });
+      // TABLE
+      this.store.dispatch({type: RESET_TABLE_FILTER});
       this.tableService.getCountryTable(this.country, this.initialFilter)
           .subscribe(res => {
             this.store.dispatch({ type: SET_ANNUAL_TABLE, payload: {table: res.table, pages: res.pages} });            
-          })
+          });
     });
 
-    this.tableFilter.subscribe(filter => {
+    this.filterSub = this.tableFilter.subscribe(filter => {
       this.tableService.getCountryTable(this.country, filter)
         .subscribe(res => {
           this.store.dispatch({ type: SET_ANNUAL_TABLE, payload: {table: res.table, pages: res.pages} });
         });
     });
 
+  }
+
+  ngOnDestroy() {
+    this.filterSub.unsubscribe();
+    this.routeSub.unsubscribe();
   }
 
   setFilter(change: filterSet) {

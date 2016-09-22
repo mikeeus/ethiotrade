@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
@@ -23,9 +23,13 @@ export class HscodeDetail implements OnInit {
   relatedCodes: Observable<Hscode[]>; 
   hscodeChart: Observable<AnnualChartData>;
   annualTable: Observable<AnnualTableData>;
-  tableFilter: Observable<AnnualTableFilter>;
   tableType: string = 'HSCODES';
+  tableFilter: Observable<AnnualTableFilter>;
+  filterSub: any;
+  initialFilter: any = {year: 2016, type: 'Imports', page: 1, pageLength: 10};
+  routeSub: any;
   
+
   code: number;
   description: string;
   hsParams;
@@ -47,32 +51,40 @@ export class HscodeDetail implements OnInit {
    }
 
   ngOnInit() {   
-    this.route.params.subscribe(params => {
-      let code = +params['code'];
+    this.routeSub = this.route.params.subscribe(params => {
+      this.code = +params['code'];
       // Get hscodeDetail, relatedCodes
-      this.hscodeService.getHscodeDetail(code)
+      this.hscodeService.getHscodeDetail(this.code)
           .subscribe(res => {
             this.store.dispatch({type: GET_HSCODE, payload: res.hscode});
             this.store.dispatch({type: GET_RELATED_CODES, payload: res.relatedCodes});
-            this.code = res.hscode.code;
             this.description = res.hscode.description;
           });
       // CHART
-      this.chartService.getHscodeChart(code)
+      this.chartService.getHscodeChart(this.code)
           .subscribe(res => {
             this.store.dispatch({type: SET_HSCODE_CHART, payload: res})
           });
       // Table
       this.store.dispatch({type: RESET_ANNUAL_TABLE});   
       this.store.dispatch({type: RESET_TABLE_FILTER});
-      this.tableFilter.subscribe(filter => {
-        this.tableService.getHscodeTable(code, filter)
+      this.tableService.getHscodeTable(this.code, this.initialFilter)
           .subscribe(res => {
-            this.store.dispatch({ type: SET_ANNUAL_TABLE, payload: {table: res.table, pages: res.pages} });
+            this.store.dispatch({ type: SET_ANNUAL_TABLE, payload: {table: res.table, pages: res.pages} });            
           });
-      });
-
     });
+
+    this.filterSub = this.tableFilter.subscribe(filter => {
+      this.tableService.getHscodeTable(this.code, filter)
+        .subscribe(res => {
+          this.store.dispatch({ type: SET_ANNUAL_TABLE, payload: {table: res.table, pages: res.pages} });
+        });
+    });
+  }
+
+  ngOnDestroy(){
+    this.routeSub.unsubscribe();
+    this.filterSub.unsubscribe();
   }
 
   onSelect(code: number) {
