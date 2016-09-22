@@ -23,6 +23,7 @@ export class CountryDetail implements OnInit {
   annualTable: Observable<AnnualTableData>;
   tableFilter: Observable<any>;  
   tableType: string = "COUNTRIES";
+  initialFilter: any = {year: 2016, type: 'Import', page: 1, pageLength: 10};
 
   constructor(
     private store: Store<any>,
@@ -49,18 +50,21 @@ export class CountryDetail implements OnInit {
       this.chartService.getCountryChart(country).subscribe(res => {
         this.store.dispatch({type: SET_COUNTRY_CHART, payload: res});
       });
-      this.tableService.getCountryTable(country,{year: 2016, type: 'Import', page: 1, pageLength: 10})
-          .subscribe(res => console.log(res));
-      // TABLE    
+      // TABLE
+      this.tableService.getCountryTable(country,this.initialFilter)
+          .subscribe(res => {
+            this.store.dispatch({ 
+              type: SET_ANNUAL_TABLE, 
+              payload: {table: res.table, pages: res.pages}
+            });
+          });
       this.tableFilter.subscribe(filter => {
         this.tableService.getCountryTable(country, filter)
           .subscribe(res => {
             this.store.dispatch({ type: SET_ANNUAL_TABLE, payload: {table: res.table, pages: res.pages} });
           });
       });
-
-    });
-
+    }); // ngOnInit()
   }
 
   setFilter(change: filterSet) {

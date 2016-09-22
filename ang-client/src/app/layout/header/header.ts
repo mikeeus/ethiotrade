@@ -47,6 +47,13 @@ export class Header implements OnInit {
     this.router.navigate(['/hscodes/', code]);
   }
 
+  // Not currently used
+  goTo(country){
+    this.router.navigate(['/countries/', country]);
+    this.store.dispatch({type: 'RESET_ANNUAL_TABLE'});
+    this.store.dispatch({type: 'RESET_TABLE_FILTER'});    
+  }
+
   // Dropdown attr and functions 
   public disabled:boolean = false;
   public status:{isopen:boolean} = {isopen: false};
