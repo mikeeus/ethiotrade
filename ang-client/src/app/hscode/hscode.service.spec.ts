@@ -1,16 +1,16 @@
-/* tslint:disable:no-unused-variable */
+// /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing';
-import { HscodeService } from './hscode.service';
+// import { TestBed, async, inject } from '@angular/core/testing';
+// import { HscodeService } from './hscode.service';
 
-describe('Service: Hscode', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [HscodeService]
-    });
-  });
+// describe('Service: Hscode', () => {
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({
+//       providers: [HscodeService]
+//     });
+//   });
 
-  it('should ...', inject([HscodeService], (service: HscodeService) => {
-    expect(service).toBeTruthy();
-  }));
-});
+//   it('should ...', inject([HscodeService], (service: HscodeService) => {
+//     expect(service).toBeTruthy();
+//   }));
+// });
