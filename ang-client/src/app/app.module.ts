@@ -26,7 +26,7 @@ import { ChartService, AnnualChart } from './charts';
 import { AnnualTable, TableService, AnnualTableSettings, TableHelpers } from './tables';
 // Hscode
 import { HscodeDetail, HscodeService, TaxRates, RelatedCodes } from './hscode';
-import { CountryDetail, CountryStats } from './country';
+import { CountryDetail, CountryStats, CountryService } from './country';
 import { Pagination } from './shared';
 
 @NgModule({
@@ -67,8 +67,9 @@ import { Pagination } from './shared';
     appRoutingProviders,
     ServiceHelpers,
     SearchService,
-    ChartService,
     HscodeService,
+    CountryService,
+    ChartService,
     TableService,
     TableHelpers
   ],
