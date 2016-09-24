@@ -1,5 +1,5 @@
 class YearsController < ApplicationController
-  before_action :years, only: [:year, :year_summary]
+  before_action :years, only: [:year, :year_summary, :charts_tables]
 
   def charts_tables
     if @years.include?(params[:year])
