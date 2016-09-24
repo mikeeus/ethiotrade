@@ -2,13 +2,15 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+// Services
+import { CountryService } from '../country.service';
 import { ServiceHelpers } from '../../helpers';
-// Models
-import { Hscode, AnnualChartData, CountryTableData, AnnualTableData, AnnualTableFilter, filterSet } from '../../models';
-// Charts and tables
 import { ChartService } from '../../charts';
 import { TableService, TableHelpers } from '../../tables';
+// Models
+import { Hscode, AnnualChartData, CountryTableData, AnnualTableData, AnnualTableFilter, filterSet } from '../../models';
 // Reducer ACtions
+import { SET_COUNTRY_STATS, REMOVE_COUNTRY_STATS } from '../../reducers/country-detail';
 import { SET_COUNTRY_CHART, RESET_COUNTRY_CHART } from '../../reducers/charts';
 import { SET_ANNUAL_TABLE, RESET_ANNUAL_TABLE, RESET_TABLE_FILTER,
   initialAnnualTableFilter } from '../../reducers/tables';
@@ -32,6 +34,7 @@ export class CountryDetail implements OnInit, OnDestroy {
   constructor(
     private store: Store<any>,
     private route: ActivatedRoute,
+    private countryService: CountryService,
     private chartService: ChartService,
     private sH: ServiceHelpers,
     private tableService: TableService,
@@ -46,9 +49,12 @@ export class CountryDetail implements OnInit, OnDestroy {
 
     this.routeSub = this.route.params.subscribe(params => {
       this.country = params['country'];
+      // Stats
+      this.countryService.getCountryStats(this.country).subscribe(res => {
+        this.store.dispatch({type: SET_COUNTRY_STATS, payload: res});
+      })
       // Chart
-      this.chartService.getCountryChart(this.country)
-          .subscribe(res => {
+      this.chartService.getCountryChart(this.country).subscribe(res => {
             this.store.dispatch({type: SET_COUNTRY_CHART, payload: res});
           });
       // TABLE
