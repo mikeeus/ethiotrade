@@ -23,7 +23,7 @@ export class Pagination implements OnInit {
   setPageList(pageList){
     let cPage =  this.currentPage;
     let max = pageList.length
-    if(cPage < 4){
+    if(cPage < 4 || max < 8){
       return pageList.slice(0,7);      
     } else if(cPage > 3 && cPage < (max - 3)){
       return pageList.slice(cPage - 4, cPage + 3);      
