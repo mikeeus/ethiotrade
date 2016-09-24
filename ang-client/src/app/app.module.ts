@@ -17,6 +17,7 @@ import { StoreModule } from '@ngrx/store';
 import { HomepageChartReducer, HscodeChartReducer, SearchResultsReducer, 
   CountryStatsReducer, CountryChartReducer, AnnualTableReducer,
   HscodeDetailReducer, RelatedCodesReducer, 
+  YearChartsTablesReducer, YearSummaryReducer,
   AnnualTableFilterReducer } from './reducers';
 // Search
 import { SearchService, Searchbar, SearchResults } from './search';
@@ -55,6 +56,8 @@ import { YearSummary, YearService } from './year';
       hscodeDetail: HscodeDetailReducer,
       relatedCodes: RelatedCodesReducer,
       hscodeChart: HscodeChartReducer,
+      yearChartsTables: YearChartsTablesReducer,
+      yearSummary: YearSummaryReducer,
       countryStats: CountryStatsReducer,
       countryChart: CountryChartReducer,
       annualTable: AnnualTableReducer,
