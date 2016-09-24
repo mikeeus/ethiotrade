@@ -19,7 +19,7 @@ import { SET_ANNUAL_TABLE, RESET_ANNUAL_TABLE, RESET_TABLE_FILTER,
   styleUrls: ['./country-detail.scss']
 })
 export class CountryDetail implements OnInit, OnDestroy {
-  countryDetail: Observable<any>;
+  countryStats: Observable<any>;
   countryChart: Observable<any>;
   annualTable: Observable<AnnualTableData>;
   tableFilter: Observable<any>;  
@@ -39,7 +39,7 @@ export class CountryDetail implements OnInit, OnDestroy {
   ) {  }
 
   ngOnInit() {
-    this.countryDetail = this.store.select('countryDetail');
+    this.countryStats = this.store.select('countryStats');
     this.countryChart = this.store.select('countryChart');
     this.annualTable = this.store.select('annualTable');
     this.tableFilter = this.store.select('annualTableFilter');
