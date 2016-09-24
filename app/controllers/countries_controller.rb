@@ -3,17 +3,21 @@ class CountriesController < ApplicationController
 
   def stats
     # Average imports
-    imports_array = Import.where(country_origin: @country).group(:year).sum(cif_usd).invert.keys
+    imports_array = Import.where(country_origin: @country).group(:year).sum(:cif_usd).invert.keys
     average_imports = (imports_array.inject(0.0){ |sum, el| sum + el} / imports_array.size).round
 
     # Average exports
-    exports_array = Export.where(destination: @country).group(:year).sum(fob_usd).invert.keys
+    exports_array = Export.where(destination: @country).group(:year).sum(:fob_usd).invert.keys
     average_exports = (exports_array.inject(0.0){ |sum, el| sum + el} / exports_array.size).round
 
+    total_imports = Import.where(country_origin: @country).sum(:cif_usd)
+    total_exports = Export.where(destination: @country).sum(:fob_usd)
+
     render json: {
-      name: @country,
       avgAnnualImports: average_imports,
-      avgAnnualExports: average_exports
+      avgAnnualExports: average_exports,
+      totalImports: total_imports,
+      totalExports: total_exports
     }
   end
 
