@@ -14,7 +14,7 @@ export class CountryService {
     private sH: ServiceHelpers
   ) { }
 
-  getCountryDetail(country: string): Observable<any> {
+  getCountryStats(country: string): Observable<any> {
     return this.http.get(`${this.countryUrl}/${country}`)
       .map(this.sH.getJson)
       .catch(this.sH.handleError)
