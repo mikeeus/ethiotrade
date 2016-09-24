@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CountryStatsData } from '../../models';
 
 @Component({
   selector: 'country-stats',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./country-stats.scss']
 })
 export class CountryStats implements OnInit {
+  @Input() countryStats: CountryStatsData;
 
   constructor() { }
 

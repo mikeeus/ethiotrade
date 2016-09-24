@@ -26,7 +26,7 @@ import { ChartService, AnnualChart } from './charts';
 import { AnnualTable, TableService, AnnualTableSettings, TableHelpers } from './tables';
 // Hscode
 import { HscodeDetail, HscodeService, TaxRates, RelatedCodes } from './hscode';
-import { CountryDetail } from './country';
+import { CountryDetail, CountryStats } from './country';
 import { Pagination } from './shared';
 
 @NgModule({
@@ -36,9 +36,9 @@ import { Pagination } from './shared';
     Searchbar, SearchResults,
     AnnualChart,
     AnnualTable, AnnualTableSettings, 
-    CountryDetail,
+    CountryDetail, CountryStats,
     HscodeDetail, RelatedCodes, TaxRates, 
-    Pagination 
+    Pagination
   ],
   imports: [
     BrowserModule,

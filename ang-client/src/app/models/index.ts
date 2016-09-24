@@ -4,6 +4,7 @@ export { HscodeData } from './hscode-data';
 // Country
 export { Country } from './country';
 export { CountryData } from './country-data';
+export { CountryStatsData } from './country-stats';
 // Chart
 export { AnnualChartData } from './annual-chart-data';
 // Table

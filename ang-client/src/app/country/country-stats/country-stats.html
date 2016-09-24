@@ -1,3 +1,4 @@
-<p>
-  country-stats works!
-</p>
+<p>Average Annual Imports: {{ countryStats.avgAnnualImports | currency:'USD':true:'1.2-2' }}</p>
+<p>Average Annual Exports: {{ countryStats.avgAnnualExports | currency:'USD':true:'1.2-2' }}</p>
+<p>Total Imports (since 1997): {{ countryStats.totalImports | currency:'USD':true:'1.2-2' }}</p>
+<p>Total Exports (since 1997): {{ countryStats.totalExports | currency:'USD':true:'1.2-2' }}</p>
