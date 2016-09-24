@@ -15,7 +15,7 @@ import { ServiceHelpers } from './helpers';
 // State Management
 import { StoreModule } from '@ngrx/store';
 import { HomepageChartReducer, HscodeChartReducer, SearchResultsReducer, 
-  CountryDetailReducer, CountryChartReducer, AnnualTableReducer,
+  CountryStatsReducer, CountryChartReducer, AnnualTableReducer,
   HscodeDetailReducer, RelatedCodesReducer, 
   AnnualTableFilterReducer } from './reducers';
 // Search
@@ -52,7 +52,7 @@ import { Pagination } from './shared';
       hscodeDetail: HscodeDetailReducer,
       relatedCodes: RelatedCodesReducer,
       hscodeChart: HscodeChartReducer,
-      countryDetail: CountryDetailReducer,
+      countryStats: CountryStatsReducer,
       countryChart: CountryChartReducer,
       annualTable: AnnualTableReducer,
       annualTableFilter: AnnualTableFilterReducer

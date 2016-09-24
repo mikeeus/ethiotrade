@@ -2,4 +2,4 @@ export { HomepageChartReducer, HscodeChartReducer, CountryChartReducer } from '.
 export { HscodeDetailReducer, RelatedCodesReducer } from './hscode-detail';
 export { SearchResultsReducer } from './search';
 export { AnnualTableReducer, AnnualTableFilterReducer } from './tables';
-export { CountryDetailReducer } from './country-detail';
+export { CountryStatsReducer } from './country-detail';
