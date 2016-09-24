@@ -13,3 +13,5 @@ export { CountryTableData } from './country-table-data';
 export { HscodeParams, CountryParams } from './table-params';
 export { AnnualTableFilter, filterSet } from './annual-table-filter';
 export { AnnualTableData } from './annual-table-data';
+// Years
+export { YearSummary, YearChartsTablesData } from './year';

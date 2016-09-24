@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { ServiceHelpers } from '../helpers';
-import {  } from '../models';
+import { YearChartsTablesData, YearSummary } from '../models';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -15,13 +15,13 @@ export class YearService {
     private sH: ServiceHelpers
   ) { }
 
-  getYearsSummary(year: number): Observable<any> {
+  getYearsSummary(year: number): Observable<YearSummary> {
     return this.http.get(`${this.yearsUrl}/${year}/summary`)
         .map(this.sH.getJson)
         .catch(this.sH.handleError);
   }
 
-  getYearsChartsTables(year: number) {
+  getYearsChartsTables(year: number): Observable<YearChartsTablesData> {
     return this.http.get(`${this.yearsUrl}/${year}`)
         .map(this.sH.getJson)
         .catch(this.sH.handleError);
