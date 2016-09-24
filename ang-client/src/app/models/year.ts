@@ -1,4 +1,4 @@
-export interface YearSummary {
+export interface YearSummaryData {
   totalImports: number;
   totalExports: number;
   countriesImportedFrom: number;
