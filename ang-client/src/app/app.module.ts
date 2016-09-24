@@ -28,6 +28,8 @@ import { AnnualTable, TableService, AnnualTableSettings, TableHelpers } from './
 import { HscodeDetail, HscodeService, TaxRates, RelatedCodes } from './hscode';
 import { CountryDetail, CountryStats, CountryService } from './country';
 import { Pagination } from './shared';
+// Year
+import { YearSummary, YearService } from './year';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { Pagination } from './shared';
     AnnualChart,
     AnnualTable, AnnualTableSettings, 
     CountryDetail, CountryStats,
-    HscodeDetail, RelatedCodes, TaxRates, 
+    HscodeDetail, RelatedCodes, TaxRates,
+    YearSummary, 
     Pagination
   ],
   imports: [
@@ -69,6 +72,7 @@ import { Pagination } from './shared';
     SearchService,
     HscodeService,
     CountryService,
+    YearService,
     ChartService,
     TableService,
     TableHelpers
