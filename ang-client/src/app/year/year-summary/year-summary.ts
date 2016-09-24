@@ -13,7 +13,7 @@ import { SET_YEAR_SUMMARY, SET_YEAR_CHARTS_TABLES } from '../../reducers/year';
 })
 export class YearSummary implements OnInit, OnDestroy {
   yearSummary: Observable<YearSummaryData>;
-  yearChartsTablesData: Observable<YearChartsTablesData>;
+  yearChartsTables: Observable<YearChartsTablesData>;
   routeSub: any;
   summarySub: any;
   chartsTablesSub: any;
@@ -27,7 +27,7 @@ export class YearSummary implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.yearSummary = this.store.select('yearSummary');
-    this.yearChartsTablesData = this.store.select('yearChartsTablesData');
+    this.yearChartsTables = this.store.select('yearChartsTables');
 
     this.routeSub = this.route.params.subscribe(params => {
       this.year = +params['year'];
