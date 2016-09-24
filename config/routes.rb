@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get '/tables/hscodes/:code/:type/:year/:page_length/:page', to: 'hscodes#tables', as: :hscode_tables
 
     # Country Detail
-    get '/countries/:code', to: 'countries#show', as: :country    
+    get '/countries/:country', to: 'countries#stats', as: :country    
     get '/charts/countries/:country', to: 'countries#chart', as: :country_chart
     get '/tables/countries/:country/:type/:year/:page_length/:page', to: 'countries#tables', as: :country_tables
 
