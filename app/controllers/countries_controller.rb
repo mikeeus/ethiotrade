@@ -1,5 +1,21 @@
 class CountriesController < ApplicationController
-  before_action :set_country, only: [:chart, :tables]
+  before_action :set_country, only: [:stats, :chart, :tables]
+
+  def stats
+    # Average imports
+    imports_array = Import.where(country_origin: @country).group(:year).sum(cif_usd).invert.keys
+    average_imports = (imports_array.inject(0.0){ |sum, el| sum + el} / imports_array.size).round
+
+    # Average exports
+    exports_array = Export.where(destination: @country).group(:year).sum(fob_usd).invert.keys
+    average_exports = (exports_array.inject(0.0){ |sum, el| sum + el} / exports_array.size).round
+
+    render json: {
+      name: @country,
+      avgAnnualImports: average_imports,
+      avgAnnualExports: average_exports
+    }
+  end
 
   def chart
     @country_annual_imports = CountryAnnualImport.where(country: @country).group(:year).sum(:cif_usd)
