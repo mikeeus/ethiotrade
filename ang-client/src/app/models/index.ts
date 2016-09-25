@@ -15,3 +15,4 @@ export { AnnualTableFilter, filterSet } from './annual-table-filter';
 export { AnnualTableData } from './annual-table-data';
 // Years
 export { YearSummaryData, YearChartsTablesData } from './year';
+export { TopTenData, TopTenTableData } from './top-ten-data';

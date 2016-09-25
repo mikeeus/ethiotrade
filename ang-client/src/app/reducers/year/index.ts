@@ -4,3 +4,4 @@ export { YearChartsTablesReducer,
 export { YearSummaryReducer,
          SET_YEAR_SUMMARY, 
          REMOVE_YEAR_SUMMARY } from './year-summary';
+export { TTCountriesImportReducer, SET_TT_COUNTRIES_IMPORT} from './tt-countries-import';

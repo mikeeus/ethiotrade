@@ -27,6 +27,10 @@ class MatviewsController < ApplicationController
       REFRESH MATERIALIZED VIEW CONCURRENTLY
         hscode_annual_exports
     }
+
+    render json: {
+      notice: 'Materialized views refreshed.'
+    }
   end
 
   private

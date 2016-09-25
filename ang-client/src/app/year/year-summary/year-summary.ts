@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { YearService } from '../year.service';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { YearChartsTablesData, YearSummaryData } from '../../models';
-import { SET_YEAR_SUMMARY, SET_YEAR_CHARTS_TABLES } from '../../reducers/year';
+import { YearChartsTablesData, YearSummaryData, TopTenData } from '../../models';
+import { SET_YEAR_SUMMARY, SET_TT_COUNTRIES_IMPORT } from '../../reducers/year';
 
 @Component({
   selector: 'year-summary',
@@ -13,7 +13,7 @@ import { SET_YEAR_SUMMARY, SET_YEAR_CHARTS_TABLES } from '../../reducers/year';
 })
 export class YearSummary implements OnInit, OnDestroy {
   yearSummary: Observable<YearSummaryData>;
-  yearChartsTables: Observable<YearChartsTablesData>;
+  tTCountriesImport: Observable<TopTenData>;
   routeSub: any;
   summarySub: any;
   chartsTablesSub: any;
@@ -27,7 +27,7 @@ export class YearSummary implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.yearSummary = this.store.select('yearSummary');
-    this.yearChartsTables = this.store.select('yearChartsTables');
+    this.tTCountriesImport = this.store.select('tTCountriesImport');
 
     this.routeSub = this.route.params.subscribe(params => {
       this.year = +params['year'];
@@ -37,7 +37,8 @@ export class YearSummary implements OnInit, OnDestroy {
       });
 
       this.chartsTablesSub = this.yearService.getYearsChartsTables(this.year).subscribe( res => {
-        this.store.dispatch({ type: SET_YEAR_CHARTS_TABLES, payload: res });
+        console.log(res);
+        this.store.dispatch({ type: SET_TT_COUNTRIES_IMPORT, payload: res.topTenCountriesImport });
       });
 
     }); // this.routeSub
