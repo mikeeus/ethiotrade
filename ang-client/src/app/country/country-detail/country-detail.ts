@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 // Services
@@ -9,6 +9,7 @@ import { ChartService } from '../../charts';
 import { TableService, TableHelpers } from '../../tables';
 // Models
 import { Hscode, AnnualChartData, CountryTableData, AnnualTableData, AnnualTableFilter, filterSet } from '../../models';
+import { COUNTRIES } from '../../shared';
 // Reducer ACtions
 import { SET_COUNTRY_STATS, REMOVE_COUNTRY_STATS } from '../../reducers/country-detail';
 import { SET_COUNTRY_CHART, RESET_COUNTRY_CHART } from '../../reducers/charts';
@@ -34,6 +35,7 @@ export class CountryDetail implements OnInit, OnDestroy {
   constructor(
     private store: Store<any>,
     private route: ActivatedRoute,
+    private router: Router,
     private countryService: CountryService,
     private chartService: ChartService,
     private sH: ServiceHelpers,
@@ -49,6 +51,12 @@ export class CountryDetail implements OnInit, OnDestroy {
 
     this.routeSub = this.route.params.subscribe(params => {
       this.country = params['country'];
+
+      // Check if valid country
+      if(!this.contains(this.country)){
+        this.router.navigate(['home']);
+      }
+
       // Stats
       this.countryService.getCountryStats(this.country).subscribe(res => {
         this.store.dispatch({type: SET_COUNTRY_STATS, payload: res});
@@ -84,6 +92,14 @@ export class CountryDetail implements OnInit, OnDestroy {
     this.store.dispatch(dispatch);
   }
 
+  contains(country) {
+    for (var i = 0; i < COUNTRIES.length; i++) {
+      if (COUNTRIES[i] === country) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
 
