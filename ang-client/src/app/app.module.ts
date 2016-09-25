@@ -22,7 +22,7 @@ import { HomepageChartReducer, HscodeChartReducer, SearchResultsReducer,
 // Search
 import { SearchService, Searchbar, SearchResults } from './search';
 // Charts
-import { ChartService, AnnualChart } from './charts';
+import { ChartService, AnnualChart, TopTenChart } from './charts';
 // Tables
 import { AnnualTable, TableService, AnnualTableSettings, TableHelpers } from './tables';
 // Hscode
@@ -37,7 +37,7 @@ import { YearSummary, YearService } from './year';
     App, Home,
     Header, Footer,
     Searchbar, SearchResults,
-    AnnualChart,
+    AnnualChart, TopTenChart,
     AnnualTable, AnnualTableSettings, 
     CountryDetail, CountryStats,
     HscodeDetail, RelatedCodes, TaxRates,
