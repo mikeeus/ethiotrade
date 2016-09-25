@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 // Models
 import { Hscode, AnnualChartData, AnnualTableData, HscodeParams, AnnualTableFilter, filterSet } from '../../models';
+import { HSCODES } from '../../shared';
 // Hscode, Chart and Table
 import { HscodeService } from '../hscode.service';
 import { AnnualChart, ChartService } from '../../charts';
@@ -53,6 +54,10 @@ export class HscodeDetail implements OnInit {
   ngOnInit() {   
     this.routeSub = this.route.params.subscribe(params => {
       this.code = +params['code'];
+
+      if(!this.contains(this.code)){
+        this.router.navigate(['home']);
+      }
       // Get hscodeDetail, relatedCodes
       this.hscodeService.getHscodeDetail(this.code)
           .subscribe(res => {
@@ -94,6 +99,15 @@ export class HscodeDetail implements OnInit {
   setFilter(change: filterSet) {
     let dispatch = this.tH.setFilter(change);
     this.store.dispatch(dispatch);
+  }
+
+    contains(code) {
+    for (var i = 0; i < HSCODES.length; i++) {
+      if (HSCODES[i] === code) {
+        return true;
+      }
+    }
+    return false;
   }
 
 }
