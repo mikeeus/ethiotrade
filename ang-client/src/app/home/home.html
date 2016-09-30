@@ -1,27 +1,27 @@
 <div class="row">
   <!--Introductory message-->
-  <div class="col-md-4">
-    <h1 class="text-center home-title">EthioStats</h1>
-    <h5 class="text-center">Search Ethiopian import and export data and quickly find tax rates.</h5>
+  <div class="col-lg-4">
+    <h1 class="text-center home-title">Ethiopian Trade Statistics</h1>
+    <h5 class="text-center">Search Ethiopian tariff rates, view trade history and browse trade statistics by country.</h5>
       <p>
         The purpose of this site is to make Ethiopian import and export statistics available in a userfriendly and clear format in order to promote:
       </p>
       <ul class="list-group">
         <li class="list-group-item">
           <h4 class="list-group-item-heading">Investment</h4>
-          <p class="list-group-item-text">
+          <p class="list-group-item-text list-items">
             assist potential investors discover opportunities for import substitution.
           </p>
         </li>
         <li class="list-group-item">  
           <h4 class="list-group-item-heading">Growth</h4>
-          <p class="list-group-item-text">
+          <p class="list-group-item-text list-items">
             help businesses identify developing trends to guide decisions. 
           </p>
         </li>
         <li class="list-group-item">
           <h4 class="list-group-item-heading">Research</h4>
-          <p class="list-group-item-text">
+          <p class="list-group-item-text list-items">
             serve as a reference for students, researchers and decision makers.
           </p>
         </li>
@@ -40,12 +40,13 @@
   </div>
 
   <!--Chart goes here-->
-  <div class="col-md-8">
+  <div class="col-lg-8">
+    <h3 class="text-center">Annual Trading Volume</h3>
     <annual-chart [chartData]="homepageChart | async"></annual-chart>
     
-    <div class="well homepage-well">
-      <p>This data represents the total annual import and export volume in USD since 1997. The data was aggregated from the Ethiopian Revenue and Customs Authority.</p>
-      <p>For a more detailed summary of the annual trade volume, you can select the year from the dropdown in the navigation bar above.</p>
+    <div class="well homepage-well text-center">
+      <p>This data represents the total annual import and export volume in USD since 1997.</p>
+      <!--<p>For a more detailed summary of the annual trade volume, you can select the year from the dropdown in the navigation bar above.</p>-->
     </div>
 
   </div> <!-- div.col-md-8-->
