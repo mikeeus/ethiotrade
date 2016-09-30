@@ -1,3 +1,4 @@
+<!--NON-EMPTY TABLE -------------------------------------------------->
 <div class="container-fluid"
   *ngIf="tableLength > 0">
 
@@ -36,7 +37,6 @@
     </tbody>
   </table> <!--HSCODES TABLE-->
 
-
   <!-- COUNTRIES --------------------------------------------------- -->
   <table class="table table-striped table-hover"
     *ngIf="tableType == 'COUNTRIES'">
@@ -73,13 +73,17 @@
     </tbody>
   </table> <!--COUNTRIES TABLE-->
 
-
-  <!--EMPTY TABLE----------------------------------------------------- -->
-  <table class="table table-striped table-hover"
-    *ngIf="tableLength == 0">
-    <tr>
-      <td class="text-center">No {{ recordType | lowercase }} for this year.</td>
-    </tr>
-  </table>
-
 </div> <!--div.container-flui-->
+
+
+<!--EMPTY TABLE----------------------------------------------------- -->
+<div class="container-fluid" *ngIf="tableLength == 0">
+  <table class="table table-striped table-hover">
+    <thead><th></th></thead>
+    <tbody>
+      <tr>
+        <td class="text-center">No {{ recordType | lowercase }} for this year.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
