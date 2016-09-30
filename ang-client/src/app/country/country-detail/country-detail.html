@@ -3,13 +3,14 @@
   <!--Country Name-->
   <div class="row">
     <!--Stats-->
-    <div class="col-md-3 country-stats">
+    <div class="col-lg-3 country-stats">
       <h1>{{ country }}</h1>
       <country-stats [countryStats]="countryStats | async"></country-stats>
     </div>
 
     <!--Chart-->
-    <div class="col-md-9">
+    <div class="col-lg-9">
+      <h4 class="text-center">Annual Trading Volume</h4>
       <annual-chart [chartData]="countryChart | async"></annual-chart>
     </div>
   </div>

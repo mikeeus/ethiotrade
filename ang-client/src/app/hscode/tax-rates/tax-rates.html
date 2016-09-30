@@ -7,8 +7,11 @@
           <span class="tax-label">Special Permissions</span>
         </div>
         <div class="special-permissions-bot rb-sp-light text-center">
-          <span class="tax-value" id="sp-value">
+          <span class="tax-value" id="sp-value" *ngIf="hscode.special_permission != ''">
             {{ hscode.special_permission }}
+          </span>
+          <span class="tax-value" id="sp-value" *ngIf="hscode.special_permission == ''">
+            None
           </span>
         </div>
       </div>
