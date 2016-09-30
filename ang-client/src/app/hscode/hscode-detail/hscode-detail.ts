@@ -101,7 +101,7 @@ export class HscodeDetail implements OnInit {
     this.store.dispatch(dispatch);
   }
 
-    contains(code) {
+  contains(code) {
     for (var i = 0; i < HSCODES.length; i++) {
       if (HSCODES[i] === code) {
         return true;

@@ -1,15 +1,15 @@
 <div class="container-fluid">
 
   <!--Country Name-->
-  <h1>{{ country }}</h1>
   <div class="row">
     <!--Stats-->
-    <div class="well col-sm-4">
+    <div class="col-md-4 country-stats">
+      <h1>{{ country }}</h1>
       <country-stats [countryStats]="countryStats | async"></country-stats>
     </div>
 
     <!--Chart-->
-    <div class="col-sm-8">
+    <div class="col-md-8">
       <annual-chart [chartData]="countryChart | async"></annual-chart>
     </div>
   </div>
