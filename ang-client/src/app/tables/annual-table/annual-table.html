@@ -1,39 +1,43 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h2 class="panel-title text-center">Records</h2>
-  </div>
-    <!--PAGINATION-->
-  <div class="panel-body">
-    <div class="pagination-wrapper text-center">
-      <pagination 
-        [pageList]="annualTable.pages"
-        [currentPage]="filter.page"
-        (changePage)="changePage($event)"></pagination>
+<div class="container-fluid">
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title text-center">Records</h2>
     </div>
+      <!--PAGINATION-->
+    <div class="panel-body">
+      <div class="pagination-wrapper text-center">
+        <pagination 
+          [pageList]="annualTable.pages"
+          [currentPage]="filter.page"
+          (changePage)="changePage($event)"></pagination>
+      </div>
 
-    <annual-table-settings
-      [filter]="filter"
-      (setFilter)="setFilter.emit($event)">
-    </annual-table-settings>
+      <annual-table-settings
+        [filter]="filter"
+        (setFilter)="setFilter.emit($event)">
+      </annual-table-settings>
 
-    <table-ui 
-      [recordType]="filter.type"
-      [tableType]="tableType"
-      [tableLength]="annualTable.table.length"
-      [tableData]="annualTable.table"
-      (selectRow)="onSelectRow($event)"></table-ui>
-    
-  </div> <!--div.panel-body-->
+      <table-ui 
+        [recordType]="filter.type"
+        [tableType]="tableType"
+        [tableLength]="annualTable.table.length"
+        [tableData]="annualTable.table"
+        (selectRow)="onSelectRow($event)"></table-ui>
+      
+    </div> <!--div.panel-body-->
 
-  <div class="panel-footer">
-    <!--PAGINATION-->
-    <div class="pagination-wrapper text-center"
-      *ngIf="filter.pageLength > 10">
-      <pagination 
-        [pageList]="annualTable.pages"
-        [currentPage]="filter.page"
-        (changePage)="changePage($event)"></pagination>
-    </div>
-  </div> <!--div.panel-footer-->
+    <div class="panel-footer">
+      <!--PAGINATION-->
+      <div class="pagination-wrapper text-center"
+        *ngIf="filter.pageLength > 10">
+        <pagination 
+          [pageList]="annualTable.pages"
+          [currentPage]="filter.page"
+          (changePage)="changePage($event)"></pagination>
+      </div>
+    </div> <!--div.panel-footer-->
 
-</div> <!-- div.panel -->
+  </div> <!-- div.panel -->
+
+</div>

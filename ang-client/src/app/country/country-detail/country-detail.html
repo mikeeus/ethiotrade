@@ -3,13 +3,13 @@
   <!--Country Name-->
   <div class="row">
     <!--Stats-->
-    <div class="col-md-4 country-stats">
+    <div class="col-md-3 country-stats">
       <h1>{{ country }}</h1>
       <country-stats [countryStats]="countryStats | async"></country-stats>
     </div>
 
     <!--Chart-->
-    <div class="col-md-8">
+    <div class="col-md-9">
       <annual-chart [chartData]="countryChart | async"></annual-chart>
     </div>
   </div>
