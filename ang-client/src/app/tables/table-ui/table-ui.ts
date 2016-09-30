@@ -18,7 +18,7 @@ export class TableUi implements OnInit {
   }
 
   onSelect(value){
-    console.log(value);
+    this.selectRow.emit(value);
   }
 
 }

@@ -26,6 +26,7 @@
     [annualTable]="annualTable | async"
     [tableType]="tableType"
     [filter]="tableFilter | async"
+    (selectRow)="goToCountry($event)"
     (setFilter)="setFilter($event)"></annual-table>
 
 </div>

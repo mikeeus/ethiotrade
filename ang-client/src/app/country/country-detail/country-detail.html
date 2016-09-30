@@ -20,6 +20,7 @@
         [annualTable]="annualTable | async"
         [tableType]="tableType"
         [filter]="tableFilter | async"
+        (selectRow)="goToHscode($event)"
         (setFilter)="setFilter($event)"></annual-table>
 
   </div>

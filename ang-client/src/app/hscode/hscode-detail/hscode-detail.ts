@@ -109,5 +109,9 @@ export class HscodeDetail implements OnInit {
     }
     return false;
   }
+  
+  goToCountry(country){
+    this.router.navigate(['/countries/', country]);
+  }
 
 }

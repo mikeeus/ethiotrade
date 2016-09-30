@@ -100,6 +100,10 @@ export class CountryDetail implements OnInit, OnDestroy {
     }
     return false;
   }
+
+  goToHscode(code){
+    this.router.navigate(['/hscodes/', code]);
+  }
 }
 
 
