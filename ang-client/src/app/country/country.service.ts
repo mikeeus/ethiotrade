@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class CountryService {
-  countryUrl: string = '/api/countries/'
+  countryUrl: string = '/api/countries'
 
   constructor(
     private http: Http,

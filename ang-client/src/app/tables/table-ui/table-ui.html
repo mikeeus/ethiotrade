@@ -1,0 +1,85 @@
+<div class="container-fluid"
+  *ngIf="tableLength > 0">
+
+  <!-- HSCODES----------------------------------------------------- -->
+  <table class="table table-striped table-hover"
+    *ngIf="tableType == 'HSCODES'">
+
+    <!--Imports-->
+    <thead *ngIf="recordType == 'Imports'">
+      <th>Country Origin</th>
+      <th>Country Consignment</th>
+      <th>CIF USD</th>
+      <th>CIF ETB</th>      
+    </thead>
+    <tbody *ngIf="recordType == 'Imports'">
+      <tr *ngFor="let record of tableData"
+        (click)="onSelect(record.country_origin)">
+        <td>{{ record.country_origin }}</td>
+        <td>{{ record.country_consignment }}</td>
+        <td>{{ record.cif_usd | currency:'USD':true:'1.2-2'}}</td>
+        <td>{{ record.cif_etb | currency:'ETB':true:'1.2-2'}}</td>        
+      </tr>
+    </tbody>
+    <!--Exports-->
+    <thead *ngIf="recordType == 'Exports'">
+      <th>Destination</th>
+      <th>FOB USD</th>
+      <th>FOB ETB</th>      
+    </thead>
+    <tbody *ngIf="recordType == 'Exports'">
+      <tr *ngFor="let record of tableData">
+        <td>{{ record.destination }}</td>
+        <td>{{ record.fob_usd | currency:'USD':true:'1.2-2'}}</td>
+        <td>{{ record.fob_etb | currency:'ETB':true:'1.2-2'}}</td>        
+      </tr>
+    </tbody>
+  </table> <!--HSCODES TABLE-->
+
+
+  <!-- COUNTRIES --------------------------------------------------- -->
+  <table class="table table-striped table-hover"
+    *ngIf="tableType == 'COUNTRIES'">
+    <!--Imports-->
+    <thead *ngIf="recordType == 'Imports'">
+      <th>Code</th>
+      <th>Description</th>
+      <th>CIF USD</th>
+      <th>CIF ETB</th>      
+    </thead>
+    <tbody *ngIf="recordType == 'Imports'">
+      <tr *ngFor="let record of tableData"
+        (click)="onSelect(record.code)">
+        <td>{{ record.code }}</td>
+        <td>{{ record.description }}</td>
+        <td>{{ record.cif_usd | currency:'USD':true:'1.2-2'}}</td>
+        <td>{{ record.cif_etb | currency:'ETB':true:'1.2-2'}}</td>        
+      </tr>
+    </tbody>
+    <!--Exports-->
+    <thead *ngIf="recordType == 'Exports'">
+      <th>Code</th>
+      <th>Description</th>      
+      <th>FOB USD</th>
+      <th>FOB ETB</th>      
+    </thead>
+    <tbody *ngIf="recordType == 'Exports'">
+      <tr *ngFor="let record of tableData">
+        <td>{{ record.code }}</td>
+        <td>{{ record.description }}</td>        
+        <td>{{ record.fob_usd | currency:'USD':true:'1.2-2'}}</td>
+        <td>{{ record.fob_etb | currency:'ETB':true:'1.2-2'}}</td>        
+      </tr>
+    </tbody>
+  </table> <!--COUNTRIES TABLE-->
+
+
+  <!--EMPTY TABLE----------------------------------------------------- -->
+  <table class="table table-striped table-hover"
+    *ngIf="tableLength == 0">
+    <tr>
+      <td class="text-center">No {{ recordType | lowercase }} for this year.</td>
+    </tr>
+  </table>
+
+</div> <!--div.container-flui-->

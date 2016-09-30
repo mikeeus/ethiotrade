@@ -11,6 +11,7 @@ export class AnnualTable implements OnInit {
   @Input() tableType;
   @Input() filter;
   @Output() setFilter: EventEmitter<filterSet> = new EventEmitter<filterSet>();
+  @Output() selectRow: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
@@ -20,6 +21,10 @@ export class AnnualTable implements OnInit {
   changePage(page){
     let change = {filter: 'PAGE', value: page};
     this.setFilter.emit(change);
+  }
+
+  onSelectRow(value){
+    this.selectRow.emit(value);
   }
 
 }

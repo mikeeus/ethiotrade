@@ -23,7 +23,7 @@ import { SearchService, Searchbar, SearchResults } from './search';
 // Charts
 import { ChartService, AnnualChart } from './charts';
 // Tables
-import { AnnualTable, TableService, AnnualTableSettings, TableHelpers } from './tables';
+import { AnnualTable, TableService, AnnualTableSettings, TableHelpers, TableUi } from './tables';
 // Hscode
 import { HscodeDetail, HscodeService, TaxRates, RelatedCodes } from './hscode';
 import { CountryDetail, CountryStats, CountryService } from './country';
@@ -35,7 +35,7 @@ import { Pagination } from './shared';
     Header, Footer,
     Searchbar, SearchResults,
     AnnualChart,
-    AnnualTable, AnnualTableSettings, 
+    AnnualTable, AnnualTableSettings, TableUi,
     CountryDetail, CountryStats,
     HscodeDetail, RelatedCodes, TaxRates, 
     Pagination

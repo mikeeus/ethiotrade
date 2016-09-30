@@ -16,68 +16,12 @@
       (setFilter)="setFilter.emit($event)">
     </annual-table-settings>
 
-    <table class="table table-striped table-hover"
-    *ngIf="annualTable.table">
-      <thead>
-        <tr *ngIf="annualTable.table.length > 0">
-          <th>Code</th>
-          <th>Description</th>
-          <th *ngIf="filter.type == 'Imports'">CIF USD</th>
-          <th *ngIf="filter.type == 'Imports'">CIF ETB</th>
-          <th *ngIf="filter.type == 'Exports'">FOB USD</th>
-          <th *ngIf="filter.type == 'Exports'">FOB ETB</th>
-        </tr>
-
-      </thead>
-      
-      <!--IF TABLE TYPE IS HSCODES-->
-      <tbody *ngIf="tableType == 'HSCODES'">
-        <!--If there are no records-->
-        <tr *ngIf="annualTable.table.length == 0">
-          <td class="text-center">No {{ filter.type | lowercase }} for this year.</td>
-        </tr>
-        <tr *ngFor="let record of annualTable.table">
-          <!--If Imports-->
-          <td *ngIf="filter.type == 'Imports'">
-            {{ record.country_origin }}</td>
-          <td *ngIf="filter.type == 'Imports'">
-            {{ record.country_consignment }}</td>
-          <td *ngIf="filter.type == 'Imports'">
-            {{ record.cif_usd | currency:'USD':true:'1.2-2'}}</td>
-          <td *ngIf="filter.type == 'Imports'">
-            {{ record.cif_etb | currency:'ETB':true:'1.2-2'}}</td>               
-          <!--If Exports-->
-          <td *ngIf="filter.type == 'Exports'">
-            {{ record.destination }}</td>
-          <td *ngIf="filter.type == 'Exports'">
-            {{ record.fob_usd | currency:'USD':true:'1.2-2'}}</td>
-          <td *ngIf="filter.type == 'Exports'">
-            {{ record.fob_etb | currency:'ETB':true:'1.2-2'}}</td>
-        </tr>
-      </tbody>
-
-      <!--IF TABLE TYPE IS COUNTRIES-->
-      <tbody *ngIf="tableType == 'COUNTRIES'">
-        <!--If there are no records-->
-        <tr *ngIf="annualTable.table.length == 0">
-          <td class="text-center">No {{ filter.type | lowercase }} for this year.</td>
-        </tr>
-        <tr *ngFor="let record of annualTable.table">
-          <td>{{ record.code }}</td>
-          <td>{{ record.description }}</td>
-          <!--If Imports-->
-          <td *ngIf="filter.type == 'Imports'">
-            {{ record.cif_usd | currency:'USD':true:'1.2-2'}}</td>
-          <td *ngIf="filter.type == 'Imports'">
-            {{ record.cif_etb | currency:'ETB':true:'1.2-2'}}</td>
-          <!--If Exports-->
-          <td *ngIf="filter.type == 'Exports'">
-            {{ record.fob_usd | currency:'USD':true:'1.2-2'}}</td>
-          <td *ngIf="filter.type == 'Exports'">
-            {{ record.fob_etb | currency:'ETB':true:'1.2-2'}}</td>
-        </tr>
-      </tbody>
-    </table> 
+    <table-ui 
+      [recordType]="filter.type"
+      [tableType]="tableType"
+      [tableLength]="annualTable.table.length"
+      [tableData]="annualTable.table"
+      (selectRow)="onSelectRow($event)"></table-ui>
     
   </div> <!--div.panel-body-->
 
