@@ -1,5 +1,6 @@
 .rate-box-col{
   margin-bottom: 10px;
+  font-size: larger;
 }
 @media(min-width: 768px){
   .rate-box-col{
@@ -10,7 +11,7 @@
 .rate-box-left{
   height: 50px; 
   width: 70%;
-  padding-top: 15px;
+  padding-top: 13px;
   font-weight: bold;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
@@ -20,7 +21,7 @@
   width: 30%;
   font-weight: bold;
   color: white;
-  padding-top: 15px;
+  padding-top: 13px;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   // .tax-value{
@@ -58,24 +59,24 @@
 }
 .special-permissions-top{
   font-weight: bold;
-  padding-top: 2px;
   height: 25px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+  // padding-top: 2px;
 }
 .special-permissions-bot{
   color: #fff;
   font-weight: 600;
-  padding-top: 2px;
   height: 25px;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
+  // padding-top: 2px;
 }
 @media(min-width: 768px ){
-    .rb-sp-dark{
-      padding-top: 5px;
-    }
+    // .rb-sp-dark{
+      // padding-top: 5px;
+    // }
   }
