@@ -2,13 +2,14 @@ class CountriesController < ApplicationController
   before_action :set_country, only: [:stats, :chart, :tables]
 
   def stats
+    number_of_years = 20
     # Average imports
     imports_array = Import.where(country_origin: @country).group(:year).sum(:cif_usd).invert.keys
-    average_imports = (imports_array.inject(0.0){ |sum, el| sum + el} / imports_array.size).round
+    average_imports = (imports_array.inject(0.0){ |sum, el| sum + el} / number_of_years).round
 
     # Average exports
     exports_array = Export.where(destination: @country).group(:year).sum(:fob_usd).invert.keys
-    average_exports = (exports_array.inject(0.0){ |sum, el| sum + el} / exports_array.size).round
+    average_exports = (exports_array.inject(0.0){ |sum, el| sum + el} / number_of_years).round
 
     total_imports = Import.where(country_origin: @country).sum(:cif_usd)
     total_exports = Export.where(destination: @country).sum(:fob_usd)
