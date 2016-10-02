@@ -5,11 +5,6 @@
   z-index: 1000;
 }
 
-.scrollable-menu {
-  height: auto;
-  max-height: 200px;
-  overflow-x: hidden;
-}
 
 @media(min-width: 768px) {
   .navbar-searchbar {
@@ -19,4 +14,9 @@
 }
 .navbar-link{
   font-size: larger;
+}
+.scrollable-menu {
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
 }

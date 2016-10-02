@@ -37,7 +37,8 @@
           <ul dropdownMenu class="dropdown-menu scrollable-menu"      
               aria-labelledby="simple-dropdown">
             <li *ngFor="let country of countries">
-              <a class="dropdown-item" routerLink="/countries/{{country}}">
+              <a class="dropdown-item" routerLink="/countries/{{country}}"
+                (click)="isCollapsed = true">
                 {{country}}
               </a>
             </li>
@@ -45,8 +46,8 @@
         </li>
         
         <li>
-          <a href (click)="$event.preventDefault" 
-             class="navbar-link"
+          <a href class="navbar-link"
+             (click)="$event.preventDefault" (click)="isCollapsed = true" 
              routerLink="/about">
              About
           </a>
