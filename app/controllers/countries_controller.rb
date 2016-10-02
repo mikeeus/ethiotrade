@@ -2,6 +2,7 @@ class CountriesController < ApplicationController
   before_action :set_country, only: [:stats, :chart, :tables]
 
   def stats
+    # 1997 to 2016
     number_of_years = 20
     # Average imports
     imports_array = Import.where(country_origin: @country).group(:year).sum(:cif_usd).invert.keys
