@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 // Chart
-import { ChartService, AnnualChart } from '../charts';
-import { AnnualChartData } from '../models';
+import { ChartService, AnnualChart } from '../../charts';
+import { AnnualChartData } from '../../models';
 // Reducer actions
-import { SET_HOMEPAGE_CHART, RESET_HOMEPAGE_CHART } from '../reducers/charts';
+import { SET_HOMEPAGE_CHART, RESET_HOMEPAGE_CHART } from '../../reducers/charts';
 
 @Component({
   selector: 'home',
