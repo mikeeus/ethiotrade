@@ -9,7 +9,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 // App Components
 import { App } from './app';
 import { Header, Footer } from './layout';
-import { Home } from './home';
+import { Home } from './static-pages';
 // Helpers
 import { ServiceHelpers } from './helpers';
 // State Management

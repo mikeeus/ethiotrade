@@ -1,6 +1,6 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { Home } from './home';
+import { Home } from './static-pages';
 import { HscodeDetail } from './hscode';
 import { CountryDetail } from './country';
 
