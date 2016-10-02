@@ -7,6 +7,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class TableUi implements OnInit {
   @Input() recordType: string;
+  @Input() recordYear: number;
   @Input() tableType: string;
   @Input() tableLength: number;
   @Input() tableData: any[];
