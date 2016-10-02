@@ -11,7 +11,7 @@
       <th>Country Origin</th>
       <th>Country Consignment</th>
       <th>CIF USD</th>
-      <th>CIF ETB</th>      
+      <th class="etb">CIF ETB</th>      
     </thead>
     <tbody *ngIf="recordType == 'Imports'">
       <tr *ngFor="let record of tableData"
@@ -19,20 +19,20 @@
         <td>{{ record.country_origin }}</td>
         <td>{{ record.country_consignment }}</td>
         <td>{{ record.cif_usd | currency:'USD':true:'1.2-2'}}</td>
-        <td>{{ record.cif_etb | currency:'ETB':true:'1.2-2'}}</td>        
+        <td class="etb">{{ record.cif_etb | currency:'ETB':true:'1.2-2'}}</td>        
       </tr>
     </tbody>
     <!--Exports-->
     <thead *ngIf="recordType == 'Exports'">
       <th>Destination</th>
       <th>FOB USD</th>
-      <th>FOB ETB</th>      
+      <th class="etb">FOB ETB</th>      
     </thead>
     <tbody *ngIf="recordType == 'Exports'">
       <tr *ngFor="let record of tableData">
         <td>{{ record.destination }}</td>
         <td>{{ record.fob_usd | currency:'USD':true:'1.2-2'}}</td>
-        <td>{{ record.fob_etb | currency:'ETB':true:'1.2-2'}}</td>        
+        <td class="etb">{{ record.fob_etb | currency:'ETB':true:'1.2-2'}}</td>        
       </tr>
     </tbody>
   </table> <!--HSCODES TABLE-->
@@ -43,32 +43,32 @@
     <!--Imports-->
     <thead *ngIf="recordType == 'Imports'">
       <th>Code</th>
-      <th>Description</th>
+      <th class="description">Description</th>
       <th>CIF USD</th>
-      <th>CIF ETB</th>      
+      <th class="etb">CIF ETB</th>      
     </thead>
     <tbody *ngIf="recordType == 'Imports'">
       <tr *ngFor="let record of tableData"
         (click)="onSelect(record.code)">
         <td>{{ record.code }}</td>
-        <td>{{ record.description }}</td>
+        <td class="description">{{ record.description }}</td>
         <td>{{ record.cif_usd | currency:'USD':true:'1.2-2'}}</td>
-        <td>{{ record.cif_etb | currency:'ETB':true:'1.2-2'}}</td>        
+        <td class="etb">{{ record.cif_etb | currency:'ETB':true:'1.2-2'}}</td>        
       </tr>
     </tbody>
     <!--Exports-->
     <thead *ngIf="recordType == 'Exports'">
       <th>Code</th>
-      <th>Description</th>      
+      <th class="description">Description</th>      
       <th>FOB USD</th>
-      <th>FOB ETB</th>      
+      <th class="etb">FOB ETB</th>      
     </thead>
     <tbody *ngIf="recordType == 'Exports'">
       <tr *ngFor="let record of tableData">
         <td>{{ record.code }}</td>
-        <td>{{ record.description }}</td>        
+        <td class="description">{{ record.description }}</td>        
         <td>{{ record.fob_usd | currency:'USD':true:'1.2-2'}}</td>
-        <td>{{ record.fob_etb | currency:'ETB':true:'1.2-2'}}</td>        
+        <td class="etb">{{ record.fob_etb | currency:'ETB':true:'1.2-2'}}</td>        
       </tr>
     </tbody>
   </table> <!--COUNTRIES TABLE-->

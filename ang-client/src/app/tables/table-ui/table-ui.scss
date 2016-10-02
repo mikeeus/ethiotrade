@@ -2,3 +2,16 @@ tr{
   cursor: pointer;
   color: #38444e;
 }
+@media(max-width: 767px){
+  .etb{
+    display: none;
+  }
+}
+@media(max-width: 479px){
+  .description{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100px;
+  }
+}
