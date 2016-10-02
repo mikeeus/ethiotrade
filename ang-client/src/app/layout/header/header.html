@@ -29,9 +29,10 @@
         <!-- Countries -->
         <li dropdown (onToggle)="toggled($event)">
           <a href id="simple-dropdown" 
+             class="navbar-link"
              (click)="$event.preventDefault"
              dropdownToggle>
-            Countries <span class="caret"></span>
+            Select Country <span class="caret"></span>
           </a>
           <ul dropdownMenu class="dropdown-menu scrollable-menu"      
               aria-labelledby="simple-dropdown">
