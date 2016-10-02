@@ -9,15 +9,19 @@
 // placeholder
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
   color:    #93caf7;
+  font-size: larger;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
   color:    #93caf7;
   opacity:  1;
+  font-size: larger;  
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
   color:    #93caf7;
   opacity:  1;
+  font-size: larger;  
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
   color:    #93caf7;
+  font-size: larger;  
 }
