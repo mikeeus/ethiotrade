@@ -1,9 +1,11 @@
-<base-chart class="chart"
-            [datasets]="chartData"
-            [labels]="chartLabels"
-            [options]="chartOptions"
-            [colors]="chartColors"
-            [legend]="chartLegend"
-            [chartType]="chartType"
-            (chartHover)="chartHovered($event)"
-            (chartClick)="chartClicked($event)"></base-chart>
+<div style="display: block">
+  <canvas baseChart
+      [datasets]="chartData"
+      [labels]="chartLabels"
+      [options]="chartOptions"
+      [colors]="chartColors"
+      [legend]="chartLegend"
+      [chartType]="chartType"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)"></canvas>
+</div>
