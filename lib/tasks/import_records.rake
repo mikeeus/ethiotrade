@@ -4,7 +4,7 @@ task :import_records, [:year, :type] => :environment do |t, args|
   
   year = args[:year]
   type = args[:type]
-  path = "db/records/#{year}/#{type}.csv"
+  path = "db/records/updated/#{year}/#{type}.csv"
 
   if type == "import" || type == "export"
 
